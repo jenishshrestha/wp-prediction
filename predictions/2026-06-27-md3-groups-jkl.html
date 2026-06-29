@@ -1,0 +1,720 @@
+<title>WC 2026 · Matchday 3 Dossier — Groups J, K, L</title>
+<meta name="description" content="Scouting dossier and exact-scoreline predictions for the six remaining World Cup 2026 Matchday-3 group games, grounded in SoFIFA FC26 ratings, FIFA rankings, and live team news.">
+<style>
+  :root{
+    --paper:#F3F5F1; --card:#FFFFFF; --ink:#161A1D; --ink2:#5C636A; --ink3:#878F94;
+    --line:#E3E7E1; --line2:#EDF0EC;
+    --pitch:#0B6E4F; --pitch-deep:#083F2E; --pitch-soft:#E4F0EA;
+    --amber:#B9760E; --amber-soft:#F6EBD7;
+    --red:#B23A48; --red-soft:#F6E2E4;
+    --blue:#2D6CA2; --blue-soft:#E1ECF5;
+    --grey:#6B7178; --grey-soft:#ECEEEC;
+    --maxw:980px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0}
+  .wrap{
+    background:var(--paper); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,Roboto,Helvetica,Arial,sans-serif;
+    font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased;
+    padding:0 20px 80px;
+  }
+  .inner{max-width:var(--maxw); margin:0 auto}
+  .serif{font-family:Georgia,"Iowan Old Style","Times New Roman",serif}
+  .tnum{font-variant-numeric:tabular-nums}
+
+  /* ---- masthead ---- */
+  header.mast{padding:54px 0 30px; border-bottom:2px solid var(--ink)}
+  .eyebrow{font-family:Georgia,"Times New Roman",serif; font-style:italic; color:var(--pitch); font-size:1.02rem; letter-spacing:.01em}
+  .kicker{display:flex; flex-wrap:wrap; gap:8px 16px; align-items:baseline; margin-bottom:14px}
+  .kicker .tag{font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:var(--ink2); font-weight:700}
+  h1.title{font-size:clamp(2.1rem,5.4vw,3.4rem); line-height:1.02; margin:.1em 0 .25em; font-weight:800; letter-spacing:-.02em; text-wrap:balance}
+  .standfirst{font-size:1.08rem; color:var(--ink2); max-width:62ch; margin:0}
+  .standfirst b{color:var(--ink)}
+
+  /* ---- legend ---- */
+  .legend{display:flex; flex-wrap:wrap; gap:10px 22px; margin:22px 0 4px; padding:16px 18px; background:var(--card); border:1px solid var(--line); border-radius:4px}
+  .legend .grp{display:flex; flex-wrap:wrap; gap:8px 12px; align-items:center}
+  .legend .lbl{font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink3); font-weight:700; margin-right:2px}
+
+  .chip{display:inline-flex; align-items:center; gap:6px; font-size:.7rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; padding:4px 9px; border-radius:3px; white-space:nowrap}
+  .chip.coin{background:var(--amber-soft); color:var(--amber)}
+  .chip.decide{background:var(--pitch-soft); color:var(--pitch-deep)}
+  .chip.safe{background:var(--blue-soft); color:var(--blue)}
+  .chip.hit{background:var(--pitch); color:#fff}
+  .chip.miss{background:var(--red); color:#fff}
+
+  .conf{display:inline-flex; align-items:center; gap:7px; font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase}
+  .dots{display:inline-flex; gap:3px}
+  .dot{width:9px; height:9px; border-radius:50%; background:var(--line); display:inline-block}
+  .dot.on{background:var(--ink)}
+  .conf.high .dot.on{background:var(--pitch)}
+  .conf.med .dot.on{background:var(--amber)}
+  .conf.low .dot.on{background:var(--red)}
+
+  /* ---- section headers ---- */
+  h2.sec{font-size:.82rem; letter-spacing:.18em; text-transform:uppercase; color:var(--ink2); font-weight:700; margin:52px 0 16px; padding-bottom:8px; border-bottom:1px solid var(--line)}
+
+  /* ---- summary table ---- */
+  .tablewrap{overflow-x:auto; border:1px solid var(--line); border-radius:4px; background:var(--card)}
+  table.sum{border-collapse:collapse; width:100%; min-width:620px; font-size:.92rem}
+  table.sum th, table.sum td{text-align:left; padding:11px 12px; border-bottom:1px solid var(--line2)}
+  table.sum thead th{font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink3); font-weight:700; background:#FAFBFA; position:sticky; top:0}
+  table.sum tbody tr:last-child td{border-bottom:none}
+  table.sum .grp-cell{font-weight:800; color:var(--pitch); width:42px}
+  table.sum .fix{font-weight:600}
+  table.sum .score{font-weight:800; font-size:1.05rem; letter-spacing:.02em; white-space:nowrap}
+  table.sum .score .w{color:var(--pitch)}
+  table.sum td.note{color:var(--ink2); font-size:.85rem}
+
+  /* ---- group band ---- */
+  .band{display:flex; align-items:baseline; gap:14px; margin:56px 0 4px}
+  .band .gid{font-size:2.1rem; font-weight:800; letter-spacing:-.02em; color:var(--ink)}
+  .band .gmeta{font-size:.82rem; color:var(--ink2); letter-spacing:.02em}
+  .band .gmeta b{color:var(--ink)}
+
+  /* ---- match card ---- */
+  .card{background:var(--card); border:1px solid var(--line); border-radius:6px; margin-top:18px; overflow:hidden}
+  .card-hd{display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:flex-start; padding:18px 20px 14px; border-bottom:1px solid var(--line2)}
+  .matchup{font-size:1.32rem; font-weight:800; letter-spacing:-.01em; line-height:1.15; margin:0}
+  .matchup .flag{font-size:1.15rem; margin-right:2px}
+  .venue{font-size:.8rem; color:var(--ink2); margin-top:3px}
+  .card-hd .chips{display:flex; flex-direction:column; gap:7px; align-items:flex-end}
+
+  .card-body{display:grid; grid-template-columns:1.05fr .95fr; gap:0}
+  @media(max-width:720px){.card-body{grid-template-columns:1fr}}
+  .col{padding:18px 20px}
+  .col.left{border-right:1px solid var(--line2)}
+  @media(max-width:720px){.col.left{border-right:none; border-bottom:1px solid var(--line2)}}
+
+  .blk{margin-bottom:18px}
+  .blk:last-child{margin-bottom:0}
+  .blk h4{font-size:.68rem; letter-spacing:.13em; text-transform:uppercase; color:var(--ink3); font-weight:700; margin:0 0 9px}
+  .blk p{margin:0; font-size:.9rem; color:var(--ink2)}
+  .blk p b, .blk li b{color:var(--ink)}
+  .blk ul{margin:0; padding-left:0; list-style:none; font-size:.9rem; color:var(--ink2)}
+  .blk ul li{padding:3px 0 3px 16px; position:relative}
+  .blk ul li::before{content:"›"; position:absolute; left:0; color:var(--pitch); font-weight:700}
+  .out{color:var(--red); font-weight:700}
+
+  /* ---- ratings comparison ---- */
+  .rt-hd{display:grid; grid-template-columns:1fr 56px 1fr; align-items:end; margin-bottom:10px; gap:6px}
+  .rt-hd .tm{font-weight:800; font-size:.92rem; line-height:1.1}
+  .rt-hd .tm.a{text-align:right}
+  .rt-hd .tm small{display:block; font-weight:600; font-size:.7rem; color:var(--ink3); margin-top:2px}
+  .rt-hd .mid{text-align:center; font-size:.62rem; letter-spacing:.08em; color:var(--ink3); text-transform:uppercase}
+  .rrow{display:grid; grid-template-columns:1fr 56px 1fr; align-items:center; gap:6px; margin:6px 0}
+  .rrow .met{text-align:center; font-size:.66rem; font-weight:700; letter-spacing:.08em; color:var(--ink3)}
+  .side{display:flex; align-items:center; gap:8px}
+  .side.a{flex-direction:row-reverse}
+  .side .val{font-weight:800; font-size:.86rem; min-width:22px; text-align:center; font-variant-numeric:tabular-nums}
+  .track{flex:1; height:9px; background:var(--line2); border-radius:5px; overflow:hidden; display:flex}
+  .side.a .track{justify-content:flex-end}
+  .bar{height:100%; width:0; border-radius:5px; transition:width .9s cubic-bezier(.22,.61,.36,1)}
+  .bar.weak{background:#C5CDC8}
+  .bar.strong{background:var(--pitch)}
+  @media(prefers-reduced-motion:reduce){.bar{transition:none}}
+
+  /* ---- prediction block ---- */
+  .verdict{padding:16px 20px; background:linear-gradient(180deg,#FAFCFA,#F4F7F4); border-top:1px solid var(--line2); display:flex; flex-wrap:wrap; gap:18px 26px; align-items:center; justify-content:space-between}
+  .scoreline{display:flex; align-items:center; gap:14px}
+  .scoreline .big{font-size:2.5rem; font-weight:800; letter-spacing:.01em; font-variant-numeric:tabular-nums; line-height:1}
+  .scoreline .big .x{color:var(--ink3); font-weight:500; margin:0 4px}
+  .scoreline .who{font-size:.78rem; color:var(--ink2); line-height:1.3; max-width:24ch}
+  .scoreline .who b{color:var(--ink); display:block; font-size:.86rem}
+  .verdict .meta{display:flex; flex-direction:column; gap:8px; align-items:flex-end}
+  .wdw{display:flex; gap:0; border:1px solid var(--line); border-radius:4px; overflow:hidden; font-variant-numeric:tabular-nums}
+  .wdw div{padding:5px 11px; font-size:.74rem; font-weight:700; text-align:center; border-right:1px solid var(--line)}
+  .wdw div:last-child{border-right:none}
+  .wdw div small{display:block; font-size:.58rem; letter-spacing:.08em; color:var(--ink3); font-weight:700; text-transform:uppercase}
+  .wdw .lead{background:var(--pitch-soft)}
+  .r32{font-size:.82rem; color:var(--ink2); padding:11px 20px; border-top:1px dashed var(--line); background:#FCFDFC}
+  .r32 b{color:var(--ink)}
+  .r32 .ar{color:var(--pitch); font-weight:700}
+
+  .alt{font-size:.78rem; color:var(--ink3)}
+  .alt b{color:var(--ink2)}
+
+  /* ---- three most likely scorelines ---- */
+  .top3{display:flex; flex-wrap:wrap; align-items:center; gap:8px 10px; padding:12px 20px; background:var(--card); border-top:1px dashed var(--line)}
+  .t3lbl{font-size:.62rem; letter-spacing:.13em; text-transform:uppercase; color:var(--ink3); font-weight:700; margin-right:2px}
+  .t3lbl b{color:var(--ink2); display:block; font-weight:700}
+  .t3{display:inline-flex; align-items:baseline; gap:6px; padding:5px 10px; border:1px solid var(--line); border-radius:4px; font-variant-numeric:tabular-nums; line-height:1}
+  .t3 .s{font-weight:800; font-size:.95rem}
+  .t3 .pc{color:var(--ink2); font-size:.74rem; font-weight:700}
+  .t3 .tm{color:var(--ink3); font-size:.6rem; letter-spacing:.06em; text-transform:uppercase; font-weight:700}
+  .t3.best{background:var(--pitch-soft); border-color:#BCDCCD}
+  .t3.best .s{color:var(--pitch-deep)}
+  .t3.best .pc{color:var(--pitch)}
+  .t3 .rank{color:var(--ink3); font-size:.66rem; font-weight:800; margin-right:1px}
+  .t3.best .rank{color:var(--pitch)}
+
+  /* ---- notes / sources ---- */
+  .panel{background:var(--card); border:1px solid var(--line); border-radius:6px; padding:22px 24px; margin-top:18px}
+  .panel h3{margin:0 0 4px; font-size:1.05rem; font-weight:800}
+  .panel .sub{font-size:.85rem; color:var(--ink2); margin:0 0 16px}
+  ol.corr{margin:0; padding-left:20px; font-size:.9rem; color:var(--ink2)}
+  ol.corr li{margin-bottom:11px}
+  ol.corr li b{color:var(--ink)}
+  .srcgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:10px 22px; font-size:.84rem}
+  .srcgrid a{color:var(--blue); text-decoration:none; border-bottom:1px solid var(--blue-soft)}
+  .srcgrid a:hover{border-bottom-color:var(--blue)}
+  .srcgrid .s{color:var(--ink2)}
+  .srcgrid .s b{color:var(--ink); display:block; font-size:.74rem; letter-spacing:.04em; text-transform:uppercase; margin-bottom:1px; font-weight:700}
+  a:focus-visible, .bar:focus-visible{outline:2px solid var(--pitch); outline-offset:2px}
+
+  footer.foot{margin-top:46px; padding-top:18px; border-top:1px solid var(--line); font-size:.78rem; color:var(--ink3)}
+  footer.foot b{color:var(--ink2)}
+</style>
+
+<div class="wrap"><div class="inner">
+
+  <header class="mast">
+    <div class="kicker">
+      <span class="eyebrow">The Matchday-3 Dossier</span>
+      <span class="tag">FIFA World Cup 2026</span>
+      <span class="tag">Group Stage · Final Round</span>
+      <span class="tag">Saturday 27 June 2026</span>
+    </div>
+    <h1 class="title">Six games, three live groups, and a handful of genuine coin-flips.</h1>
+    <p class="standfirst">Exact-scoreline predictions for the remaining Group&nbsp;J, K &amp; L fixtures — every call grounded in <b>SoFIFA FC&nbsp;26 team ratings</b> (snapshot 24&nbsp;Jun&nbsp;2026), the <b>11&nbsp;June FIFA world ranking</b>, and live team news pulled this morning. Where the data says it's a toss-up, we say so; where one side is already eliminated, we don't pretend it's a thriller.</p>
+
+    <div class="legend">
+      <div class="grp">
+        <span class="lbl">Match type</span>
+        <span class="chip coin">Coin-flip</span>
+        <span class="chip decide">Decider</span>
+        <span class="chip safe">Safe call</span>
+      </div>
+      <div class="grp">
+        <span class="lbl">Confidence</span>
+        <span class="conf high"><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i></span>High</span>
+        <span class="conf med"><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span>Med</span>
+        <span class="conf low"><span class="dots"><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span>Low</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== SUMMARY ===== -->
+  <h2 class="sec">The card at a glance</h2>
+  <div class="tablewrap">
+    <table class="sum">
+      <thead>
+        <tr><th>Grp</th><th>Fixture (kick-off ET)</th><th>Prediction</th><th>Type</th><th>Conf.</th><th>The one-liner</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="grp-cell">J</td>
+          <td class="fix">🇩🇿 Algeria v Austria 🇦🇹 <span style="color:var(--ink3)">· 10:00</span></td>
+          <td class="score">1 <span class="x">–</span> 1 <span style="color:var(--pitch); font-size:.74rem" title="Predicted 1–1; finished 3–3 — draw outcome + goal-diff, +10">✓ +10 · FT&nbsp;3–3</span></td>
+          <td><span class="chip coin">Coin-flip</span></td>
+          <td><span class="conf low"><span class="dots"><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span></span></td>
+          <td class="note">Algeria must win; a draw quietly sends Austria through — and both may secretly want 3rd to dodge Spain.</td>
+        </tr>
+        <tr>
+          <td class="grp-cell">J</td>
+          <td class="fix">🇯🇴 Jordan v Argentina 🇦🇷 <span style="color:var(--ink3)">· 10:00</span></td>
+          <td class="score">0 <span class="x">–</span> <span class="w">2</span> <span style="color:var(--pitch); font-size:.74rem" title="Predicted 0–2; finished 1–3 — Arg win + goal-diff, +10">✓ +10 · FT&nbsp;1–3</span></td>
+          <td><span class="chip safe">Safe call</span></td>
+          <td><span class="conf med"><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></span></td>
+          <td class="note">17-point ratings chasm. Messi rests on the bench, but the B-team still wins comfortably.</td>
+        </tr>
+        <tr>
+          <td class="grp-cell">K</td>
+          <td class="fix">🇨🇴 Colombia v Portugal 🇵🇹 <span style="color:var(--ink3)">· 7:30</span></td>
+          <td class="score">1 <span class="x">–</span> 1 <span style="color:var(--pitch); font-size:.74rem" title="Original model call 1–1 — draw correct, +10">✓ +10 · FT&nbsp;0–0</span></td>
+          <td><span class="chip decide">Decider</span></td>
+          <td><span class="conf low"><span class="dots"><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span></span></td>
+          <td class="note">Original call 1–1 nailed the draw (+10). Colombia top the group. A late 1–2 override was reverted — it would have scored 0.</td>
+        </tr>
+        <tr>
+          <td class="grp-cell">K</td>
+          <td class="fix">🇨🇩 DR Congo v Uzbekistan 🇺🇿 <span style="color:var(--ink3)">· 7:30</span></td>
+          <td class="score"><span class="w">2</span> <span class="x">–</span> 0 <span style="color:var(--pitch); font-size:.74rem" title="Predicted 2–0; finished 3–1 — result + goal-diff, +10">✓ +10 · FT&nbsp;3–1</span></td>
+          <td><span class="chip safe">Safe call</span></td>
+          <td><span class="conf med"><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></span></td>
+          <td class="note">Uzbekistan out (−7 GD); DR Congo are better, deeper and chasing a faint best-third lifeline.</td>
+        </tr>
+        <tr>
+          <td class="grp-cell">L</td>
+          <td class="fix">🇭🇷 Croatia v Ghana 🇬🇭 <span style="color:var(--ink3)">· 5:00</span></td>
+          <td class="score"><span class="w">2</span> <span class="x">–</span> 1 <span style="color:var(--pitch); font-size:.74rem" title="Final result — predicted exactly, +25">✓ +25</span></td>
+          <td><span class="chip decide">Decider</span></td>
+          <td><span class="conf med"><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></span></td>
+          <td class="note">Croatia must win to leapfrog in. Better team, but Ghana defend deep and counter — Kudus aside.</td>
+        </tr>
+        <tr>
+          <td class="grp-cell">L</td>
+          <td class="fix">🇵🇦 Panama v England 🏴󠁧󠁢󠁥󠁮󠁧󠁿 <span style="color:var(--ink3)">· 5:00</span></td>
+          <td class="score">0 <span class="x">–</span> <span class="w">2</span> <span style="color:var(--pitch); font-size:.74rem" title="Final result — predicted exactly, +25">✓ +25</span></td>
+          <td><span class="chip safe">Safe call</span></td>
+          <td><span class="conf high"><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i></span></span></td>
+          <td class="note">Panama eliminated; 14-point gap. Rotated, injury-hit England still far too strong.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- =========================================================== GROUP J -->
+  <div class="band">
+    <span class="gid">J</span>
+    <span class="gmeta">Argentina through as winners (6 pts, GF&nbsp;5 / GA&nbsp;0). <b>Austria 3, Algeria 3, Jordan out.</b> Second place is the whole story.</span>
+  </div>
+
+  <!-- Algeria v Austria -->
+  <div class="card">
+    <div class="card-hd">
+      <div>
+        <p class="matchup"><span class="flag">🇩🇿</span>Algeria <span style="color:var(--ink3);font-weight:600">vs</span> Austria<span class="flag" style="margin-left:6px">🇦🇹</span></p>
+        <div class="venue">GEHA Field at Arrowhead, Kansas City · 10:00&nbsp;ET <span style="color:var(--ink3)">· simultaneous with Jordan–Argentina</span></div>
+      </div>
+      <div class="chips">
+        <span class="chip hit">Final 3–3 · ✓ result +10</span>
+        <span class="chip coin">Coin-flip</span>
+        <span class="conf low"><span class="dots"><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span>Low conf.</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="col left">
+        <div class="blk">
+          <h4>FIFA-style ratings · SoFIFA FC 26</h4>
+          <div class="rt-hd">
+            <div class="tm a">Algeria<small>FIFA #28 · OVR 76</small></div>
+            <div class="mid">vs</div>
+            <div class="tm">Austria<small>FIFA #24 · OVR 78</small></div>
+          </div>
+          <div class="rrow"><div class="side a"><span class="val">76</span><span class="track"><i class="bar" data-v="76" data-o="74"></i></span></div><div class="met">OVR</div><div class="side"><span class="val">78</span><span class="track"><i class="bar" data-v="78" data-o="76"></i></span></div></div>
+          <div class="rrow"><div class="side a"><span class="val">74</span><span class="track"><i class="bar" data-v="74" data-o="76"></i></span></div><div class="met">ATT</div><div class="side"><span class="val">76</span><span class="track"><i class="bar" data-v="76" data-o="74"></i></span></div></div>
+          <div class="rrow"><div class="side a"><span class="val">75</span><span class="track"><i class="bar" data-v="75" data-o="78"></i></span></div><div class="met">MID</div><div class="side"><span class="val">78</span><span class="track"><i class="bar" data-v="78" data-o="75"></i></span></div></div>
+          <div class="rrow"><div class="side a"><span class="val">77</span><span class="track"><i class="bar" data-v="77" data-o="79"></i></span></div><div class="met">DEF</div><div class="side"><span class="val">79</span><span class="track"><i class="bar" data-v="79" data-o="77"></i></span></div></div>
+        </div>
+        <div class="blk">
+          <h4>Form · this group</h4>
+          <p><b>Algeria:</b> lost 0–3 to Argentina, then beat Jordan 2–1. <b>Austria:</b> beat Jordan 3–1, lost 0–2 to Argentina. Austria sit 2nd only on goal difference (3–3 vs Algeria's 2–4).</p>
+        </div>
+      </div>
+      <div class="col right">
+        <div class="blk">
+          <h4>Key men &amp; availability</h4>
+          <ul>
+            <li><b>Algeria:</b> <b>Luca Zidane</b> starts in goal (fit). Key forward <b>Amoura is OUT</b> (hamstring) — a blow for a side that must win; Gouiri, Mahrez &amp; Chaibi carry the attack.</li>
+            <li><b>Austria:</b> name an <b>attacking, first-choice XI</b> — Alaba, Laimer, Danso &amp; Sabitzer behind <b>Arnautović</b> (his first start of the tournament). They're playing to win, dismissing any "lose-to-dodge-Spain" gambit.</li>
+          </ul>
+        </div>
+        <div class="blk">
+          <h4>The scenario — and the twist</h4>
+          <p><b>Algeria must win.</b> Any draw and Austria progress on goal difference. Second place is projected to draw <b>Spain</b> in the Round of 32, while a best-placed 3rd would meet a group winner (the <b>USA</b>) — a perverse incentive to <i>finish third</i>. But the team sheets settle it: <b>Austria picked to win, not to lose</b>, and with Amoura out Algeria's required victory looks harder — the lean tips to Austria. The 1982 "Disgrace of Gijón" (which victimised Algeria) still hangs over the fixture.</p>
+        </div>
+      </div>
+    </div>
+    <div class="verdict">
+      <div class="scoreline">
+        <span class="big">1<span class="x">–</span>1</span>
+        <span class="who"><b>Draw</b>Austria controls, content with a point; Algeria forced to over-commit and gets caught.</span>
+      </div>
+      <div class="meta">
+        <div class="wdw"><div>Alg<small>win</small>26%</div><div class="lead">Draw<small>—</small>38%</div><div>Aut<small>win</small>36%</div></div>
+        <span class="alt"><b>FT 3–3:</b> ✓ draw called (+10) in a wild one. Austria 2nd → Spain; Algeria 3rd.</span>
+      </div>
+    </div>
+    <div class="top3">
+      <span class="t3lbl">3 most likely</span>
+      <span class="t3 best"><span class="rank">1</span><span class="s">1–1</span><span class="pc">13%</span></span>
+      <span class="t3"><span class="rank">2</span><span class="s">0–1</span><span class="pc">13%</span><span class="tm">AUT</span></span>
+      <span class="t3"><span class="rank">3</span><span class="s">1–0</span><span class="pc">11%</span><span class="tm">ALG</span></span>
+    </div>
+    <div class="r32">🔭 <b>R32 implication:</b> a draw or Austria win sends <span class="ar">Austria 2nd → vs Spain (H1)</span>; Algeria drops to 3rd, alive only as a best-placed third (potentially vs USA). An Algeria win flips that entirely.</div>
+  </div>
+
+  <!-- Jordan v Argentina -->
+  <div class="card">
+    <div class="card-hd">
+      <div>
+        <p class="matchup"><span class="flag">🇯🇴</span>Jordan <span style="color:var(--ink3);font-weight:600">vs</span> Argentina<span class="flag" style="margin-left:6px">🇦🇷</span></p>
+        <div class="venue">AT&amp;T Stadium, Arlington · 10:00&nbsp;ET</div>
+      </div>
+      <div class="chips">
+        <span class="chip hit">Final 1–3 · ✓ result +10</span>
+        <span class="chip safe">Safe call</span>
+        <span class="conf med"><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span>Med conf.</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="col left">
+        <div class="blk">
+          <h4>FIFA-style ratings · SoFIFA FC 26</h4>
+          <div class="rt-hd">
+            <div class="tm a">Jordan<small>FIFA #63 · OVR 66</small></div>
+            <div class="mid">vs</div>
+            <div class="tm">Argentina<small>FIFA #1 · OVR 83</small></div>
+          </div>
+          <div class="rrow"><div class="side a"><span class="val">66</span><span class="track"><i class="bar" data-v="66" data-o="83"></i></span></div><div class="met">OVR</div><div class="side"><span class="val">83</span><span class="track"><i class="bar" data-v="83" data-o="66"></i></span></div></div>
+          <div class="rrow"><div class="side a"><span class="val">66</span><span class="track"><i class="bar" data-v="66" data-o="86"></i></span></div><div class="met">ATT</div><div class="side"><span class="val">86</span><span class="track"><i class="bar" data-v="86" data-o="66"></i></span></div></div>
+          <div class="rrow"><div class="side a"><span class="val">67</span><span class="track"><i class="bar" data-v="67" data-o="82"></i></span></div><div class="met">MID</div><div class="side"><span class="val">82</span><span class="track"><i class="bar" data-v="82" data-o="67"></i></span></div></div>
+          <div class="rrow"><div class="side a"><span class="val">66</span><span class="track"><i class="bar" data-v="66" data-o="79"></i></span></div><div class="met">DEF</div><div class="side"><span class="val">79</span><span class="track"><i class="bar" data-v="79" data-o="66"></i></span></div></div>
+        </div>
+        <div class="blk">
+          <h4>Form · this group</h4>
+          <p><b>Jordan:</b> lost to Austria (1–3) and Algeria (1–2) — <span class="out">eliminated</span>, playing for pride. <b>Argentina:</b> 3–0 Algeria, 2–0 Austria; the only side yet to concede.</p>
+        </div>
+      </div>
+      <div class="col right">
+        <div class="blk">
+          <h4>Key men &amp; availability</h4>
+          <ul>
+            <li><b>Argentina:</b> <b>Messi starts on the bench</b> (Scaloni: "Leo comes on later"). Rotated but potent — <b>Lautaro Martínez &amp; Julián Álvarez</b> start up front, Lo Celso/Paredes/Palacios/Nico Paz in midfield, Emi Martínez the lone ever-present.</li>
+            <li><b>Jordan:</b> nothing to play for; line up in a deep 3-4-3 to keep the score respectable.</li>
+          </ul>
+        </div>
+        <div class="blk">
+          <h4>The scenario</h4>
+          <p>A genuine dead rubber: Argentina have <b>already won the group</b>, Jordan are already out. The interest is purely how many the rotated champions need before Messi's cameo. Margin tempered by the wholesale changes.</p>
+        </div>
+      </div>
+    </div>
+    <div class="verdict">
+      <div class="scoreline">
+        <span class="big">0<span class="x">–</span>2</span>
+        <span class="who"><b>Argentina win</b>Second string still a class apart; modest margin reflects the rotation, not the gap.</span>
+      </div>
+      <div class="meta">
+        <div class="wdw"><div>Jor<small>win</small>4%</div><div>Draw<small>—</small>13%</div><div class="lead">Arg<small>win</small>83%</div></div>
+        <span class="alt"><b>FT 1–3:</b> ✓ result +10 — Messi's free kick off the bench sealed it.</span>
+      </div>
+    </div>
+    <div class="top3">
+      <span class="t3lbl">3 most likely</span>
+      <span class="t3 best"><span class="rank">1</span><span class="s">0–1</span><span class="pc">18%</span><span class="tm">ARG</span></span>
+      <span class="t3"><span class="rank">2</span><span class="s">0–2</span><span class="pc">17%</span><span class="tm">ARG</span></span>
+      <span class="t3"><span class="rank">3</span><span class="s">0–3</span><span class="pc">11%</span><span class="tm">ARG</span></span>
+    </div>
+    <div class="r32">🔭 <b>R32 implication:</b> none for seeding — <span class="ar">Argentina are locked as J1</span>, projected to face Cape Verde. Result only affects Jordan's pride and goal difference.</div>
+  </div>
+
+  <!-- =========================================================== GROUP K -->
+  <div class="band">
+    <span class="gid">K</span>
+    <span class="gmeta"><b>Colombia 6, Portugal 4 — both already through.</b> Their head-to-head decides top spot; the other game is a dead rubber with a sliver of best-third hope.</span>
+  </div>
+
+  <!-- Colombia v Portugal -->
+  <div class="card">
+    <div class="card-hd">
+      <div>
+        <p class="matchup"><span class="flag">🇨🇴</span>Colombia <span style="color:var(--ink3);font-weight:600">vs</span> Portugal<span class="flag" style="margin-left:6px">🇵🇹</span></p>
+        <div class="venue">Hard Rock Stadium, Miami Gardens · 7:30&nbsp;ET</div>
+      </div>
+      <div class="chips">
+        <span class="chip hit">Original 1–1 · ✓ +10</span>
+        <span class="chip miss">Override 1–2 · ✗ 0</span>
+        <span class="chip decide">Decider</span>
+        <span class="conf low"><span class="dots"><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span>Low conf.</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="col left">
+        <div class="blk">
+          <h4>FIFA-style ratings · SoFIFA FC 26</h4>
+          <div class="rt-hd">
+            <div class="tm a">Colombia<small>FIFA #13 · OVR 78</small></div>
+            <div class="mid">vs</div>
+            <div class="tm">Portugal<small>FIFA #5 · OVR 84</small></div>
+          </div>
+          <div class="rrow"><div class="side a"><span class="val">78</span><span class="track"><i class="bar" data-v="78" data-o="84"></i></span></div><div class="met">OVR</div><div class="side"><span class="val">84</span><span class="track"><i class="bar" data-v="84" data-o="78"></i></span></div></div>
+          <div class="rrow"><div class="side a"><span class="val">79</span><span class="track"><i class="bar" data-v="79" data-o="83"></i></span></div><div class="met">ATT</div><div class="side"><span class="val">83</span><span class="track"><i class="bar" data-v="83" data-o="79"></i></span></div></div>
+          <div class="rrow"><div class="side a"><span class="val">78</span><span class="track"><i class="bar" data-v="78" data-o="86"></i></span></div><div class="met">MID</div><div class="side"><span class="val">86</span><span class="track"><i class="bar" data-v="86" data-o="78"></i></span></div></div>
+          <div class="rrow"><div class="side a"><span class="val">79</span><span class="track"><i class="bar" data-v="79" data-o="83"></i></span></div><div class="met">DEF</div><div class="side"><span class="val">83</span><span class="track"><i class="bar" data-v="83" data-o="79"></i></span></div></div>
+        </div>
+        <div class="blk">
+          <h4>Form · this group</h4>
+          <p><b>Colombia:</b> 3–1 Uzbekistan, 1–0 DR Congo — solid, only one goal conceded. <b>Portugal:</b> 1–1 DR Congo, then a 5–0 demolition of Uzbekistan. Most potent attack in the group.</p>
+        </div>
+      </div>
+      <div class="col right">
+        <div class="blk">
+          <h4>Key men &amp; availability</h4>
+          <ul>
+            <li><b>Colombia:</b> <b>Luis Díaz</b> and captain <b>James Rodríguez</b> lead under Néstor Lorenzo; no fresh injuries. <b>Projected XI</b> (strong): Vargas; Muñoz, D. Sánchez, Lucumí, Mojica; Puerta, Lerma, Arias; James, L. Suárez, Díaz.</li>
+            <li><b>Portugal:</b> <b>Ronaldo</b> in vintage form (twice vs Uzbekistan; first to score at six World Cups), with Bruno Fernandes &amp; João Félix. <b>Projected XI is full-strength</b> — Costa; Cancelo, Dias, Veiga, Mendes; J. Neves, Vitinha; Neto, Bruno, Félix; Ronaldo — Portugal are chasing top spot, not resting.</li>
+          </ul>
+        </div>
+        <div class="blk">
+          <h4>The scenario</h4>
+          <p>Both qualified, so this is <b>seeding only</b>. Colombia top the group with a draw and will sit; Portugal's superior midfield (86 vs 78) <i>must</i> break that down to steal first. The fresh signal: <b>Portugal named a full-strength XI</b> — they want this, which nudges a near-even matchup toward a narrow Portugal win.</p>
+        </div>
+      </div>
+    </div>
+    <div class="verdict">
+      <div class="scoreline">
+        <span class="big">0<span class="x">–</span>0</span>
+        <span class="who"><b>Original call: 1–1 ✓</b>The model's first prediction (its #1 scoreline) nailed the draw — worth <b>+10</b> (goal-diff + outcome). The late <b>1–2</b> override on Portugal's full-strength XI missed for 0. FT 0–0; Colombia top Group K.</span>
+      </div>
+      <div class="meta">
+        <div class="wdw"><div>Col<small>win</small>26%</div><div>Draw<small>—</small>30%</div><div class="lead">Por<small>win</small>44%</div></div>
+        <span class="alt"><b>The draw landed:</b> lineup intel should nudge, not overturn a model mode.</span>
+      </div>
+    </div>
+    <div class="top3">
+      <span class="t3lbl">3 most likely</span>
+      <span class="t3 best"><span class="rank">1</span><span class="s">1–1</span><span class="pc">13%</span></span>
+      <span class="t3"><span class="rank">2</span><span class="s">0–1</span><span class="pc">12%</span><span class="tm">POR</span></span>
+      <span class="t3"><span class="rank">3</span><span class="s">1–2</span><span class="pc">9%</span><span class="tm">POR</span></span>
+    </div>
+    <div class="r32">🔭 <b>R32 implication:</b> a draw keeps <span class="ar">Colombia 1st, Portugal 2nd</span>. As K2, Portugal are projected to meet the Group&nbsp;L runner-up (Ghana, or Croatia if they win). A Portugal win swaps the two seeds.</div>
+  </div>
+
+  <!-- DR Congo v Uzbekistan -->
+  <div class="card">
+    <div class="card-hd">
+      <div>
+        <p class="matchup"><span class="flag">🇨🇩</span>DR Congo <span style="color:var(--ink3);font-weight:600">vs</span> Uzbekistan<span class="flag" style="margin-left:6px">🇺🇿</span></p>
+        <div class="venue">Mercedes-Benz Stadium, Atlanta · 7:30&nbsp;ET</div>
+      </div>
+      <div class="chips">
+        <span class="chip hit">Final 3–1 · ✓ result +10</span>
+        <span class="chip safe">Safe call</span>
+        <span class="conf med"><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span>Med conf.</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="col left">
+        <div class="blk">
+          <h4>FIFA-style ratings · SoFIFA FC 26</h4>
+          <div class="rt-hd">
+            <div class="tm a">DR Congo<small>FIFA #47 · OVR 74</small></div>
+            <div class="mid">vs</div>
+            <div class="tm">Uzbekistan<small>FIFA #50 · OVR 68</small></div>
+          </div>
+          <div class="rrow"><div class="side a"><span class="val">74</span><span class="track"><i class="bar" data-v="74" data-o="68"></i></span></div><div class="met">OVR</div><div class="side"><span class="val">68</span><span class="track"><i class="bar" data-v="68" data-o="74"></i></span></div></div>
+          <div class="rrow"><div class="side a"><span class="val">78</span><span class="track"><i class="bar" data-v="78" data-o="69"></i></span></div><div class="met">ATT</div><div class="side"><span class="val">69</span><span class="track"><i class="bar" data-v="69" data-o="78"></i></span></div></div>
+          <div class="rrow"><div class="side a"><span class="val">73</span><span class="track"><i class="bar" data-v="73" data-o="65"></i></span></div><div class="met">MID</div><div class="side"><span class="val">65</span><span class="track"><i class="bar" data-v="65" data-o="73"></i></span></div></div>
+          <div class="rrow"><div class="side a"><span class="val">74</span><span class="track"><i class="bar" data-v="74" data-o="70"></i></span></div><div class="met">DEF</div><div class="side"><span class="val">70</span><span class="track"><i class="bar" data-v="70" data-o="74"></i></span></div></div>
+        </div>
+        <div class="blk">
+          <h4>Form · this group</h4>
+          <p><b>DR Congo:</b> 1–1 Portugal (Wissa's historic goal), then 0–1 Colombia — 1 pt, 3rd. <b>Uzbekistan:</b> shipped 3 to Colombia and <b>5 to Portugal</b>; 0 pts, −7 GD, <span class="out">eliminated</span>.</p>
+        </div>
+      </div>
+      <div class="col right">
+        <div class="blk">
+          <h4>Key men &amp; availability</h4>
+          <ul>
+            <li><b>DR Congo:</b> captain <b>Chancel Mbemba</b> marshals the back line. <b>Projected XI is full and attacking</b> — Mpasi; Wan-Bissaka, Mbemba, Tuanzebe, Masuaku; Mukau, Moutoussamy, Kayembe; Bongonda, <b>Bakambu &amp; Wissa</b> paired up top — Desabre going for the win and the faint best-third lifeline.</li>
+            <li><b>Uzbekistan:</b> Fabio Cannavaro shuffles — Yusupov returns in goal, Urunov recalled; a must-win on paper, but a −7 GD makes the route essentially closed.</li>
+          </ul>
+        </div>
+        <div class="blk">
+          <h4>The scenario</h4>
+          <p>Uzbekistan are gone. DR Congo can reach 4 points with a win and keep a faint <b>best-placed-third</b> lifeline flickering — just enough motivation to separate two sides the ratings already favour the Leopards. Their +9-point edge in attack (78 vs 69) should tell.</p>
+        </div>
+      </div>
+    </div>
+    <div class="verdict">
+      <div class="scoreline">
+        <span class="big">2<span class="x">–</span>0</span>
+        <span class="who"><b>DR Congo win</b>More quality, more to play for; Wissa &amp; co. break down a beaten side.</span>
+      </div>
+      <div class="meta">
+        <div class="wdw"><div class="lead">DRC<small>win</small>58%</div><div>Draw<small>—</small>24%</div><div>Uzb<small>win</small>18%</div></div>
+        <span class="alt"><b>FT 3–1:</b> ✓ result +10 (DRC by two; exact missed after a 0–1 scare).</span>
+      </div>
+    </div>
+    <div class="top3">
+      <span class="t3lbl">3 most likely</span>
+      <span class="t3 best"><span class="rank">1</span><span class="s">1–0</span><span class="pc">16%</span><span class="tm">DRC</span></span>
+      <span class="t3"><span class="rank">2</span><span class="s">2–0</span><span class="pc">12%</span><span class="tm">DRC</span></span>
+      <span class="t3"><span class="rank">3</span><span class="s">1–1</span><span class="pc">12%</span></span>
+    </div>
+    <div class="r32">🔭 <b>R32 implication:</b> Uzbekistan eliminated regardless. A DR Congo win lifts them to 4 pts and keeps a <span class="ar">long-shot best-third</span> alive — realistically still needing other results to fall their way.</div>
+  </div>
+
+  <!-- =========================================================== GROUP L -->
+  <div class="band">
+    <span class="gid">L</span>
+    <span class="gmeta"><b>England 4 (+2), Ghana 4 (+1), Croatia 3 (−1), Panama out.</b> England close out top with a win; Croatia must beat Ghana to gatecrash the top two.</span>
+  </div>
+
+  <!-- Croatia v Ghana -->
+  <div class="card">
+    <div class="card-hd">
+      <div>
+        <p class="matchup"><span class="flag">🇭🇷</span>Croatia <span style="color:var(--ink3);font-weight:600">vs</span> Ghana<span class="flag" style="margin-left:6px">🇬🇭</span></p>
+        <div class="venue">Lincoln Financial Field, Philadelphia · 5:00&nbsp;ET</div>
+      </div>
+      <div class="chips">
+        <span class="chip hit">Final 2–1 · ✓ exact +25</span>
+        <span class="chip decide">Decider</span>
+        <span class="conf med"><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span>Med conf.</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="col left">
+        <div class="blk">
+          <h4>FIFA-style ratings · SoFIFA FC 26</h4>
+          <div class="rt-hd">
+            <div class="tm a">Croatia<small>FIFA #11 · OVR 79</small></div>
+            <div class="mid">vs</div>
+            <div class="tm">Ghana<small>FIFA #73 · OVR 75</small></div>
+          </div>
+          <div class="rrow"><div class="side a"><span class="val">79</span><span class="track"><i class="bar" data-v="79" data-o="75"></i></span></div><div class="met">OVR</div><div class="side"><span class="val">75</span><span class="track"><i class="bar" data-v="75" data-o="79"></i></span></div></div>
+          <div class="rrow"><div class="side a"><span class="val">78</span><span class="track"><i class="bar" data-v="78" data-o="77"></i></span></div><div class="met">ATT</div><div class="side"><span class="val">77</span><span class="track"><i class="bar" data-v="77" data-o="78"></i></span></div></div>
+          <div class="rrow"><div class="side a"><span class="val">80</span><span class="track"><i class="bar" data-v="80" data-o="74"></i></span></div><div class="met">MID</div><div class="side"><span class="val">74</span><span class="track"><i class="bar" data-v="74" data-o="80"></i></span></div></div>
+          <div class="rrow"><div class="side a"><span class="val">80</span><span class="track"><i class="bar" data-v="80" data-o="73"></i></span></div><div class="met">DEF</div><div class="side"><span class="val">73</span><span class="track"><i class="bar" data-v="73" data-o="80"></i></span></div></div>
+        </div>
+        <div class="blk">
+          <h4>Form · this group</h4>
+          <p><b>Croatia:</b> lost 2–4 to England, beat Panama 1–0 (Budimir off the bench). <b>Ghana:</b> 1–0 Panama, then a disciplined <b>0–0 with England</b> — two clean-sheet-minded displays.</p>
+        </div>
+      </div>
+      <div class="col right">
+        <div class="blk">
+          <h4>Key men &amp; availability</h4>
+          <ul>
+            <li><b>Croatia:</b> <b>Modrić fit</b> (recovered from a late-season cheekbone fracture) and still the metronome alongside Kovačić; Gvardiol, Budimir in form. No fresh concerns.</li>
+            <li><b>Ghana:</b> <span class="out">Mohammed Kudus OUT</span> (quad + hamstring relapse) — their best creator gone. <b>Carlos Queiroz</b> in charge; GK Ati Zigi still injured, so Benjamin Asare continues. Partey, Semenyo, the Williams/Ayew threat remain.</li>
+          </ul>
+        </div>
+        <div class="blk">
+          <h4>The scenario</h4>
+          <p><b>Croatia must win</b> to climb to 6 and into 2nd; a draw and they're out. Ghana, on 4, are all but through and will defend the point. Croatia's midfield/defence edge (80/80 vs 74/73) plus chasing-the-game commitment points to a Croatia win — but an open Croatia leaves room for Ghana's counter.</p>
+        </div>
+      </div>
+    </div>
+    <div class="verdict">
+      <div class="scoreline">
+        <span class="big">2<span class="x">–</span>1</span>
+        <span class="who"><b>Croatia win</b>Quality and urgency tell; Ghana nick one on the break before Croatia see it out.</span>
+      </div>
+      <div class="meta">
+        <div class="wdw"><div class="lead">Cro<small>win</small>52%</div><div>Draw<small>—</small>26%</div><div>Gha<small>win</small>22%</div></div>
+        <span class="alt"><b>Cleaner alternatives:</b> 1–0 or 2–0 Croatia.</span>
+      </div>
+    </div>
+    <div class="top3">
+      <span class="t3lbl">3 most likely</span>
+      <span class="t3 best"><span class="rank">1</span><span class="s">1–0</span><span class="pc">14%</span><span class="tm">CRO</span></span>
+      <span class="t3"><span class="rank">2</span><span class="s">1–1</span><span class="pc">12%</span></span>
+      <span class="t3"><span class="rank">3</span><span class="s">2–0</span><span class="pc">11%</span><span class="tm">CRO</span></span>
+    </div>
+    <div class="r32">🔭 <b>R32 implication:</b> our predicted Croatia win <b>overturns the projected bracket</b> — <span class="ar">Croatia become L2 (→ vs Portugal K2)</span> and Ghana drop to 3rd, surviving only as a best-placed third. A draw or Ghana win sends Ghana through as L2 instead.</div>
+  </div>
+
+  <!-- Panama v England -->
+  <div class="card">
+    <div class="card-hd">
+      <div>
+        <p class="matchup"><span class="flag">🇵🇦</span>Panama <span style="color:var(--ink3);font-weight:600">vs</span> England<span class="flag" style="margin-left:6px">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span></p>
+        <div class="venue">MetLife Stadium, East Rutherford · 5:00&nbsp;ET</div>
+      </div>
+      <div class="chips">
+        <span class="chip hit">Final 0–2 · ✓ exact +25</span>
+        <span class="chip safe">Safe call</span>
+        <span class="conf high"><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i></span>High conf.</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="col left">
+        <div class="blk">
+          <h4>FIFA-style ratings · SoFIFA FC 26</h4>
+          <div class="rt-hd">
+            <div class="tm a">Panama<small>FIFA #34 · OVR 70</small></div>
+            <div class="mid">vs</div>
+            <div class="tm">England<small>FIFA #4 · OVR 84</small></div>
+          </div>
+          <div class="rrow"><div class="side a"><span class="val">70</span><span class="track"><i class="bar" data-v="70" data-o="84"></i></span></div><div class="met">OVR</div><div class="side"><span class="val">84</span><span class="track"><i class="bar" data-v="84" data-o="70"></i></span></div></div>
+          <div class="rrow"><div class="side a"><span class="val">71</span><span class="track"><i class="bar" data-v="71" data-o="84"></i></span></div><div class="met">ATT</div><div class="side"><span class="val">84</span><span class="track"><i class="bar" data-v="84" data-o="71"></i></span></div></div>
+          <div class="rrow"><div class="side a"><span class="val">70</span><span class="track"><i class="bar" data-v="70" data-o="85"></i></span></div><div class="met">MID</div><div class="side"><span class="val">85</span><span class="track"><i class="bar" data-v="85" data-o="70"></i></span></div></div>
+          <div class="rrow"><div class="side a"><span class="val">69</span><span class="track"><i class="bar" data-v="69" data-o="83"></i></span></div><div class="met">DEF</div><div class="side"><span class="val">83</span><span class="track"><i class="bar" data-v="83" data-o="69"></i></span></div></div>
+        </div>
+        <div class="blk">
+          <h4>Form · this group</h4>
+          <p><b>Panama:</b> lost 0–1 to Ghana and 0–1 to Croatia — <span class="out">eliminated</span>, no goals scored. <b>England:</b> 4–2 Croatia, then a flat 0–0 with Ghana; a win secures top spot.</p>
+        </div>
+      </div>
+      <div class="col right">
+        <div class="blk">
+          <h4>Key men &amp; availability</h4>
+          <ul>
+            <li><b>England:</b> Thomas Tuchel rotates. <span class="out">Reece James OUT</span> (hamstring) and <span class="out">Livramento OUT</span> (calf, tournament). Declan Rice — a booking from a R32 ban — likely rested; <b>Marcus Rashford</b> and Nico O'Reilly come in, Bellingham &amp; Saka fit.</li>
+            <li><b>Panama:</b> set up in a deep 3-4-3 to limit the damage; nothing left to chase.</li>
+          </ul>
+        </div>
+        <div class="blk">
+          <h4>The scenario</h4>
+          <p>The most lopsided game on the board — a <b>14-point OVR gap</b> and a 15-point midfield chasm. Panama are out; England, even reshuffled and managing knocks, have far too much. The only question is the margin against a side parking the bus.</p>
+        </div>
+      </div>
+    </div>
+    <div class="verdict">
+      <div class="scoreline">
+        <span class="big">0<span class="x">–</span>2</span>
+        <span class="who"><b>England win</b>Rotation and a deep block keep it modest, but the class gap is decisive.</span>
+      </div>
+      <div class="meta">
+        <div class="wdw"><div>Pan<small>win</small>5%</div><div>Draw<small>—</small>13%</div><div class="lead">Eng<small>win</small>82%</div></div>
+        <span class="alt"><b>If England click early:</b> 0–3.</span>
+      </div>
+    </div>
+    <div class="top3">
+      <span class="t3lbl">3 most likely</span>
+      <span class="t3 best"><span class="rank">1</span><span class="s">0–1</span><span class="pc">20%</span><span class="tm">ENG</span></span>
+      <span class="t3"><span class="rank">2</span><span class="s">0–2</span><span class="pc">19%</span><span class="tm">ENG</span></span>
+      <span class="t3"><span class="rank">3</span><span class="s">0–3</span><span class="pc">12%</span><span class="tm">ENG</span></span>
+    </div>
+    <div class="r32">🔭 <b>R32 implication:</b> a win confirms <span class="ar">England top Group L (L1) → projected vs Senegal</span>. Anything less risks ceding top spot and a tougher draw.</div>
+  </div>
+
+  <!-- ===== CORRECTIONS ===== -->
+  <h2 class="sec">Data corrections &amp; verification notes</h2>
+  <div class="panel">
+    <h3>What we changed, and what we double-checked</h3>
+    <p class="sub">Everything below was reconciled before the predictions were written.</p>
+    <ol class="corr">
+      <li><b>SoFIFA scrape came back clean this run.</b> All four columns (OVR/ATT/MID/DEF) parsed correctly for every one of the 12 teams via the Playwright browser session — no zero/garbage defence values of the kind that have shown up in past pulls. Each rating was still sanity-checked against the FIFA-ranking order.</li>
+      <li><b>Croatia's standing, corrected.</b> Some live trackers listed Croatia on <b>0 pts / −2 GD</b>. That's wrong: from the actual results (England 4–2 Croatia, Panama 0–1 Croatia) Croatia have <b>3 pts and −1 GD</b> — confirmed by pre-match previews placing them "third on three points." We used the corrected figures, which also resolve the earlier −1 vs −3 goal-difference conflict in favour of <b>−1</b>.</li>
+      <li><b>Ghana goalkeeper.</b> First-choice <b>Lawrence Ati Zigi remains injured</b>; Benjamin Asare (who deputised in the 0–0 vs England) is expected to keep the gloves. Squad note, not a rating change.</li>
+      <li><b>Live lineup-feed error (Algeria).</b> A predicted-XI feed listed Luca Zidane as a striker and midfielder Maza in goal — reversed. Per verified team news, <b>Zidane is Algeria's first-choice goalkeeper</b> and starts there; the garbled outfield placement was ignored. Forward <b>Mohamed Amoura</b> misses out (hamstring).</li>
+      <li><b>Confirmed facts re-verified:</b> Mohammed Kudus is <b>out</b> (quad + hamstring relapse) and Carlos Queiroz is Ghana's manager; Luka Modrić is <b>fit</b> (recovered from a cheekbone fracture); Luca Zidane is Algeria's <b>first-choice</b> keeper and starts.</li>
+      <li><b>Manager check:</b> Croatia — Zlatko Dalić; Colombia — Néstor Lorenzo; England — Thomas Tuchel; Uzbekistan — Fabio Cannavaro.</li>
+      <li><b>Ranking vs ratings divergence (flagged, not "fixed"):</b> Ghana sit FIFA #73 yet carry a SoFIFA OVR of 75 — higher than DR&nbsp;Congo (#47) and Panama (#34). SoFIFA rewards Ghana's Premier-League-calibre individuals (Semenyo, the Williams/Ayew axis, Partey); FIFA's results-based ranking does not. We weighted both rather than trusting either alone.</li>
+    </ol>
+  </div>
+
+  <!-- ===== SOURCES ===== -->
+  <h2 class="sec">Sources</h2>
+  <div class="panel">
+    <div class="srcgrid">
+      <div class="s"><b>Ratings</b><a href="https://sofifa.com/teams?type=national">SoFIFA · national teams (FC 26)</a></div>
+      <div class="s"><b>World ranking</b><a href="https://inside.fifa.com/fifa-world-ranking/men">FIFA/Coca-Cola Men's Ranking</a> · <a href="https://www.espn.com/soccer/story/_/id/46664763/fifa-mens-top-50-world-rankings">ESPN top 50</a></div>
+      <div class="s"><b>Algeria–Austria</b><a href="https://www.skysports.com/football/news/12098/13557299/world-cup-2026-why-austria-may-prefer-to-lose-their-final-world-cup-group-j-game-against-algeria">Sky Sports</a> · <a href="https://www.espn.com/soccer/story/_/id/49191332/austria-algeria-fifa-world-cup-2026-win-spain-knockout">ESPN</a> · <a href="https://www.rotowire.com/soccer/article/algeria-vs-austria-preview-predicted-lineups-team-news-tactical-analysis-2026-world-cup-group-j-119778">RotoWire (XIs)</a></div>
+      <div class="s"><b>Jordan–Argentina</b><a href="https://www.espn.com/soccer/story/_/id/49191791/lionel-messi-argentina-bench-jordan-fifa-2026-world-cup">ESPN (Messi benched)</a> · <a href="https://www.sportsmole.co.uk/football/argentina/world-cup-2026/predicted-lineups/will-messi-survive-scaloni-rotation-predicted-argentina-lineup-vs-jordan_600041.html">Sports Mole</a></div>
+      <div class="s"><b>Colombia–Portugal</b><a href="https://www.sportsmole.co.uk/football/portugal/world-cup-2026/team-news/colombia-vs-portugal-injury-suspension-list-predicted-xis_600100.html">Sports Mole</a> · <a href="https://www.espn.com/soccer/story/_/id/48873914/james-rodriguez-luis-diaz-colombia-world-cup-squad">ESPN (COL squad)</a></div>
+      <div class="s"><b>DR Congo–Uzbekistan</b><a href="https://www.goal.com/en/news/dr-congo-uzbekistan-world-cup-preview/blt925d87c611d43a99">Goal preview</a> · <a href="https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_Group_K">Wikipedia (Group K)</a></div>
+      <div class="s"><b>Croatia–Ghana</b><a href="https://www.sportsmole.co.uk/football/croatia/world-cup-2026/preview/croatia-vs-ghana-prediction-team-news-lineups_600073.html">Sports Mole</a> · <a href="https://www.espn.com/soccer/story/_/id/49172894/fifa-world-cup-2026-croatia-vs-ghana-tv-channel-how-watch-kickoff-live-stream-injury-predicted-lineups">ESPN</a></div>
+      <div class="s"><b>Kudus / Modrić</b><a href="https://www.beinsports.com/en-us/soccer/fifa-world-cup-2026/articles/mohammed-kudus-ruled-out-of-the-2026-world-cup-as-ghana-loses-one-of-its-biggest-stars-ahead-of-the-tournament-2026-05-26">beIN (Kudus out)</a> · <a href="https://www.espn.com/soccer/story/_/id/48807700/luka-modric-set-5th-world-cup-part-croatia-squad">ESPN (Modrić)</a></div>
+      <div class="s"><b>Panama–England</b><a href="https://www.sportsmole.co.uk/football/england/world-cup-2026/predicted-lineups/rice-dropped-rashford-starts-predicted-england-xi-vs-panama_600070.html">Sports Mole</a> · <a href="https://www.si.com/soccer/england-predicted-lineup-vs-panama-world-cup-6-27-26">Sports Illustrated</a></div>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <p>⚽ <b>Method:</b> SoFIFA FC&nbsp;26 ratings establish baseline team strength; FIFA ranking cross-checks relative form; live team news adjusts for availability and motivation. Those feed an expected-goals (xG) estimate per side, run through a Poisson grid: each card's <b>headline is the representative expert call</b> — the scoreline that best fits expected game-flow — while the <b>"3 most likely"</b> strip shows the model's actual top-probability exact scores and the win/draw/win bar collapses the distribution into outcome odds. All indicative, not betting advice. The two can differ on purpose: for the lopsided games the single most likely score is a one-goal win, even where the expert call reads as a wider margin. Ratings snapshot dated 24&nbsp;Jun&nbsp;2026; news verified the morning of 27&nbsp;Jun&nbsp;2026. Kick-off times Eastern. <b>Stay calibrated — favour realistic low scores, and trust the coin-flips to behave like coin-flips.</b></p>
+  </footer>
+
+</div></div>
+
+<script>
+  (function(){
+    var MIN=58, MAX=88;
+    function pct(v){ return Math.max(4, Math.min(100, (v-MIN)/(MAX-MIN)*100)); }
+    var bars = document.querySelectorAll('.bar');
+    bars.forEach(function(b){
+      var v = +b.getAttribute('data-v');
+      var o = +b.getAttribute('data-o');
+      b.classList.add(v>=o ? 'strong' : 'weak');
+      var target = pct(v);
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if(reduce){ b.style.width = target+'%'; }
+      else { requestAnimationFrame(function(){ requestAnimationFrame(function(){ b.style.width = target+'%'; }); }); }
+    });
+  })();
+</script>

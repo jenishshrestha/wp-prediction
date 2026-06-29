@@ -1,0 +1,859 @@
+<title>World Cup 2026 — Round of 32 Predictions</title>
+<meta name="description" content="Exact-scoreline predictions for all 16 FIFA World Cup 2026 Round-of-32 ties, built fresh from group-stage form, SoFIFA ratings and live team news.">
+<style>
+  :root{
+    --bg:#0E1311; --surface:#161D1A; --surface-2:#1C2522; --line:#2A332F;
+    --ink:#EAF0EC; --muted:#93A29B; --muted-2:#6E7C76;
+    --gold:#E9B84A; --home:#46C07C; --away:#5BA8E6; --draw:#CC9450;
+    --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","Menlo","Cascadia Code",Consolas,monospace;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    line-height:1.55;-webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(1200px 500px at 80% -10%,rgba(70,192,124,.07),transparent 60%);}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:clamp(20px,4vw,52px) clamp(16px,4vw,40px) 80px;}
+  a{color:var(--gold);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* ---- header ---- */
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--gold);margin:0 0 14px}
+  h1{font-size:clamp(32px,6vw,60px);line-height:.98;margin:0;font-weight:800;
+    letter-spacing:-.02em;text-wrap:balance;}
+  h1 .sub{display:block;color:var(--muted);font-weight:600;font-size:clamp(15px,2.4vw,22px);
+    letter-spacing:0;margin-top:14px;max-width:62ch}
+  .meta-row{display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:22px}
+  .pill{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--muted);
+    background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:5px 11px;}
+  .pill b{color:var(--ink);font-weight:600}
+
+  .method{margin-top:26px;border-left:3px solid var(--gold);background:var(--surface);
+    padding:14px 18px;border-radius:0 8px 8px 0;color:var(--muted);font-size:13.5px;max-width:78ch}
+  .method b{color:var(--ink)}
+
+  /* ---- section heads ---- */
+  h2{font-size:clamp(20px,3vw,27px);margin:56px 0 4px;font-weight:800;letter-spacing:-.01em}
+  .lede{color:var(--muted);margin:0 0 22px;font-size:14px;max-width:74ch}
+
+  /* ---- summary tables ---- */
+  .daygroup{margin-top:30px}
+  .dayhdr{display:flex;align-items:baseline;gap:12px;margin:0 0 10px}
+  .dayhdr .d{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--gold)}
+  .dayhdr .n{font-size:12px;color:var(--muted-2)}
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+  table{border-collapse:collapse;width:100%;min-width:640px;font-size:13.5px}
+  thead th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted-2);font-weight:600;padding:11px 14px;
+    border-bottom:1px solid var(--line);white-space:nowrap}
+  tbody td{padding:11px 14px;border-bottom:1px solid rgba(42,51,47,.6);vertical-align:middle}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:var(--surface-2)}
+  .match-cell{font-weight:600;white-space:nowrap}
+  .grp{font-family:var(--mono);font-size:11px;color:var(--muted);background:var(--surface-2);
+    border:1px solid var(--line);border-radius:5px;padding:1px 6px;margin-left:2px}
+  .call{font-family:var(--mono);font-weight:700;color:var(--ink);white-space:nowrap}
+  .call .sc{color:var(--gold)}
+  .pen{font-family:var(--mono);font-size:11px;color:var(--draw);white-space:nowrap}
+  .wdw-mini{font-family:var(--mono);font-size:11.5px;color:var(--muted);white-space:nowrap;
+    font-variant-numeric:tabular-nums}
+  .venue-cell{color:var(--muted);font-size:12.5px;white-space:nowrap}
+
+  /* confidence dots */
+  .dots{display:inline-flex;gap:3px;vertical-align:middle}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--line)}
+  .dot.on{background:var(--gold)}
+
+  /* ---- card grid ---- */
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:26px}
+  @media(max-width:840px){.cards{grid-template-columns:1fr}}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;
+    display:flex;flex-direction:column;gap:14px}
+  .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+  .tieno{font-family:var(--mono);font-size:11px;color:var(--muted-2);letter-spacing:.1em}
+  .when{font-family:var(--mono);font-size:11px;color:var(--muted);text-align:right;line-height:1.4}
+  .teams{font-size:19px;font-weight:800;letter-spacing:-.01em;line-height:1.15}
+  .teams .v{color:var(--muted-2);font-weight:600;font-size:14px;margin:0 6px}
+  .flag{font-size:18px}
+
+  /* strength bar */
+  .bar-label{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;
+    letter-spacing:.06em;text-transform:uppercase;color:var(--muted-2);margin-bottom:5px}
+  .sbar{display:flex;height:9px;border-radius:5px;overflow:hidden;background:var(--surface-2)}
+  .sbar .h{background:var(--home)}
+  .sbar .a{background:var(--away)}
+  .ovr-row{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;
+    color:var(--muted);margin-top:5px;font-variant-numeric:tabular-nums}
+  .ovr-row .hn{color:var(--home)} .ovr-row .an{color:var(--away)}
+
+  .statline{font-family:var(--mono);font-size:11.5px;color:var(--muted);
+    font-variant-numeric:tabular-nums;border-top:1px solid var(--line);padding-top:11px}
+  .statline .k{color:var(--muted-2)}
+  .statline .row{display:flex;justify-content:space-between;gap:10px;padding:1.5px 0}
+
+  .scenario{font-size:13px;color:#CBD5CF;margin:0}
+  .scenario b{color:var(--ink)}
+
+  /* expert call block */
+  .callbox{display:flex;align-items:center;justify-content:space-between;gap:12px;
+    background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+  .callbox .lab{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--muted-2);margin-bottom:3px}
+  .callbox .score{font-family:var(--mono);font-size:23px;font-weight:800;color:var(--gold);
+    letter-spacing:.02em;line-height:1}
+  .callbox .note{font-family:var(--mono);font-size:10.5px;color:var(--draw);margin-top:4px}
+  .conf{text-align:right}
+  .conf .lab{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--muted-2);margin-bottom:5px}
+  .conf .lvl{font-size:11.5px;color:var(--muted);margin-top:4px;font-family:var(--mono)}
+
+  /* wdw bar */
+  .wdw{margin-top:2px}
+  .wdw .hdr{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--muted-2);margin-bottom:5px}
+  .wdw .bars{display:flex;height:22px;border-radius:6px;overflow:hidden;font-family:var(--mono);
+    font-size:11px;font-weight:700;font-variant-numeric:tabular-nums}
+  .wdw .bars span{display:flex;align-items:center;justify-content:center;color:#0E1311;min-width:0}
+  .wdw .w{background:var(--home)} .wdw .d{background:var(--draw)} .wdw .l{background:var(--away)}
+  .wdw .bars span.thin{font-size:0}
+
+  /* 3 most likely strip */
+  .ml{display:flex;flex-direction:column;gap:6px}
+  .ml .lab{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-2)}
+  .ml .chips{display:flex;gap:7px;flex-wrap:wrap}
+  .chip{font-family:var(--mono);font-size:12px;background:var(--surface-2);border:1px solid var(--line);
+    border-radius:7px;padding:5px 9px;color:var(--ink);font-variant-numeric:tabular-nums}
+  .chip b{color:var(--gold);font-weight:700}
+  .chip .p{color:var(--muted)}
+
+  .path{font-family:var(--mono);font-size:11px;color:var(--muted-2);border-top:1px solid var(--line);
+    padding-top:10px}
+  .path b{color:var(--muted)}
+  .uncert{font-size:12px;color:var(--muted)}
+  .uncert b{color:var(--draw);font-weight:600}
+
+  /* legend */
+  .legend{display:flex;flex-wrap:wrap;gap:14px;font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:14px}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .sw{width:11px;height:11px;border-radius:3px;display:inline-block}
+
+  /* notes sections */
+  .notes{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}
+  @media(max-width:840px){.notes{grid-template-columns:1fr}}
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 22px}
+  .panel h3{margin:0 0 12px;font-size:15px;font-weight:800}
+  .panel ul{margin:0;padding-left:18px;color:#C4CFC9;font-size:13px}
+  .panel li{margin-bottom:9px}
+  .panel li b{color:var(--ink)}
+  .panel.warn{border-color:rgba(204,148,80,.4)}
+  .panel.warn h3{color:var(--draw)}
+
+  footer{margin-top:48px;border-top:1px solid var(--line);padding-top:18px;color:var(--muted-2);
+    font-size:12px;font-family:var(--mono);line-height:1.7}
+</style>
+
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow">FIFA World Cup 2026 · Knockout Dossier</p>
+    <h1>Round of 32 — Exact-Scoreline Predictions
+      <span class="sub">All 16 ties of the first-ever World Cup Round of 32, called fresh from group-stage form, SoFIFA squad strength and live team news. 28 June – 3 July.</span>
+    </h1>
+    <div class="meta-row">
+      <span class="pill">Snapshot <b>29 Jun 2026</b></span>
+      <span class="pill">SoFIFA FC26 <b>24 Jun</b></span>
+      <span class="pill">FIFA ranking <b>11 Jun</b></span>
+      <span class="pill"><b>48</b> teams → <b>32</b> → R16</span>
+      <span class="pill">Method <b>judgment, not formula</b></span>
+    </div>
+    <p class="method"><b>How these are made.</b> Ratings + actual group goals-for/against + live news → expected goals by feel → scoreline. The <b>expert call</b> is the single most representative result; the <b>"3 most likely"</b> and <b>W/D/W</b> are calibrated estimates, not computed model output (a tight draw is often the single likeliest <i>score</i> even when a <i>win</i> is the likeliest <i>outcome</i>). xG priors are built off each opponent's real group GA, so attacks inflated by minnow routs aren't over-credited. This is a live, in-progress tournament — treat every number as a considered estimate.</p>
+  </header>
+
+  <!-- ===================== SUMMARY ===================== -->
+  <h2>The slate at a glance</h2>
+  <p class="lede">Sixteen ties across six days. Headline = the 90-minute call; level ties flagged for extra time / penalties.</p>
+
+  <div class="daygroup">
+    <div class="dayhdr"><span class="d">Sun 28 Jun</span><span class="n">1 tie</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Match</th><th>Venue</th><th>Expert call</th><th>W / D / W</th><th>Conf.</th></tr></thead>
+      <tbody>
+        <tr><td class="match-cell">🇿🇦 South Africa <span class="grp">A2</span> v 🇨🇦 Canada <span class="grp">B2</span></td><td class="venue-cell">Inglewood · SoFi</td><td class="call"><span class="sc">1–0</span> Canada</td><td class="wdw-mini">24 / 30 / 46</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="daygroup">
+    <div class="dayhdr"><span class="d">Mon 29 Jun</span><span class="n">3 ties</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Match</th><th>Venue</th><th>Expert call</th><th>W / D / W</th><th>Conf.</th></tr></thead>
+      <tbody>
+        <tr><td class="match-cell">🇧🇷 Brazil <span class="grp">C1</span> v 🇯🇵 Japan <span class="grp">F2</span></td><td class="venue-cell">Houston · NRG (roof)</td><td class="call"><span class="sc">2–1</span> Brazil</td><td class="wdw-mini">64 / 21 / 15</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></td></tr>
+        <tr><td class="match-cell">🇩🇪 Germany <span class="grp">E1</span> v 🇵🇾 Paraguay <span class="grp">3D</span></td><td class="venue-cell">Foxborough · Gillette</td><td class="call"><span class="sc">2–0</span> Germany</td><td class="wdw-mini">70 / 19 / 11</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></td></tr>
+        <tr><td class="match-cell">🇳🇱 Netherlands <span class="grp">F1</span> v 🇲🇦 Morocco <span class="grp">C2</span></td><td class="venue-cell">Monterrey</td><td class="call"><span class="sc">1–1</span> <span class="pen">→ MAR pens</span></td><td class="wdw-mini">42 / 30 / 28</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="daygroup">
+    <div class="dayhdr"><span class="d">Tue 30 Jun</span><span class="n">3 ties</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Match</th><th>Venue</th><th>Expert call</th><th>W / D / W</th><th>Conf.</th></tr></thead>
+      <tbody>
+        <tr><td class="match-cell">🇨🇮 Ivory Coast <span class="grp">E2</span> v 🇳🇴 Norway <span class="grp">I2</span></td><td class="venue-cell">Arlington · AT&amp;T (roof)</td><td class="call"><span class="sc">0–1</span> Norway <span class="pen">→ ET</span></td><td class="wdw-mini">30 / 28 / 42</td><td><span class="dots"><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span></td></tr>
+        <tr><td class="match-cell">🇫🇷 France <span class="grp">I1</span> v 🇸🇪 Sweden <span class="grp">3F</span></td><td class="venue-cell">East Rutherford · MetLife</td><td class="call"><span class="sc">3–1</span> France</td><td class="wdw-mini">78 / 12 / 10</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i></span></td></tr>
+        <tr><td class="match-cell">🇲🇽 Mexico <span class="grp">A1</span> v 🇪🇨 Ecuador <span class="grp">3E</span></td><td class="venue-cell">Mexico City · Azteca ⛰</td><td class="call"><span class="sc">1–0</span> Mexico <span class="pen">→ ET</span></td><td class="wdw-mini">40 / 32 / 28</td><td><span class="dots"><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="daygroup">
+    <div class="dayhdr"><span class="d">Wed 1 Jul</span><span class="n">3 ties</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Match</th><th>Venue</th><th>Expert call</th><th>W / D / W</th><th>Conf.</th></tr></thead>
+      <tbody>
+        <tr><td class="match-cell">🏴 England <span class="grp">L1</span> v 🇨🇩 DR Congo <span class="grp">3K</span></td><td class="venue-cell">Atlanta (roof)</td><td class="call"><span class="sc">2–0</span> England</td><td class="wdw-mini">74 / 16 / 10</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></td></tr>
+        <tr><td class="match-cell">🇧🇪 Belgium <span class="grp">G1</span> v 🇸🇳 Senegal <span class="grp">3I</span></td><td class="venue-cell">Seattle · Lumen</td><td class="call"><span class="sc">2–1</span> Belgium</td><td class="wdw-mini">45 / 28 / 27</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span></td></tr>
+        <tr><td class="match-cell">🇺🇸 USA <span class="grp">D1</span> v 🇧🇦 Bosnia &amp; H. <span class="grp">3B</span></td><td class="venue-cell">Santa Clara · Levi's</td><td class="call"><span class="sc">2–1</span> USA</td><td class="wdw-mini">60 / 22 / 18</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="daygroup">
+    <div class="dayhdr"><span class="d">Thu 2 Jul</span><span class="n">3 ties</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Match</th><th>Venue</th><th>Expert call</th><th>W / D / W</th><th>Conf.</th></tr></thead>
+      <tbody>
+        <tr><td class="match-cell">🇪🇸 Spain <span class="grp">H1</span> v 🇦🇹 Austria <span class="grp">J2</span></td><td class="venue-cell">Inglewood · SoFi</td><td class="call"><span class="sc">2–0</span> Spain</td><td class="wdw-mini">68 / 18 / 14</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i></span></td></tr>
+        <tr><td class="match-cell">🇵🇹 Portugal <span class="grp">K2</span> v 🇭🇷 Croatia <span class="grp">L2</span></td><td class="venue-cell">Toronto · BMO</td><td class="call"><span class="sc">1–1</span> <span class="pen">→ POR pens</span></td><td class="wdw-mini">42 / 33 / 25</td><td><span class="dots"><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span></td></tr>
+        <tr><td class="match-cell">🇨🇭 Switzerland <span class="grp">B1</span> v 🇩🇿 Algeria <span class="grp">3J</span></td><td class="venue-cell">Vancouver · BC Place</td><td class="call"><span class="sc">2–1</span> Switzerland</td><td class="wdw-mini">48 / 26 / 26</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="daygroup">
+    <div class="dayhdr"><span class="d">Fri 3 Jul</span><span class="n">3 ties</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Match</th><th>Venue</th><th>Expert call</th><th>W / D / W</th><th>Conf.</th></tr></thead>
+      <tbody>
+        <tr><td class="match-cell">🇦🇺 Australia <span class="grp">D2</span> v 🇪🇬 Egypt <span class="grp">G2</span></td><td class="venue-cell">Arlington · AT&amp;T (roof)</td><td class="call"><span class="sc">1–1</span> <span class="pen">→ EGY pens</span></td><td class="wdw-mini">31 / 34 / 35</td><td><span class="dots"><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span></td></tr>
+        <tr><td class="match-cell">🇦🇷 Argentina <span class="grp">J1</span> v 🇨🇻 Cape Verde <span class="grp">H2</span></td><td class="venue-cell">Miami · Hard Rock 🔥</td><td class="call"><span class="sc">2–0</span> Argentina</td><td class="wdw-mini">88 / 9 / 3</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i></span></td></tr>
+        <tr><td class="match-cell">🇨🇴 Colombia <span class="grp">K1</span> v 🇬🇭 Ghana <span class="grp">3L</span></td><td class="venue-cell">Kansas City · Arrowhead 🔥</td><td class="call"><span class="sc">1–0</span> Colombia</td><td class="wdw-mini">56 / 27 / 17</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="legend">
+    <span><i class="sw" style="background:var(--home)"></i> Home / first-named</span>
+    <span><i class="sw" style="background:var(--draw)"></i> Draw</span>
+    <span><i class="sw" style="background:var(--away)"></i> Away / second-named</span>
+    <span><i class="dot on" style="position:relative;top:1px"></i> = confidence (1–5)</span>
+    <span style="color:var(--draw)">→ ET / pens = level tie</span>
+  </div>
+
+  <!-- ===================== CARDS ===================== -->
+  <h2>The 16 ties in full</h2>
+  <p class="lede">Squad-strength bar is SoFIFA-weighted share; W/D/W and the score chips are judgment estimates. Bracket path shows the Round-of-16 prize.</p>
+
+  <div class="cards">
+
+    <!-- 1 -->
+    <div class="card">
+      <div class="card-top">
+        <span class="tieno">TIE 01 · SoFi, Inglewood</span>
+        <span class="when">Sun 28 Jun<br>R16: v NED/MAR winner</span>
+      </div>
+      <div class="teams"><span class="flag">🇿🇦</span> South Africa <span class="v">v</span> <span class="flag">🇨🇦</span> Canada</div>
+      <div>
+        <div class="bar-label"><span>South Africa</span><span>Canada</span></div>
+        <div class="sbar"><span class="h" style="width:40%"></span><span class="a" style="width:60%"></span></div>
+        <div class="ovr-row"><span class="hn">OVR 70</span><span>squad strength</span><span class="an">OVR 75</span></div>
+      </div>
+      <div class="statline">
+        <div class="row"><span class="k">Group form</span><span>RSA 4pts · ~2–3 GF/GA &nbsp;|&nbsp; CAN 4pts · 8–3</span></div>
+        <div class="row"><span class="k">Key men</span><span>Mofokeng, R. Williams · J. David, Davies</span></div>
+      </div>
+      <p class="scenario">Canada's <b>Jonathan David</b> firepower against the field's most committed low block. South Africa concede little and score less; Canada's 8 group goals are inflated by a 6–0 over Qatar, so don't over-rate the gap. RSA miss the suspended Zwane. SoFi is covered and mild — no leveller. A tight, late-decided game.</p>
+      <div class="callbox">
+        <div><div class="lab">Expert call</div><div class="score">1–0 CAN</div></div>
+        <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span><div class="lvl">Medium</div></div>
+      </div>
+      <div class="wdw">
+        <div class="hdr"><span>RSA win</span><span>draw</span><span>CAN win</span></div>
+        <div class="bars"><span class="w thin" style="width:24%">24</span><span class="d" style="width:30%">30</span><span class="l" style="width:46%">46</span></div>
+      </div>
+      <div class="ml"><span class="lab">3 most likely</span><div class="chips">
+        <span class="chip"><b>1–0</b> CAN <span class="p">16%</span></span>
+        <span class="chip"><b>0–0</b> <span class="p">13%</span></span>
+        <span class="chip"><b>1–1</b> <span class="p">12%</span></span>
+      </div></div>
+      <p class="uncert"><b>Watch:</b> can South Africa's block hold deep enough to drag it to penalties.</p>
+    </div>
+
+    <!-- 2 -->
+    <div class="card">
+      <div class="card-top">
+        <span class="tieno">TIE 02 · NRG, Houston (roof)</span>
+        <span class="when">Mon 29 Jun<br>R16: v CIV/NOR winner</span>
+      </div>
+      <div class="teams"><span class="flag">🇧🇷</span> Brazil <span class="v">v</span> <span class="flag">🇯🇵</span> Japan</div>
+      <div>
+        <div class="bar-label"><span>Brazil</span><span>Japan</span></div>
+        <div class="sbar"><span class="h" style="width:59%"></span><span class="a" style="width:41%"></span></div>
+        <div class="ovr-row"><span class="hn">OVR 84</span><span>squad strength</span><span class="an">OVR 77</span></div>
+      </div>
+      <div class="statline">
+        <div class="row"><span class="k">Group form</span><span>BRA 7pts · 7–1 &nbsp;|&nbsp; JPN 5pts · 7–3</span></div>
+        <div class="row"><span class="k">Key men</span><span>Vinícius (4g), Cunha · Kamada, Ueda</span></div>
+      </div>
+      <p class="scenario">Brazil's 7–1 group line is genuine (one blemish: a 1–1 with Morocco). Japan are organised and keep the ball, but with <b>Mitoma, Endo and a doubtful Kubo</b> their wide threat is blunted — they lack the thrust to repeatedly hurt this back line. <b>Raphinha is out</b>, yet Rayan/Vini/Cunha is still elite. Houston's roof neutralises the heat Japan would have wanted.</p>
+      <div class="callbox">
+        <div><div class="lab">Expert call</div><div class="score">2–1 BRA</div></div>
+        <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span><div class="lvl">Med-High</div></div>
+      </div>
+      <div class="wdw">
+        <div class="hdr"><span>BRA win</span><span>draw</span><span>JPN win</span></div>
+        <div class="bars"><span class="w" style="width:64%">64</span><span class="d" style="width:21%">21</span><span class="l thin" style="width:15%">15</span></div>
+      </div>
+      <div class="ml"><span class="lab">3 most likely</span><div class="chips">
+        <span class="chip"><b>2–1</b> BRA <span class="p">15%</span></span>
+        <span class="chip"><b>2–0</b> BRA <span class="p">14%</span></span>
+        <span class="chip"><b>1–0</b> BRA <span class="p">11%</span></span>
+      </div></div>
+      <p class="uncert"><b>Watch:</b> a Japan park-and-counter 1–1 if Brazil are sloppy in transition.</p>
+    </div>
+
+    <!-- 3 -->
+    <div class="card">
+      <div class="card-top">
+        <span class="tieno">TIE 03 · Gillette, Foxborough</span>
+        <span class="when">Mon 29 Jun<br>R16: v FRA/SWE winner</span>
+      </div>
+      <div class="teams"><span class="flag">🇩🇪</span> Germany <span class="v">v</span> <span class="flag">🇵🇾</span> Paraguay</div>
+      <div>
+        <div class="bar-label"><span>Germany</span><span>Paraguay</span></div>
+        <div class="sbar"><span class="h" style="width:62%"></span><span class="a" style="width:38%"></span></div>
+        <div class="ovr-row"><span class="hn">OVR 84</span><span>squad strength</span><span class="an">OVR 75</span></div>
+      </div>
+      <div class="statline">
+        <div class="row"><span class="k">Group form</span><span>GER 6pts · 10–4 &nbsp;|&nbsp; PAR 4pts · 2–4</span></div>
+        <div class="row"><span class="k">Key men</span><span>Wirtz, Musiala, Kimmich · Sanabria, Enciso</span></div>
+      </div>
+      <p class="scenario">Germany's creation (Wirtz/Musiala) versus the deepest block in the field. Their 10 goals are flattered by a 7–1 over Curaçao, and Paraguay are genuinely stingy — but Paraguay also <b>lose Almirón (suspended) and Gómez</b>, gutting an already toothless attack. Germany's patched defence (no Schlotterbeck) barely matters against a side that rarely shoots. One-way traffic; the only question is breaking the lock.</p>
+      <div class="callbox">
+        <div><div class="lab">Expert call</div><div class="score">2–0 GER</div></div>
+        <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span><div class="lvl">Med-High</div></div>
+      </div>
+      <div class="wdw">
+        <div class="hdr"><span>GER win</span><span>draw</span><span>PAR win</span></div>
+        <div class="bars"><span class="w" style="width:70%">70</span><span class="d thin" style="width:19%">19</span><span class="l thin" style="width:11%">11</span></div>
+      </div>
+      <div class="ml"><span class="lab">3 most likely</span><div class="chips">
+        <span class="chip"><b>1–0</b> GER <span class="p">17%</span></span>
+        <span class="chip"><b>2–0</b> GER <span class="p">16%</span></span>
+        <span class="chip"><b>2–1</b> GER <span class="p">11%</span></span>
+      </div></div>
+      <p class="uncert"><b>Watch:</b> a scoreless grind to ET if Germany lack a tempo-setter to unpick the block.</p>
+    </div>
+
+    <!-- 4 -->
+    <div class="card">
+      <div class="card-top">
+        <span class="tieno">TIE 04 · Monterrey (evening)</span>
+        <span class="when">Mon 29 Jun<br>R16: v RSA/CAN winner</span>
+      </div>
+      <div class="teams"><span class="flag">🇳🇱</span> Netherlands <span class="v">v</span> <span class="flag">🇲🇦</span> Morocco</div>
+      <div>
+        <div class="bar-label"><span>Netherlands</span><span>Morocco</span></div>
+        <div class="sbar"><span class="h" style="width:54%"></span><span class="a" style="width:46%"></span></div>
+        <div class="ovr-row"><span class="hn">OVR 82</span><span>squad strength</span><span class="an">OVR 79</span></div>
+      </div>
+      <div class="statline">
+        <div class="row"><span class="k">Group form</span><span>NED 7pts · 10–4 &nbsp;|&nbsp; MAR 7pts · 6–3</span></div>
+        <div class="row"><span class="k">Key men</span><span>Gakpo, Brobbey (3g) · Hakimi, Brahim, Saibari (3g)</span></div>
+      </div>
+      <p class="scenario">The standout toss-up. The Dutch carry the most menacing attack on form, but leaked four in the group and <b>miss Timber and Xavi Simons</b>. <b>Hakimi's overlaps target that weakened Dutch left</b> while Morocco — who held Brazil and are knockout-hardened — back their tight games. Both attacks are live, both defences leak. Monterrey's evening kickoff dials the heat down.</p>
+      <div class="callbox">
+        <div><div class="lab">Expert call</div><div class="score">1–1</div><div class="note">→ Morocco on pens · NED 2–1 if forced</div></div>
+        <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span><div class="lvl">Low-Med</div></div>
+      </div>
+      <div class="wdw">
+        <div class="hdr"><span>NED win</span><span>draw</span><span>MAR win</span></div>
+        <div class="bars"><span class="w" style="width:42%">42</span><span class="d" style="width:30%">30</span><span class="l" style="width:28%">28</span></div>
+      </div>
+      <div class="ml"><span class="lab">3 most likely</span><div class="chips">
+        <span class="chip"><b>1–1</b> <span class="p">16%</span></span>
+        <span class="chip"><b>2–1</b> NED <span class="p">12%</span></span>
+        <span class="chip"><b>1–0</b> NED <span class="p">10%</span></span>
+      </div></div>
+      <p class="uncert"><b>Watch:</b> a draw is the likeliest <i>score</i> but a Dutch <i>win</i> the likeliest <i>outcome</i> — very plausibly the distance.</p>
+    </div>
+
+    <!-- 5 -->
+    <div class="card">
+      <div class="card-top">
+        <span class="tieno">TIE 05 · AT&amp;T, Arlington (roof)</span>
+        <span class="when">Tue 30 Jun<br>R16: v BRA/JPN winner</span>
+      </div>
+      <div class="teams"><span class="flag">🇨🇮</span> Ivory Coast <span class="v">v</span> <span class="flag">🇳🇴</span> Norway</div>
+      <div>
+        <div class="bar-label"><span>Ivory Coast</span><span>Norway</span></div>
+        <div class="sbar"><span class="h" style="width:49%"></span><span class="a" style="width:51%"></span></div>
+        <div class="ovr-row"><span class="hn">OVR 78</span><span>squad strength</span><span class="an">OVR 79</span></div>
+      </div>
+      <div class="statline">
+        <div class="row"><span class="k">Group form</span><span>CIV ~4–3 &nbsp;|&nbsp; NOR ~6–6</span></div>
+        <div class="row"><span class="k">Key men</span><span>Ndicka, Kessié, Diallo · Haaland, Sørloth, Ødegaard</span></div>
+      </div>
+      <p class="scenario">A classic star-attack-vs-organised-block tie. Norway carry an elite front (Haaland) on a soft DEF 75; Ivory Coast are a balanced, low-event, well-drilled unit that suppresses chance volume. AT&amp;T's A/C removes any conditioning swing. <b>Ødegaard's match sharpness</b> after a disrupted club season is the hinge — sharp, he unlocks it; rusty, Norway go long and predictable.</p>
+      <div class="callbox">
+        <div><div class="lab">Expert call</div><div class="score">0–1 NOR</div><div class="note">→ extra time if level</div></div>
+        <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span><div class="lvl">Low</div></div>
+      </div>
+      <div class="wdw">
+        <div class="hdr"><span>CIV win</span><span>draw</span><span>NOR win</span></div>
+        <div class="bars"><span class="w" style="width:30%">30</span><span class="d" style="width:28%">28</span><span class="l" style="width:42%">42</span></div>
+      </div>
+      <div class="ml"><span class="lab">3 most likely</span><div class="chips">
+        <span class="chip"><b>1–1</b> <span class="p">18%</span></span>
+        <span class="chip"><b>1–0</b> NOR <span class="p">16%</span></span>
+        <span class="chip"><b>0–0</b> <span class="p">12%</span></span>
+      </div></div>
+      <p class="uncert"><b>Watch:</b> Ødegaard's sharpness, and whether the Ivorian block can fully smother Haaland.</p>
+    </div>
+
+    <!-- 6 -->
+    <div class="card">
+      <div class="card-top">
+        <span class="tieno">TIE 06 · MetLife, E. Rutherford</span>
+        <span class="when">Tue 30 Jun<br>R16: v GER/PAR winner</span>
+      </div>
+      <div class="teams"><span class="flag">🇫🇷</span> France <span class="v">v</span> <span class="flag">🇸🇪</span> Sweden</div>
+      <div>
+        <div class="bar-label"><span>France</span><span>Sweden</span></div>
+        <div class="sbar"><span class="h" style="width:60%"></span><span class="a" style="width:40%"></span></div>
+        <div class="ovr-row"><span class="hn">OVR 86</span><span>squad strength</span><span class="an">OVR 77</span></div>
+      </div>
+      <div class="statline">
+        <div class="row"><span class="k">Group form</span><span>FRA 9pts · 10–2 &nbsp;|&nbsp; SWE 4pts · 7–7</span></div>
+        <div class="row"><span class="k">Key men</span><span>Mbappé, Dembélé (8 of 10g) · Isak, Gyökeres</span></div>
+      </div>
+      <p class="scenario">The widest mismatch on the board, and France <b>backed it up</b> — 10 scored, 2 conceded, the field's best attack output. Sweden's outlier ATT 84 (Isak + Gyökeres) is real and will get a goal if handed space, but a MID/DEF of 76 gets overrun by France's complete spine. Sweden shipped five to the Netherlands; their only path is a low block and clinical counters.</p>
+      <div class="callbox">
+        <div><div class="lab">Expert call</div><div class="score">3–1 FRA</div></div>
+        <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i></span><div class="lvl">High</div></div>
+      </div>
+      <div class="wdw">
+        <div class="hdr"><span>FRA win</span><span>draw</span><span>SWE win</span></div>
+        <div class="bars"><span class="w" style="width:78%">78</span><span class="d thin" style="width:12%">12</span><span class="l thin" style="width:10%">10</span></div>
+      </div>
+      <div class="ml"><span class="lab">3 most likely</span><div class="chips">
+        <span class="chip"><b>2–1</b> FRA <span class="p">17%</span></span>
+        <span class="chip"><b>3–1</b> FRA <span class="p">15%</span></span>
+        <span class="chip"><b>2–0</b> FRA <span class="p">14%</span></span>
+      </div></div>
+      <p class="uncert"><b>Watch:</b> a French defensive lapse letting Isak/Gyökeres make it a nervier 2–1.</p>
+    </div>
+
+    <!-- 7 -->
+    <div class="card">
+      <div class="card-top">
+        <span class="tieno">TIE 07 · Azteca, Mexico City ⛰</span>
+        <span class="when">Tue 30 Jun<br>R16: v ENG/COD winner</span>
+      </div>
+      <div class="teams"><span class="flag">🇲🇽</span> Mexico <span class="v">v</span> <span class="flag">🇪🇨</span> Ecuador</div>
+      <div>
+        <div class="bar-label"><span>Mexico</span><span>Ecuador</span></div>
+        <div class="sbar"><span class="h" style="width:50%"></span><span class="a" style="width:50%"></span></div>
+        <div class="ovr-row"><span class="hn">OVR 76</span><span>squad strength</span><span class="an">OVR 76</span></div>
+      </div>
+      <div class="statline">
+        <div class="row"><span class="k">Group form</span><span>MEX 9pts · ~5–0 &nbsp;|&nbsp; ECU 3rd · 3–1</span></div>
+        <div class="row"><span class="k">Key men</span><span>Jiménez, Mora, crowd · Caicedo, Pacho</span></div>
+      </div>
+      <p class="scenario">Two elite low-event defences — Mexico conceded <b>zero</b> in the group, Ecuador one (and beat Germany). The lowest-scoring projection on the slate. The twist: Azteca's ~2,200 m altitude is normally Mexico's weapon, but <b>Ecuador train and qualify in Quito (higher)</b>, so that edge is largely neutralised. Home crowd and Mora's spark nudge Mexico ahead in a game of few chances.</p>
+      <div class="callbox">
+        <div><div class="lab">Expert call</div><div class="score">1–0 MEX</div><div class="note">→ extra time if level</div></div>
+        <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span><div class="lvl">Low</div></div>
+      </div>
+      <div class="wdw">
+        <div class="hdr"><span>MEX win</span><span>draw</span><span>ECU win</span></div>
+        <div class="bars"><span class="w" style="width:40%">40</span><span class="d" style="width:32%">32</span><span class="l" style="width:28%">28</span></div>
+      </div>
+      <div class="ml"><span class="lab">3 most likely</span><div class="chips">
+        <span class="chip"><b>0–0</b> <span class="p">18%</span></span>
+        <span class="chip"><b>1–0</b> MEX <span class="p">16%</span></span>
+        <span class="chip"><b>1–1</b> <span class="p">15%</span></span>
+      </div></div>
+      <p class="uncert"><b>Watch:</b> Hincapié's fitness (weakens Ecuador's wall if out) and whether the altitude edge is truly gone.</p>
+    </div>
+
+    <!-- 8 -->
+    <div class="card">
+      <div class="card-top">
+        <span class="tieno">TIE 08 · Atlanta (roof)</span>
+        <span class="when">Wed 1 Jul<br>R16: v MEX/ECU winner</span>
+      </div>
+      <div class="teams"><span class="flag">🏴</span> England <span class="v">v</span> <span class="flag">🇨🇩</span> DR Congo</div>
+      <div>
+        <div class="bar-label"><span>England</span><span>DR Congo</span></div>
+        <div class="sbar"><span class="h" style="width:63%"></span><span class="a" style="width:37%"></span></div>
+        <div class="ovr-row"><span class="hn">OVR 84</span><span>squad strength</span><span class="an">OVR 74</span></div>
+      </div>
+      <div class="statline">
+        <div class="row"><span class="k">Group form</span><span>ENG 7pts · 6–2 &nbsp;|&nbsp; COD 4–3</span></div>
+        <div class="row"><span class="k">Key men</span><span>Kane, Bellingham, Saka · Wissa, Bakambu, Bongonda</span></div>
+      </div>
+      <p class="scenario">A big quality gap, with two honesty checks: England are a controlled, sometimes low-tempo side (a 0–0 with Ghana, just 6 GF), and DR Congo's twin strikers (Wissa/Bakambu) are real and take chances on the break (3–1 comeback over Uzbekistan). The closed roof removes Congo's heat hope, but <b>England's patched right-back</b> — James and Livramento both out — is the seam Bongonda can attack. England win on class; the margin is capped.</p>
+      <div class="callbox">
+        <div><div class="lab">Expert call</div><div class="score">2–0 ENG</div></div>
+        <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span><div class="lvl">Med-High</div></div>
+      </div>
+      <div class="wdw">
+        <div class="hdr"><span>ENG win</span><span>draw</span><span>COD win</span></div>
+        <div class="bars"><span class="w" style="width:74%">74</span><span class="d thin" style="width:16%">16</span><span class="l thin" style="width:10%">10</span></div>
+      </div>
+      <div class="ml"><span class="lab">3 most likely</span><div class="chips">
+        <span class="chip"><b>2–0</b> ENG <span class="p">18%</span></span>
+        <span class="chip"><b>1–0</b> ENG <span class="p">16%</span></span>
+        <span class="chip"><b>2–1</b> ENG <span class="p">14%</span></span>
+      </div></div>
+      <p class="uncert"><b>Watch:</b> England's makeshift right-back vs Congo pace — the one route to a 2–1.</p>
+    </div>
+
+    <!-- 9 -->
+    <div class="card">
+      <div class="card-top">
+        <span class="tieno">TIE 09 · Lumen, Seattle</span>
+        <span class="when">Wed 1 Jul<br>R16: v USA/BIH winner</span>
+      </div>
+      <div class="teams"><span class="flag">🇧🇪</span> Belgium <span class="v">v</span> <span class="flag">🇸🇳</span> Senegal</div>
+      <div>
+        <div class="bar-label"><span>Belgium</span><span>Senegal</span></div>
+        <div class="sbar"><span class="h" style="width:53%"></span><span class="a" style="width:47%"></span></div>
+        <div class="ovr-row"><span class="hn">OVR 81</span><span>squad strength</span><span class="an">OVR 79</span></div>
+      </div>
+      <div class="statline">
+        <div class="row"><span class="k">Group form</span><span>BEL 5pts · 6–2 &nbsp;|&nbsp; SEN 3rd · 8–6</span></div>
+        <div class="row"><span class="k">Key men</span><span>De Bruyne, Doku, Courtois · Mané, Koulibaly</span></div>
+      </div>
+      <p class="scenario">Far tighter than the seedings suggest — only two rating points. Belgium looked flat against organised blocks (0–0 Iran, 1–1 Egypt) and lean on a 34-year-old De Bruyne; Senegal bring the field's best group attack output (8 GF) and athletic transitions that suit Belgium's error-prone defence. <b>The swing is Édouard Mendy's knee doubt</b> — deputy Diaw in goal materially lifts Belgium's xG.</p>
+      <div class="callbox">
+        <div><div class="lab">Expert call</div><div class="score">2–1 BEL</div><div class="note">→ could reach ET</div></div>
+        <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span><div class="lvl">Low-Med</div></div>
+      </div>
+      <div class="wdw">
+        <div class="hdr"><span>BEL win</span><span>draw</span><span>SEN win</span></div>
+        <div class="bars"><span class="w" style="width:45%">45</span><span class="d" style="width:28%">28</span><span class="l" style="width:27%">27</span></div>
+      </div>
+      <div class="ml"><span class="lab">3 most likely</span><div class="chips">
+        <span class="chip"><b>1–1</b> <span class="p">15%</span></span>
+        <span class="chip"><b>2–1</b> BEL <span class="p">13%</span></span>
+        <span class="chip"><b>1–0</b> BEL <span class="p">11%</span></span>
+      </div></div>
+      <p class="uncert"><b>Watch:</b> Mendy's fitness, and whether Belgium's attack stays as flat as it looked in the group.</p>
+    </div>
+
+    <!-- 10 -->
+    <div class="card">
+      <div class="card-top">
+        <span class="tieno">TIE 10 · Levi's, Santa Clara</span>
+        <span class="when">Wed 1 Jul<br>R16: v BEL/SEN winner</span>
+      </div>
+      <div class="teams"><span class="flag">🇺🇸</span> USA <span class="v">v</span> <span class="flag">🇧🇦</span> Bosnia &amp; H.</div>
+      <div>
+        <div class="bar-label"><span>USA</span><span>Bosnia</span></div>
+        <div class="sbar"><span class="h" style="width:57%"></span><span class="a" style="width:43%"></span></div>
+        <div class="ovr-row"><span class="hn">OVR 77</span><span>squad strength</span><span class="an">OVR 73</span></div>
+      </div>
+      <div class="statline">
+        <div class="row"><span class="k">Group form</span><span>USA 6pts · 8–4 &nbsp;|&nbsp; BIH 3rd · 5–6</span></div>
+        <div class="row"><span class="k">Key men</span><span>Pulisic, Balogun, McKennie · Džeko, Alajbegović</span></div>
+      </div>
+      <p class="scenario">Clear gaps in midfield (79 v 70) and rank, and the USA's 8 group goals are real, not minnow-inflated. <b>Home crowd at Levi's is a genuine edge</b> and <b>Pulisic is back in training</b>. The caveat: Bosnia are a stubborn set-piece side led by the evergreen Džeko, and the USA's late collapse against Türkiye is the warning — don't expect a clean sheet.</p>
+      <div class="callbox">
+        <div><div class="lab">Expert call</div><div class="score">2–1 USA</div></div>
+        <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span><div class="lvl">Med-High</div></div>
+      </div>
+      <div class="wdw">
+        <div class="hdr"><span>USA win</span><span>draw</span><span>BIH win</span></div>
+        <div class="bars"><span class="w" style="width:60%">60</span><span class="d" style="width:22%">22</span><span class="l thin" style="width:18%">18</span></div>
+      </div>
+      <div class="ml"><span class="lab">3 most likely</span><div class="chips">
+        <span class="chip"><b>2–1</b> USA <span class="p">15%</span></span>
+        <span class="chip"><b>2–0</b> USA <span class="p">14%</span></span>
+        <span class="chip"><b>1–0</b> USA <span class="p">10%</span></span>
+      </div></div>
+      <p class="uncert"><b>Watch:</b> whether the USA tighten up their box defending against Džeko aerials.</p>
+    </div>
+
+    <!-- 11 -->
+    <div class="card">
+      <div class="card-top">
+        <span class="tieno">TIE 11 · SoFi, Inglewood</span>
+        <span class="when">Thu 2 Jul<br>R16: v POR/CRO winner</span>
+      </div>
+      <div class="teams"><span class="flag">🇪🇸</span> Spain <span class="v">v</span> <span class="flag">🇦🇹</span> Austria</div>
+      <div>
+        <div class="bar-label"><span>Spain</span><span>Austria</span></div>
+        <div class="sbar"><span class="h" style="width:58%"></span><span class="a" style="width:42%"></span></div>
+        <div class="ovr-row"><span class="hn">OVR 85</span><span>squad strength</span><span class="an">OVR 78</span></div>
+      </div>
+      <div class="statline">
+        <div class="row"><span class="k">Group form</span><span>ESP 7pts · 5–0 &nbsp;|&nbsp; AUT 2nd · 6–6</span></div>
+        <div class="row"><span class="k">Key men</span><span>Yamal, Pedri, Oyarzabal · Alaba, Sabitzer, Arnautović</span></div>
+      </div>
+      <p class="scenario">Spain own the tournament's best midfield and were airtight (0 conceded), though their 5 group goals are modest — so no rout is assumed. Austria's aggressive Rangnick press can disrupt Spain's build-up, but it's leaky (Algeria scored three) and Spain's positional rotations should find the space behind. A Spanish control game; <b>Pedri is available</b> after the earlier rotation/ban scare.</p>
+      <div class="callbox">
+        <div><div class="lab">Expert call</div><div class="score">2–0 ESP</div></div>
+        <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i></span><div class="lvl">High</div></div>
+      </div>
+      <div class="wdw">
+        <div class="hdr"><span>ESP win</span><span>draw</span><span>AUT win</span></div>
+        <div class="bars"><span class="w" style="width:68%">68</span><span class="d thin" style="width:18%">18</span><span class="l thin" style="width:14%">14</span></div>
+      </div>
+      <div class="ml"><span class="lab">3 most likely</span><div class="chips">
+        <span class="chip"><b>2–0</b> ESP <span class="p">17%</span></span>
+        <span class="chip"><b>1–0</b> ESP <span class="p">13%</span></span>
+        <span class="chip"><b>2–1</b> ESP <span class="p">12%</span></span>
+      </div></div>
+      <p class="uncert"><b>Watch:</b> Spain's tempo — if as low-event as vs Cape Verde it's a tight 1–0; an Austrian press goal is the upset path.</p>
+    </div>
+
+    <!-- 12 -->
+    <div class="card">
+      <div class="card-top">
+        <span class="tieno">TIE 12 · BMO Field, Toronto</span>
+        <span class="when">Thu 2 Jul<br>R16: v ESP/AUT winner</span>
+      </div>
+      <div class="teams"><span class="flag">🇵🇹</span> Portugal <span class="v">v</span> <span class="flag">🇭🇷</span> Croatia</div>
+      <div>
+        <div class="bar-label"><span>Portugal</span><span>Croatia</span></div>
+        <div class="sbar"><span class="h" style="width:56%"></span><span class="a" style="width:44%"></span></div>
+        <div class="ovr-row"><span class="hn">OVR 84</span><span>squad strength</span><span class="an">OVR 79</span></div>
+      </div>
+      <div class="statline">
+        <div class="row"><span class="k">Group form</span><span>POR 5pts · 6–1 &nbsp;|&nbsp; CRO ~5–5</span></div>
+        <div class="row"><span class="k">Key men</span><span>Ronaldo, Bruno, Vitinha · Modrić, Kovačić, Gvardiol</span></div>
+      </div>
+      <p class="scenario">The marquee 50/50 — two midfield-controlled, tournament-savvy sides, both low-event. Portugal's MID 86 edges it, but Croatia's DEF 80 is the best of the underdogs and Modrić/Kovačić won't be overrun. Both attacks stalled at times in the group (Portugal 0–0 Colombia; Croatia ground out wins). A cagey game decided by a set-piece or a single moment of class — and very likely the distance.</p>
+      <div class="callbox">
+        <div><div class="lab">Expert call</div><div class="score">1–1</div><div class="note">→ Portugal on pens · POR 1–0 if forced</div></div>
+        <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span><div class="lvl">Low</div></div>
+      </div>
+      <div class="wdw">
+        <div class="hdr"><span>POR win</span><span>draw</span><span>CRO win</span></div>
+        <div class="bars"><span class="w" style="width:42%">42</span><span class="d" style="width:33%">33</span><span class="l" style="width:25%">25</span></div>
+      </div>
+      <div class="ml"><span class="lab">3 most likely</span><div class="chips">
+        <span class="chip"><b>1–1</b> <span class="p">17%</span></span>
+        <span class="chip"><b>1–0</b> POR <span class="p">13%</span></span>
+        <span class="chip"><b>0–0</b> <span class="p">11%</span></span>
+      </div></div>
+      <p class="uncert"><b>Watch:</b> where a goal comes from at all — both attacks stall against good defences; a Modrić or Bruno moment likely settles it.</p>
+    </div>
+
+    <!-- 13 -->
+    <div class="card">
+      <div class="card-top">
+        <span class="tieno">TIE 13 · BC Place, Vancouver</span>
+        <span class="when">Thu 2 Jul<br>R16: v COL/GHA winner</span>
+      </div>
+      <div class="teams"><span class="flag">🇨🇭</span> Switzerland <span class="v">v</span> <span class="flag">🇩🇿</span> Algeria</div>
+      <div>
+        <div class="bar-label"><span>Switzerland</span><span>Algeria</span></div>
+        <div class="sbar"><span class="h" style="width:53%"></span><span class="a" style="width:47%"></span></div>
+        <div class="ovr-row"><span class="hn">OVR 78</span><span>squad strength</span><span class="an">OVR 76</span></div>
+      </div>
+      <div class="statline">
+        <div class="row"><span class="k">Group form</span><span>SUI 1st · 7–3 &nbsp;|&nbsp; ALG 3rd · 5–7</span></div>
+        <div class="row"><span class="k">Key men</span><span>Xhaka, Akanji, Embolo · Mahrez</span></div>
+      </div>
+      <p class="scenario">Switzerland are the more complete, balanced side; Algeria are boom-or-bust around Mahrez and shipped <b>seven goals in three games</b>. Xhaka/Akanji control plus Embolo's physicality is a poor matchup for a leaky Algerian back line missing Amoura. The covered venue favours the better-drilled team — but Mahrez is the one man who can produce a goal from nothing, and his late-show habit is a real tail risk.</p>
+      <div class="callbox">
+        <div><div class="lab">Expert call</div><div class="score">2–1 SUI</div><div class="note">→ ET if Mahrez levels late</div></div>
+        <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span><div class="lvl">Medium</div></div>
+      </div>
+      <div class="wdw">
+        <div class="hdr"><span>SUI win</span><span>draw</span><span>ALG win</span></div>
+        <div class="bars"><span class="w" style="width:48%">48</span><span class="d" style="width:26%">26</span><span class="l" style="width:26%">26</span></div>
+      </div>
+      <div class="ml"><span class="lab">3 most likely</span><div class="chips">
+        <span class="chip"><b>2–1</b> SUI <span class="p">15%</span></span>
+        <span class="chip"><b>1–1</b> <span class="p">13%</span></span>
+        <span class="chip"><b>2–0</b> SUI <span class="p">11%</span></span>
+      </div></div>
+      <p class="uncert"><b>Watch:</b> wide score variance — Algeria's defence can lose by two, but Mahrez can flip it.</p>
+    </div>
+
+    <!-- 14 -->
+    <div class="card">
+      <div class="card-top">
+        <span class="tieno">TIE 14 · AT&amp;T, Arlington (roof)</span>
+        <span class="when">Fri 3 Jul<br>R16: v ARG/CPV winner</span>
+      </div>
+      <div class="teams"><span class="flag">🇦🇺</span> Australia <span class="v">v</span> <span class="flag">🇪🇬</span> Egypt</div>
+      <div>
+        <div class="bar-label"><span>Australia</span><span>Egypt</span></div>
+        <div class="sbar"><span class="h" style="width:44%"></span><span class="a" style="width:56%"></span></div>
+        <div class="ovr-row"><span class="hn">OVR 71</span><span>squad strength</span><span class="an">OVR 74</span></div>
+      </div>
+      <div class="statline">
+        <div class="row"><span class="k">Group form</span><span>AUS 2–2 (2 clean sheets) &nbsp;|&nbsp; EGY 3–2</span></div>
+        <div class="row"><span class="k">Key men</span><span>Popovic's block · Salah (doubt), Marmoush, Trezeguet</span></div>
+      </div>
+      <p class="scenario">The lowest-event tie on the board and a genuine coin-flip. Egypt are the more talented side <b>if Salah plays</b> — but his hamstring is a major doubt, and without him the attack leans on Marmoush and Trezeguet. Australia's defence-first block kept two clean sheets; AT&amp;T's A/C removes the heat that would sap their pressing. With Salah out it's level; with him it shades Egypt.</p>
+      <div class="callbox">
+        <div><div class="lab">Expert call</div><div class="score">1–1</div><div class="note">→ Egypt on pens · EGY 1–0 if Salah starts</div></div>
+        <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span><div class="lvl">Low</div></div>
+      </div>
+      <div class="wdw">
+        <div class="hdr"><span>AUS win</span><span>draw</span><span>EGY win</span></div>
+        <div class="bars"><span class="w" style="width:31%">31</span><span class="d" style="width:34%">34</span><span class="l" style="width:35%">35</span></div>
+      </div>
+      <div class="ml"><span class="lab">3 most likely</span><div class="chips">
+        <span class="chip"><b>1–1</b> <span class="p">17%</span></span>
+        <span class="chip"><b>0–0</b> <span class="p">14%</span></span>
+        <span class="chip"><b>1–0</b> EGY <span class="p">12%</span></span>
+      </div></div>
+      <p class="uncert"><b>Watch:</b> Salah's fitness — the single biggest line-mover in the round.</p>
+    </div>
+
+    <!-- 15 -->
+    <div class="card">
+      <div class="card-top">
+        <span class="tieno">TIE 15 · Hard Rock, Miami 🔥</span>
+        <span class="when">Fri 3 Jul<br>R16: v AUS/EGY winner</span>
+      </div>
+      <div class="teams"><span class="flag">🇦🇷</span> Argentina <span class="v">v</span> <span class="flag">🇨🇻</span> Cape Verde</div>
+      <div>
+        <div class="bar-label"><span>Argentina</span><span>Cape Verde</span></div>
+        <div class="sbar"><span class="h" style="width:70%"></span><span class="a" style="width:30%"></span></div>
+        <div class="ovr-row"><span class="hn">OVR 83</span><span>squad strength</span><span class="an">OVR 70</span></div>
+      </div>
+      <div class="statline">
+        <div class="row"><span class="k">Group form</span><span>ARG 1st · 8–1 (Messi 6g) &nbsp;|&nbsp; CPV 2–4</span></div>
+        <div class="row"><span class="k">Key men</span><span>Messi, Álvarez, Martínez · deep block, L. Costa</span></div>
+      </div>
+      <p class="scenario">The widest gap in the slate — but apply the stubborn-defence discount. Cape Verde kept <b>two 0–0s, including against Spain</b>: a genuine, disciplined deep block. <b>Miami's heat and humidity</b> is the equaliser — it suits Argentina slowing the game, but it also helps a side that just wants to sit and survive, and favourites get frustrated in the swamp. Argentina win comfortably, but the block plus the heat hold the margin down.</p>
+      <div class="callbox">
+        <div><div class="lab">Expert call</div><div class="score">2–0 ARG</div></div>
+        <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i></span><div class="lvl">High</div></div>
+      </div>
+      <div class="wdw">
+        <div class="hdr"><span>ARG win</span><span>draw</span><span>CPV win</span></div>
+        <div class="bars"><span class="w" style="width:88%">88</span><span class="d thin" style="width:9%">9</span><span class="l thin" style="width:3%">3</span></div>
+      </div>
+      <div class="ml"><span class="lab">3 most likely</span><div class="chips">
+        <span class="chip"><b>2–0</b> ARG <span class="p">20%</span></span>
+        <span class="chip"><b>1–0</b> ARG <span class="p">16%</span></span>
+        <span class="chip"><b>3–0</b> ARG <span class="p">13%</span></span>
+      </div></div>
+      <p class="uncert"><b>Watch:</b> the margin, not the winner — heat and the block could hold it to 1–0, or quality runs to 3–0.</p>
+    </div>
+
+    <!-- 16 -->
+    <div class="card">
+      <div class="card-top">
+        <span class="tieno">TIE 16 · Arrowhead, Kansas City 🔥</span>
+        <span class="when">Fri 3 Jul<br>R16: v SUI/ALG winner</span>
+      </div>
+      <div class="teams"><span class="flag">🇨🇴</span> Colombia <span class="v">v</span> <span class="flag">🇬🇭</span> Ghana</div>
+      <div>
+        <div class="bar-label"><span>Colombia</span><span>Ghana</span></div>
+        <div class="sbar"><span class="h" style="width:55%"></span><span class="a" style="width:45%"></span></div>
+        <div class="ovr-row"><span class="hn">OVR 78</span><span>squad strength</span><span class="an">OVR 75</span></div>
+      </div>
+      <div class="statline">
+        <div class="row"><span class="k">Group form</span><span>COL 1st · 4–1 &nbsp;|&nbsp; GHA 3rd · 2–2</span></div>
+        <div class="row"><span class="k">Key men</span><span>L. Díaz, J. Rodríguez, Lerma · Semenyo, I. Williams, Partey</span></div>
+      </div>
+      <p class="scenario">Two low-event defences — between them they allowed just three goals across six group games, so this projects under 2.5. Colombia are the better, more balanced side (they out-shot Portugal in a 0–0) but Ghana, drilled by Queiroz, will sit deep and spring Semenyo/Williams on the break — even <b>without Kudus, Salisu and their first-choice keeper</b>. KC heat aids the side that wants to slow it. Colombia break through once.</p>
+      <div class="callbox">
+        <div><div class="lab">Expert call</div><div class="score">1–0 COL</div><div class="note">→ real ET risk</div></div>
+        <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span><div class="lvl">Medium</div></div>
+      </div>
+      <div class="wdw">
+        <div class="hdr"><span>COL win</span><span>draw</span><span>GHA win</span></div>
+        <div class="bars"><span class="w" style="width:56%">56</span><span class="d" style="width:27%">27</span><span class="l thin" style="width:17%">17</span></div>
+      </div>
+      <div class="ml"><span class="lab">3 most likely</span><div class="chips">
+        <span class="chip"><b>1–0</b> COL <span class="p">17%</span></span>
+        <span class="chip"><b>0–0</b> <span class="p">14%</span></span>
+        <span class="chip"><b>2–0</b> COL <span class="p">12%</span></span>
+      </div></div>
+      <p class="uncert"><b>Watch:</b> Colombia's finishing — dominant on chances but blanked Portugal; Ghana's keeper and low block could force ET.</p>
+    </div>
+
+  </div>
+
+  <!-- ===================== ANGLES ===================== -->
+  <h2>Four angles worth knowing before you lock picks</h2>
+  <div class="notes">
+    <div class="panel">
+      <h3>1 · The all-defence coin-flips</h3>
+      <ul>
+        <li><b>Four ties are genuinely level low-event games</b> headlined as draws: Mexico–Ecuador, Australia–Egypt, plus Ivory Coast–Norway and Portugal–Croatia. We respect the draw only where the W/D/W is truly balanced — and all four project toward extra time / penalties.</li>
+        <li>The two lowest-scoring projections — <b>Mexico–Ecuador and Colombia–Ghana</b> — pit two block-first sides against each other; both lean Under 2.5.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>2 · Injuries that move the lines</h3>
+      <ul>
+        <li><b>Salah (Egypt)</b> is the single biggest swing — out turns Australia–Egypt into a coin flip; fit, it shades Egypt.</li>
+        <li><b>Mendy's keeper doubt</b> lifts Belgium; <b>Ødegaard's sharpness</b> gates Ivory Coast–Norway; <b>England's right-back</b> (James + Livramento out) is the one seam DR Congo can attack.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>3 · Don't over-credit inflated attacks</h3>
+      <ul>
+        <li>Germany's 10, Canada's 8, Belgium's 6, Spain's 5, Portugal's 6 and Argentina's 8 are partly minnow-inflated. Against the <b>stubborn blocks</b> they now face — Paraguay, South Africa, Senegal, Cape Verde, Ghana — margins compress.</li>
+        <li>xG priors here are built off each opponent's <b>actual group GA</b>, not raw SoFIFA, which is why several favourites are headlined to win by a single goal.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>4 · The marquee toss-ups</h3>
+      <ul>
+        <li><b>Netherlands–Morocco</b> — Hakimi's overlaps against a Dutch left weakened by Timber's absence; the closest tie of the round.</li>
+        <li><b>Portugal–Croatia</b> — two vintage midfields, both low-event; a single moment (set-piece, Modrić, Bruno) likely decides a game that wants to go the distance.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===================== CORRECTIONS ===================== -->
+  <h2>Data corrections the research surfaced</h2>
+  <div class="notes">
+    <div class="panel">
+      <h3>Group-stage record fixes</h3>
+      <ul>
+        <li><b>Brazil:</b> the opening draw was specifically <b>1–1 v Morocco</b>; group line D-W-W, GF/GA <b>7–1</b> (profile was vague).</li>
+        <li><b>Paraguay:</b> the USA loss was <b>1–4</b> — an extreme low-event side, GF/GA <b>2–4</b>.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>Live availability corrections</h3>
+      <ul>
+        <li><b>Senegal:</b> GK <b>Édouard Mendy is an injury doubt</b> (knee/MCL) — not flagged in the cached profile.</li>
+        <li><b>Spain:</b> <b>Pedri is available</b> — earlier suspension/knock talk resolved (rotation, no booking vs Uruguay).</li>
+        <li><b>Egypt</b> is not a one-man attack — <b>Marmoush + Trezeguet</b> are a real secondary axis behind the doubtful Salah.</li>
+        <li><b>Ghana:</b> <b>Kudus out for the whole tournament</b> (quad, since January — never in the 26), plus Salisu and first-choice GK Ati-Zigi.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="panel warn" style="margin-top:18px">
+    <h3>⚠ One honesty note on the numbers</h3>
+    <ul>
+      <li>This is a <b>live, in-progress tournament</b> and web sources for these specific fixtures are thin and uneven — some published "results/odds" for these ties are unreliable. Every <b>W/D/W</b>, the <b>"3 most likely"</b> strips and the <b>xG leans</b> are calibrated judgment estimates, <b>not computed model output</b>. They are presented as such.</li>
+    </ul>
+  </div>
+
+  <footer>
+    Sources: SoFIFA (EA FC 26) snapshot 24 Jun 2026 · FIFA world ranking 11 Jun 2026 · in-repo team profiles + live web research (FIFA, ESPN, CBS, RotoWire, Opta, DraftKings, beIN, Goal) as of 29 Jun 2026.<br>
+    Method: ratings + actual group goals-for/against + live news → expected goals (by judgment) → scoreline. Headline = 90-minute call; level ties go to extra time / penalties.<br>
+    Built fresh, 29 Jun 2026 · WC-Prediction knockout dossier.
+  </footer>
+
+</div>
