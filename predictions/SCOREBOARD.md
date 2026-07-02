@@ -42,6 +42,16 @@ Tracking my pool entries vs. actual results.
 - **Jordan–Argentina 0–3 vs 1–3 → +7:** outcome (+4) + Argentina's 3 (one-team +3). Copying the model's safe **0–2** would have scored **+10** — fading a heavy favourite cost 3.
 - **Banked:** as a chaser, **leverage the coin-flips and copy the locks** — and **never fade the draw** in a tight, asymmetric-motivation game. The model line (1–1 / 0–2 throughout) would have scored **90/150, zero misses**; the two darts cost 13 points and the place.
 
+## Round of 32
+
+| Date | Match | My pick | Result | Points |
+|------|-------|---------|--------|-------:|
+| 1 Jul | USA–Bosnia | 2–0 | 2–0 | **25** |
+| 2 Jul | Spain–Austria | 2–0 | — | — |
+
+- **USA 2–0 (exact, +25):** the live pre-match update (confirmed full-strength USA XI + Bosnia's back five + BTTS-No lean) moved the call from the dossier's 2–1 to 2–0 — the dossier pick would have scored only **7** (outcome +4, USA's 2 goals +3). Lesson banked: **confirmed-lineup intel an hour out is worth the top-up** — it changed the mode, not just the probabilities (contrast the Colombia–Portugal note above, where a *speculative* lineup read nearly cost points; the difference is confirmed vs guessed).
+- Balogun 45' (set piece), Tillman 82' (deflected free kick). Bosnia's set-piece threat never cashed; USA face Belgium in Seattle, 6 Jul.
+
 ## Points breakdown of the odd ones
 - **Germany 3–0 vs 7–1 → +4:** outcome only. Blowouts pay little unless you nail the inflated exact.
 - **Netherlands 2–1 vs 2–2 → +3:** matched Netherlands' 2 goals (one-team).

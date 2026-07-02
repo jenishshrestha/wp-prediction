@@ -1,6 +1,6 @@
 # <TeamA> vs <TeamB> — <Stage>
 
-_Venue: <venue>, <city> · Date: <YYYY-MM-DD> · Predicted: <YYYY-MM-DD>_
+_Venue: <venue>, <city> · Date: <YYYY-MM-DD> · Predicted: <YYYY-MM-DD> · Model: <AI model name (model id)>_
 
 ## Predicted Scoreline
 **<TeamA> X–Y <TeamB>**

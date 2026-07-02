@@ -4,7 +4,7 @@
   :root{
     --bg:#0E1311; --surface:#161D1A; --surface-2:#1C2522; --line:#2A332F;
     --ink:#EAF0EC; --muted:#93A29B; --muted-2:#6E7C76;
-    --gold:#E9B84A; --home:#46C07C; --away:#5BA8E6; --draw:#CC9450;
+    --gold:#E9B84A; --home:#46C07C; --away:#5BA8E6; --draw:#CC9450; --miss:#E0685A;
     --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     --mono:ui-monospace,"SF Mono","Menlo","Cascadia Code",Consolas,monospace;
     --maxw:1180px;
@@ -57,6 +57,30 @@
   .call{font-family:var(--mono);font-weight:700;color:var(--ink);white-space:nowrap}
   .call .sc{color:var(--gold)}
   .pen{font-family:var(--mono);font-size:11px;color:var(--draw);white-space:nowrap}
+  .result{font-family:var(--mono);font-size:10px;letter-spacing:.1em;background:var(--home);
+    color:#0E1311;border-radius:4px;padding:1px 6px;font-weight:700;margin-right:5px;vertical-align:middle}
+  .hit{color:var(--home);font-weight:700}
+  .result.r-miss{background:var(--miss)}
+  .result.r-live{background:var(--gold)}
+  .miss{color:var(--miss);font-weight:700}
+  .callstack{display:flex;flex-direction:column;gap:3px;line-height:1.35}
+  .callstack .pred{font-family:var(--mono);font-size:10.5px;color:var(--muted-2);letter-spacing:.02em}
+  .callstack .pred b{color:var(--muted);font-weight:600}
+  .callstack .pl{letter-spacing:.1em}
+  .callstack .res-line{font-size:11px;color:var(--muted)}
+  .resultstrip{display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-family:var(--mono);
+    font-size:12px;border-left:3px solid var(--muted);background:var(--surface-2);
+    border-radius:0 8px 8px 0;padding:8px 12px;color:var(--ink);font-variant-numeric:tabular-nums}
+  .resultstrip.s-hit{border-left-color:var(--home)}
+  .resultstrip.s-miss{border-left-color:var(--miss)}
+  .resultstrip.s-live{border-left-color:var(--gold)}
+  .resultstrip.s-near{border-left-color:var(--draw)}
+  .result.r-near{background:var(--draw)}
+  .near{color:var(--draw);font-weight:700}
+  .resultstrip .rl{font-size:10px;letter-spacing:.1em;color:var(--muted-2);text-transform:uppercase}
+  .resultstrip .rscore{font-weight:700}
+  .done td{opacity:.72}
+  .done td .call,.done td.match-cell{opacity:1}
   .wdw-mini{font-family:var(--mono);font-size:11.5px;color:var(--muted);white-space:nowrap;
     font-variant-numeric:tabular-nums}
   .venue-cell{color:var(--muted);font-size:12.5px;white-space:nowrap}
@@ -104,6 +128,10 @@
   .callbox .score{font-family:var(--mono);font-size:23px;font-weight:800;color:var(--gold);
     letter-spacing:.02em;line-height:1}
   .callbox .note{font-family:var(--mono);font-size:10.5px;color:var(--draw);margin-top:4px}
+  .pair{display:flex;align-items:center;gap:14px}
+  .pair .score-sm{font-family:var(--mono);font-size:16px;font-weight:700;color:var(--muted);
+    letter-spacing:.02em;line-height:1;margin-top:2px}
+  .pair .arrow{color:var(--muted-2);font-size:17px;align-self:flex-end;padding-bottom:1px}
   .conf{text-align:right}
   .conf .lab{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
     color:var(--muted-2);margin-bottom:5px}
@@ -180,7 +208,7 @@
     <div class="tablewrap"><table>
       <thead><tr><th>Match</th><th>Venue</th><th>Expert call</th><th>W / D / W</th><th>Conf.</th></tr></thead>
       <tbody>
-        <tr><td class="match-cell">🇿🇦 South Africa <span class="grp">A2</span> v 🇨🇦 Canada <span class="grp">B2</span></td><td class="venue-cell">Inglewood · SoFi</td><td class="call"><span class="sc">1–0</span> Canada</td><td class="wdw-mini">24 / 30 / 46</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span></td></tr>
+        <tr><td class="match-cell">🇿🇦 South Africa <span class="grp">A2</span> v 🇨🇦 Canada <span class="grp">B2</span></td><td class="venue-cell">Inglewood · SoFi</td><td class="call"><div class="callstack"><span><span class="sc">1–0</span> Canada</span><span class="res-line"><span class="result">FINAL</span><span class="sc">1–0</span> <span class="hit">✓</span></span></div></td><td class="wdw-mini">24 / 30 / 46</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span></td></tr>
       </tbody>
     </table></div>
   </div>
@@ -190,9 +218,9 @@
     <div class="tablewrap"><table>
       <thead><tr><th>Match</th><th>Venue</th><th>Expert call</th><th>W / D / W</th><th>Conf.</th></tr></thead>
       <tbody>
-        <tr><td class="match-cell">🇧🇷 Brazil <span class="grp">C1</span> v 🇯🇵 Japan <span class="grp">F2</span></td><td class="venue-cell">Houston · NRG (roof)</td><td class="call"><span class="sc">2–1</span> Brazil</td><td class="wdw-mini">64 / 21 / 15</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></td></tr>
-        <tr><td class="match-cell">🇩🇪 Germany <span class="grp">E1</span> v 🇵🇾 Paraguay <span class="grp">3D</span></td><td class="venue-cell">Foxborough · Gillette</td><td class="call"><span class="sc">2–0</span> Germany</td><td class="wdw-mini">70 / 19 / 11</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></td></tr>
-        <tr><td class="match-cell">🇳🇱 Netherlands <span class="grp">F1</span> v 🇲🇦 Morocco <span class="grp">C2</span></td><td class="venue-cell">Monterrey</td><td class="call"><span class="sc">1–1</span> <span class="pen">→ MAR pens</span></td><td class="wdw-mini">42 / 30 / 28</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span></td></tr>
+        <tr><td class="match-cell">🇧🇷 Brazil <span class="grp">C1</span> v 🇯🇵 Japan <span class="grp">F2</span></td><td class="venue-cell">Houston · NRG (roof)</td><td class="call"><div class="callstack"><span><span class="sc">2–1</span> Brazil</span><span class="res-line"><span class="result">FINAL</span><span class="sc">2–1</span> <span class="hit">✓</span></span></div></td><td class="wdw-mini">64 / 21 / 15</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></td></tr>
+        <tr><td class="match-cell">🇩🇪 Germany <span class="grp">E1</span> v 🇵🇾 Paraguay <span class="grp">3D</span></td><td class="venue-cell">Foxborough · Gillette</td><td class="call"><div class="callstack"><span><span class="sc">2–0</span> Germany</span><span class="res-line"><span class="result r-miss">FINAL</span><span class="sc">1–1</span> <span class="pen">PAR pens</span> <span class="miss">✗</span></span></div></td><td class="wdw-mini">70 / 19 / 11</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></td></tr>
+        <tr><td class="match-cell">🇳🇱 Netherlands <span class="grp">F1</span> v 🇲🇦 Morocco <span class="grp">C2</span></td><td class="venue-cell">Monterrey</td><td class="call"><div class="callstack"><span><span class="sc">1–1</span> <span class="pen">→ MAR pens</span></span><span class="res-line"><span class="result">FINAL</span><span class="sc">1–1</span> <span class="pen">MAR pens</span> <span class="hit">✓</span></span></div></td><td class="wdw-mini">42 / 30 / 28</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span></td></tr>
       </tbody>
     </table></div>
   </div>
@@ -202,9 +230,9 @@
     <div class="tablewrap"><table>
       <thead><tr><th>Match</th><th>Venue</th><th>Expert call</th><th>W / D / W</th><th>Conf.</th></tr></thead>
       <tbody>
-        <tr><td class="match-cell">🇨🇮 Ivory Coast <span class="grp">E2</span> v 🇳🇴 Norway <span class="grp">I2</span></td><td class="venue-cell">Arlington · AT&amp;T (roof)</td><td class="call"><span class="sc">0–1</span> Norway <span class="pen">→ ET</span></td><td class="wdw-mini">30 / 28 / 42</td><td><span class="dots"><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span></td></tr>
-        <tr><td class="match-cell">🇫🇷 France <span class="grp">I1</span> v 🇸🇪 Sweden <span class="grp">3F</span></td><td class="venue-cell">East Rutherford · MetLife</td><td class="call"><span class="sc">3–1</span> France</td><td class="wdw-mini">78 / 12 / 10</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i></span></td></tr>
-        <tr><td class="match-cell">🇲🇽 Mexico <span class="grp">A1</span> v 🇪🇨 Ecuador <span class="grp">3E</span></td><td class="venue-cell">Mexico City · Azteca ⛰</td><td class="call"><span class="sc">1–0</span> Mexico <span class="pen">→ ET</span></td><td class="wdw-mini">40 / 32 / 28</td><td><span class="dots"><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span></td></tr>
+        <tr><td class="match-cell">🇨🇮 Ivory Coast <span class="grp">E2</span> v 🇳🇴 Norway <span class="grp">I2</span></td><td class="venue-cell">Arlington · AT&amp;T (roof)</td><td class="call"><div class="callstack"><span><span class="sc">0–1</span> Norway <span class="pen">→ ET</span></span><span class="res-line"><span class="result r-near">FINAL</span><span class="sc">1–2</span> <span class="near">≈</span></span></div></td><td class="wdw-mini">30 / 28 / 42</td><td><span class="dots"><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span></td></tr>
+        <tr><td class="match-cell">🇫🇷 France <span class="grp">I1</span> v 🇸🇪 Sweden <span class="grp">3F</span></td><td class="venue-cell">East Rutherford · MetLife</td><td class="call"><div class="callstack"><span><span class="sc">3–1</span> France</span><span class="res-line"><span class="result r-near">FINAL</span><span class="sc">3–0</span> <span class="near">≈</span></span></div></td><td class="wdw-mini">78 / 12 / 10</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i></span></td></tr>
+        <tr><td class="match-cell">🇲🇽 Mexico <span class="grp">A1</span> v 🇪🇨 Ecuador <span class="grp">3E</span></td><td class="venue-cell">Mexico City · Azteca ⛰</td><td class="call"><div class="callstack"><span><span class="sc">1–0</span> Mexico <span class="pen">→ ET</span></span><span class="res-line"><span class="result r-near">FINAL</span><span class="sc">2–0</span> <span class="near">≈</span></span></div></td><td class="wdw-mini">40 / 32 / 28</td><td><span class="dots"><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span></td></tr>
       </tbody>
     </table></div>
   </div>
@@ -214,8 +242,8 @@
     <div class="tablewrap"><table>
       <thead><tr><th>Match</th><th>Venue</th><th>Expert call</th><th>W / D / W</th><th>Conf.</th></tr></thead>
       <tbody>
-        <tr><td class="match-cell">🏴 England <span class="grp">L1</span> v 🇨🇩 DR Congo <span class="grp">3K</span></td><td class="venue-cell">Atlanta (roof)</td><td class="call"><span class="sc">2–0</span> England</td><td class="wdw-mini">74 / 16 / 10</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></td></tr>
-        <tr><td class="match-cell">🇧🇪 Belgium <span class="grp">G1</span> v 🇸🇳 Senegal <span class="grp">3I</span></td><td class="venue-cell">Seattle · Lumen</td><td class="call"><span class="sc">2–1</span> Belgium</td><td class="wdw-mini">45 / 28 / 27</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span></td></tr>
+        <tr><td class="match-cell">🏴 England <span class="grp">L1</span> v 🇨🇩 DR Congo <span class="grp">3K</span></td><td class="venue-cell">Atlanta (roof)</td><td class="call"><div class="callstack"><span><span class="sc">2–0</span> England</span><span class="res-line"><span class="result r-near">FINAL</span><span class="sc">2–1</span> <span class="near">≈</span></span></div></td><td class="wdw-mini">74 / 16 / 10</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></td></tr>
+        <tr><td class="match-cell">🇧🇪 Belgium <span class="grp">G1</span> v 🇸🇳 Senegal <span class="grp">3I</span></td><td class="venue-cell">Seattle · Lumen</td><td class="call"><div class="callstack"><span><span class="sc">2–1</span> Belgium</span><span class="res-line"><span class="result r-miss">FINAL</span><span class="sc">2–2</span> <span class="pen">BEL 3–2 ET</span> <span class="miss">✗</span></span></div></td><td class="wdw-mini">45 / 28 / 27</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span></td></tr>
         <tr><td class="match-cell">🇺🇸 USA <span class="grp">D1</span> v 🇧🇦 Bosnia &amp; H. <span class="grp">3B</span></td><td class="venue-cell">Santa Clara · Levi's</td><td class="call"><span class="sc">2–1</span> USA</td><td class="wdw-mini">60 / 22 / 18</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></td></tr>
       </tbody>
     </table></div>
@@ -262,7 +290,7 @@
     <!-- 1 -->
     <div class="card">
       <div class="card-top">
-        <span class="tieno">TIE 01 · SoFi, Inglewood</span>
+        <span class="tieno"><span class="result">FINAL</span>TIE 01 · SoFi, Inglewood</span>
         <span class="when">Sun 28 Jun<br>R16: v NED/MAR winner</span>
       </div>
       <div class="teams"><span class="flag">🇿🇦</span> South Africa <span class="v">v</span> <span class="flag">🇨🇦</span> Canada</div>
@@ -280,6 +308,7 @@
         <div><div class="lab">Expert call</div><div class="score">1–0 CAN</div></div>
         <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span><div class="lvl">Medium</div></div>
       </div>
+      <div class="resultstrip s-hit"><span class="rl">Final</span><span class="rscore">Canada 1–0</span><span class="hit">✓ call hit</span></div>
       <div class="wdw">
         <div class="hdr"><span>RSA win</span><span>draw</span><span>CAN win</span></div>
         <div class="bars"><span class="w thin" style="width:24%">24</span><span class="d" style="width:30%">30</span><span class="l" style="width:46%">46</span></div>
@@ -295,8 +324,8 @@
     <!-- 2 -->
     <div class="card">
       <div class="card-top">
-        <span class="tieno">TIE 02 · NRG, Houston (roof)</span>
-        <span class="when">Mon 29 Jun<br>R16: v CIV/NOR winner</span>
+        <span class="tieno"><span class="result">FINAL</span>TIE 02 · NRG, Houston (roof)</span>
+        <span class="when">Mon 29 Jun<br>R16: v Norway 🇳🇴</span>
       </div>
       <div class="teams"><span class="flag">🇧🇷</span> Brazil <span class="v">v</span> <span class="flag">🇯🇵</span> Japan</div>
       <div>
@@ -313,6 +342,7 @@
         <div><div class="lab">Expert call</div><div class="score">2–1 BRA</div></div>
         <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span><div class="lvl">Med-High</div></div>
       </div>
+      <div class="resultstrip s-hit"><span class="rl">Final</span><span class="rscore">Brazil 2–1</span><span class="hit">✓ call hit</span></div>
       <div class="wdw">
         <div class="hdr"><span>BRA win</span><span>draw</span><span>JPN win</span></div>
         <div class="bars"><span class="w" style="width:64%">64</span><span class="d" style="width:21%">21</span><span class="l thin" style="width:15%">15</span></div>
@@ -328,7 +358,7 @@
     <!-- 3 -->
     <div class="card">
       <div class="card-top">
-        <span class="tieno">TIE 03 · Gillette, Foxborough</span>
+        <span class="tieno"><span class="result r-miss">FINAL</span>TIE 03 · Gillette, Foxborough</span>
         <span class="when">Mon 29 Jun<br>R16: v FRA/SWE winner</span>
       </div>
       <div class="teams"><span class="flag">🇩🇪</span> Germany <span class="v">v</span> <span class="flag">🇵🇾</span> Paraguay</div>
@@ -346,6 +376,7 @@
         <div><div class="lab">Expert call</div><div class="score">2–0 GER</div></div>
         <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span><div class="lvl">Med-High</div></div>
       </div>
+      <div class="resultstrip s-miss"><span class="rl">Final</span><span class="rscore">1–1 · Paraguay 4–3 pens</span><span class="miss">✗ call missed</span></div>
       <div class="wdw">
         <div class="hdr"><span>GER win</span><span>draw</span><span>PAR win</span></div>
         <div class="bars"><span class="w" style="width:70%">70</span><span class="d thin" style="width:19%">19</span><span class="l thin" style="width:11%">11</span></div>
@@ -361,8 +392,8 @@
     <!-- 4 -->
     <div class="card">
       <div class="card-top">
-        <span class="tieno">TIE 04 · Monterrey (evening)</span>
-        <span class="when">Mon 29 Jun<br>R16: v RSA/CAN winner</span>
+        <span class="tieno"><span class="result">FINAL</span>TIE 04 · Monterrey (evening)</span>
+        <span class="when">Mon 29 Jun<br>R16: v Canada 🇨🇦</span>
       </div>
       <div class="teams"><span class="flag">🇳🇱</span> Netherlands <span class="v">v</span> <span class="flag">🇲🇦</span> Morocco</div>
       <div>
@@ -379,6 +410,7 @@
         <div><div class="lab">Expert call</div><div class="score">1–1</div><div class="note">→ Morocco on pens · NED 2–1 if forced</div></div>
         <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span><div class="lvl">Low-Med</div></div>
       </div>
+      <div class="resultstrip s-hit"><span class="rl">Final</span><span class="rscore">1–1 · Morocco win on pens</span><span class="hit">✓ full call hit</span></div>
       <div class="wdw">
         <div class="hdr"><span>NED win</span><span>draw</span><span>MAR win</span></div>
         <div class="bars"><span class="w" style="width:42%">42</span><span class="d" style="width:30%">30</span><span class="l" style="width:28%">28</span></div>
@@ -394,8 +426,8 @@
     <!-- 5 -->
     <div class="card">
       <div class="card-top">
-        <span class="tieno">TIE 05 · AT&amp;T, Arlington (roof)</span>
-        <span class="when">Tue 30 Jun<br>R16: v BRA/JPN winner</span>
+        <span class="tieno"><span class="result r-near">FINAL</span>TIE 05 · AT&amp;T, Arlington (roof)</span>
+        <span class="when">Tue 30 Jun<br>R16: v Brazil 🇧🇷</span>
       </div>
       <div class="teams"><span class="flag">🇨🇮</span> Ivory Coast <span class="v">v</span> <span class="flag">🇳🇴</span> Norway</div>
       <div>
@@ -412,6 +444,7 @@
         <div><div class="lab">Expert call</div><div class="score">0–1 NOR</div><div class="note">→ extra time if level</div></div>
         <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span><div class="lvl">Low</div></div>
       </div>
+      <div class="resultstrip s-near"><span class="rl">Final</span><span class="rscore">Ivory Coast 1–2 Norway</span><span class="near">≈ right side, score off</span></div>
       <div class="wdw">
         <div class="hdr"><span>CIV win</span><span>draw</span><span>NOR win</span></div>
         <div class="bars"><span class="w" style="width:30%">30</span><span class="d" style="width:28%">28</span><span class="l" style="width:42%">42</span></div>
@@ -427,8 +460,8 @@
     <!-- 6 -->
     <div class="card">
       <div class="card-top">
-        <span class="tieno">TIE 06 · MetLife, E. Rutherford</span>
-        <span class="when">Tue 30 Jun<br>R16: v GER/PAR winner</span>
+        <span class="tieno"><span class="result r-near">FINAL</span>TIE 06 · MetLife, E. Rutherford</span>
+        <span class="when">Tue 30 Jun<br>R16: v Paraguay 🇵🇾</span>
       </div>
       <div class="teams"><span class="flag">🇫🇷</span> France <span class="v">v</span> <span class="flag">🇸🇪</span> Sweden</div>
       <div>
@@ -445,6 +478,7 @@
         <div><div class="lab">Expert call</div><div class="score">3–1 FRA</div></div>
         <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i></span><div class="lvl">High</div></div>
       </div>
+      <div class="resultstrip s-near"><span class="rl">Final</span><span class="rscore">France 3–0 Sweden</span><span class="near">≈ right side, score off</span></div>
       <div class="wdw">
         <div class="hdr"><span>FRA win</span><span>draw</span><span>SWE win</span></div>
         <div class="bars"><span class="w" style="width:78%">78</span><span class="d thin" style="width:12%">12</span><span class="l thin" style="width:10%">10</span></div>
@@ -460,8 +494,8 @@
     <!-- 7 -->
     <div class="card">
       <div class="card-top">
-        <span class="tieno">TIE 07 · Azteca, Mexico City ⛰</span>
-        <span class="when">Tue 30 Jun<br>R16: v ENG/COD winner</span>
+        <span class="tieno"><span class="result r-near">FINAL</span>TIE 07 · Azteca, Mexico City ⛰</span>
+        <span class="when">Tue 30 Jun<br>R16: v England 🏴</span>
       </div>
       <div class="teams"><span class="flag">🇲🇽</span> Mexico <span class="v">v</span> <span class="flag">🇪🇨</span> Ecuador</div>
       <div>
@@ -478,6 +512,7 @@
         <div><div class="lab">Expert call</div><div class="score">1–0 MEX</div><div class="note">→ extra time if level</div></div>
         <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span><div class="lvl">Low</div></div>
       </div>
+      <div class="resultstrip s-near"><span class="rl">Final</span><span class="rscore">Mexico 2–0 Ecuador</span><span class="near">≈ right side, score off</span></div>
       <div class="wdw">
         <div class="hdr"><span>MEX win</span><span>draw</span><span>ECU win</span></div>
         <div class="bars"><span class="w" style="width:40%">40</span><span class="d" style="width:32%">32</span><span class="l" style="width:28%">28</span></div>
@@ -493,8 +528,8 @@
     <!-- 8 -->
     <div class="card">
       <div class="card-top">
-        <span class="tieno">TIE 08 · Atlanta (roof)</span>
-        <span class="when">Wed 1 Jul<br>R16: v MEX/ECU winner</span>
+        <span class="tieno"><span class="result r-near">FINAL</span>TIE 08 · Atlanta (roof)</span>
+        <span class="when">Wed 1 Jul<br>R16: v Mexico 🇲🇽</span>
       </div>
       <div class="teams"><span class="flag">🏴</span> England <span class="v">v</span> <span class="flag">🇨🇩</span> DR Congo</div>
       <div>
@@ -511,6 +546,7 @@
         <div><div class="lab">Expert call</div><div class="score">2–0 ENG</div></div>
         <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span><div class="lvl">Med-High</div></div>
       </div>
+      <div class="resultstrip s-near"><span class="rl">Final</span><span class="rscore">England 2–1 DR Congo</span><span class="near">≈ right side, score off</span></div>
       <div class="wdw">
         <div class="hdr"><span>ENG win</span><span>draw</span><span>COD win</span></div>
         <div class="bars"><span class="w" style="width:74%">74</span><span class="d thin" style="width:16%">16</span><span class="l thin" style="width:10%">10</span></div>
@@ -526,7 +562,7 @@
     <!-- 9 -->
     <div class="card">
       <div class="card-top">
-        <span class="tieno">TIE 09 · Lumen, Seattle</span>
+        <span class="tieno"><span class="result r-miss">FINAL</span>TIE 09 · Lumen, Seattle</span>
         <span class="when">Wed 1 Jul<br>R16: v USA/BIH winner</span>
       </div>
       <div class="teams"><span class="flag">🇧🇪</span> Belgium <span class="v">v</span> <span class="flag">🇸🇳</span> Senegal</div>
@@ -544,6 +580,7 @@
         <div><div class="lab">Expert call</div><div class="score">2–1 BEL</div><div class="note">→ could reach ET</div></div>
         <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span><div class="lvl">Low-Med</div></div>
       </div>
+      <div class="resultstrip s-miss"><span class="rl">Final</span><span class="rscore">2–2 at 90' · Belgium 3–2 in ET</span><span class="miss">✗ 90-min call missed</span></div>
       <div class="wdw">
         <div class="hdr"><span>BEL win</span><span>draw</span><span>SEN win</span></div>
         <div class="bars"><span class="w" style="width:45%">45</span><span class="d" style="width:28%">28</span><span class="l" style="width:27%">27</span></div>
@@ -560,7 +597,7 @@
     <div class="card">
       <div class="card-top">
         <span class="tieno">TIE 10 · Levi's, Santa Clara</span>
-        <span class="when">Wed 1 Jul<br>R16: v BEL/SEN winner</span>
+        <span class="when">Wed 1 Jul<br>R16: v Belgium 🇧🇪</span>
       </div>
       <div class="teams"><span class="flag">🇺🇸</span> USA <span class="v">v</span> <span class="flag">🇧🇦</span> Bosnia &amp; H.</div>
       <div>
