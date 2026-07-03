@@ -48,14 +48,16 @@ Tracking my pool entries vs. actual results.
 |------|-------|---------|--------|-------:|
 | 1 Jul | USA–Bosnia | 2–0 | 2–0 | **25** |
 | 2 Jul | Spain–Austria | 2–0 | 3–0 | **7** |
-| 2 Jul | Portugal–Croatia | 2–1 | — | — |
+| 2 Jul | Portugal–Croatia | 2–1 | 2–1 | **25** |
 | 2 Jul | Switzerland–Algeria | 2–1 | — | — |
 
 - **USA 2–0 (exact, +25):** the live pre-match update (confirmed full-strength USA XI + Bosnia's back five + BTTS-No lean) moved the call from the dossier's 2–1 to 2–0 — the dossier pick would have scored only **7** (outcome +4, USA's 2 goals +3). Lesson banked: **confirmed-lineup intel an hour out is worth the top-up** — it changed the mode, not just the probabilities (contrast the Colombia–Portugal note above, where a *speculative* lineup read nearly cost points; the difference is confirmed vs guessed).
 - Balogun 45' (set piece), Tillman 82' (deflected free kick). Bosnia's set-piece threat never cashed; USA face Belgium in Seattle, 6 Jul.
 - **Spain 2–0 vs 3–0 → +7:** outcome (+4) + Austria's zero (+3); the third goal (Porro 66') cost the goal-diff bonus. Right script — press punished, shutout held (Oyarzabal ×2, Porro; 3–0 was flagged in the tail at ~9%). "Win to nil" was the sharper frame than any exact margin. Spain meet the POR/CRO winner in the R16.
 
-**R32 running total: 32 points / 2 games.**
+- **Portugal 2–1 (exact, +25):** the market-lean rule paid — the dossier's 1–1 was abandoned once the books broke the 50/50 (POR ~55%), and the "late Portugal goal via the bench" scenario was literally the winner (Ramos 90+4', off a Leão cross, both subs). Perišić 53', Ronaldo pen 68'; Croatia's stoppage-time leveller was disallowed by VAR. Portugal meet Spain in the R16 (6 Jul).
+
+**R32 running total: 57 points / 3 games (avg 19.0) — two exacts.**
 
 ## Points breakdown of the odd ones
 - **Germany 3–0 vs 7–1 → +4:** outcome only. Blowouts pay little unless you nail the inflated exact.
