@@ -14,14 +14,11 @@ Tracking my pool entries vs. actual results.
 | 15 Jun | Netherlands–Japan | 2–1 | 2–2 | **3** |
 | 15 Jun | Ivory Coast–Ecuador | 0–1 | 1–0 | **3** |
 | 15 Jun | Sweden–Tunisia | 1–0 | 5–1 | **4** |
+| 15 Jun | Spain–Cape Verde | 2–0 | 0–0 | **3** |
 
-**Running total: 48 points** (7 games · avg 6.9/game)
+**Running total: 51 points** (8 games · avg 6.4/game)
 
-## Pending
-
-| Date | Match | My pick | Result | Points |
-|------|-------|---------|--------|-------:|
-| 15 Jun | Spain–Cape Verde | 2–0 | — | — |
+- **Spain–Cape Verde 2–0 vs 0–0 → +3:** Cape Verde's zero matched (+3), nothing else — the shock scoreless draw of the group stage. (Settled 4 Jul from final records.)
 
 ## Matchday 3 — 27 Jun (Groups J / K / L)
 
@@ -51,7 +48,7 @@ Tracking my pool entries vs. actual results.
 | 2 Jul | Portugal–Croatia | 2–1 | 2–1 | **25** |
 | 2 Jul | Switzerland–Algeria | 2–1 | 2–0 | **7** |
 | 3 Jul | Australia–Egypt | 0–1 | 1–1 (ET) | **3** |
-| 3 Jul | Argentina–Cape Verde | 2–0 | — | — |
+| 3 Jul | Argentina–Cape Verde | 2–0 | 1–1 (ET, 3–2 aet) | **2** |
 | 3 Jul | Colombia–Ghana | 2–0 | 1–0 | **7** |
 
 - **USA 2–0 (exact, +25):** the live pre-match update (confirmed full-strength USA XI + Bosnia's back five + BTTS-No lean) moved the call from the dossier's 2–1 to 2–0 — the dossier pick would have scored only **7** (outcome +4, USA's 2 goals +3). Lesson banked: **confirmed-lineup intel an hour out is worth the top-up** — it changed the mode, not just the probabilities (contrast the Colombia–Portugal note above, where a *speculative* lineup read nearly cost points; the difference is confirmed vs guessed).
@@ -65,7 +62,22 @@ Tracking my pool entries vs. actual results.
 
 - **Colombia 2–0 vs 1–0 → +7:** outcome (+4) + Ghana's zero (+3); the second goal never came, so the goal-diff bonus (+6) was lost. The analysis itself listed **1–0 as the single most likely score (~16%)** but headlined 2–0 on the "clear favourite earns the margin" rule — against a low block that held England 0–0, the sharper frame was again **"win to nil"** with the extra goal as the fragile half (same shape as Spain–Austria and Australia–Egypt). A 1–0 headline would have scored **+25**. Lesson reinforced: **vs a bunker, headline the mode (1–0), not the margin** — the two-goal call needs the chasing-team script to actually materialize.
 
-**R32 running total: 74 points / 6 games (avg 12.3) — two exacts.**
+**R32 final total: 76 points / 7 games (avg 10.9) — two exacts.**
+
+- **Argentina–Cape Verde 2–0 vs 1–1 at 90' (3–2 aet) → +2:** total goals only (2=2). Argentina twice pegged back by the tournament debutant — the "clear favourite earns the margin" call missed the same way the Colombia and Egypt ties did. The pattern is now 4-for-4 this round: **vs an underdog that scores or bunkers, the favourite's second goal (or clean sheet) is the fragile half.**
+
+## Round of 16 — picks (dossier: 2026-07-04-r16-dossier.html)
+
+| Date | Match | My pick | Result | Points |
+|------|-------|---------|--------|-------:|
+| 4 Jul | Canada–Morocco | 0–1 | 0–3 | **7** |
+| 4 Jul | Paraguay–France | 0–2 | 0–1 | **7** |
+| 5 Jul | Brazil–Norway | 2–1 | — | — |
+| 5 Jul | Mexico–England | 1–1 (ENG pens) | — | — |
+| 6 Jul | Portugal–Spain | 1–2 | — | — |
+| 6 Jul | USA–Belgium | 1–1 (USA pens) | — | — |
+| 7 Jul | Argentina–Egypt | 2–1 | — | — |
+| 7 Jul | Switzerland–Colombia | 0–1 | — | — |
 
 ## Points breakdown of the odd ones
 - **Germany 3–0 vs 7–1 → +4:** outcome only. Blowouts pay little unless you nail the inflated exact.

@@ -82,9 +82,9 @@ several have roofs/A/C that reduce the effect.
 | Third-place play-off | 18 July |
 | Final | 19 July (New York/New Jersey Stadium) |
 
-**Current stage as of 2026-06-28:** The **group stage is complete**; the
-**Round of 32 is set and under way** (28 June – 3 July). Final group standings and
-the full knockout bracket are below.
+**Current stage as of 2026-07-04:** The **Round of 32 is complete** (all results
+below); the **Round of 16 runs 4–7 July**. Final group standings and the full
+knockout bracket are below.
 
 ## Final group standings (qualified teams)
 Top two from each group advance, plus the 8 best third-placed teams (marked *3rd ✓*).
@@ -109,38 +109,48 @@ Senegal (I), Algeria (J), DR Congo (K), Ghana (L). Notable casualty: **Uruguay**
 (3rd in H) missed the cut. Groups J/K/L standings are exact (tracked); the rest are
 from the verified knockout bracket.
 
-## Round of 32 bracket (28 Jun – 3 Jul)
+## Round of 32 — results (28 Jun – 3 Jul)
+
+_Verified 2026-07-04 vs Wikipedia knockout-stage page + press reports._
+
+| # | Tie | Result | Notes |
+|---|-----|--------|-------|
+| 1 | South Africa v Canada | **0–1** | Eustáquio 90+'; Canada's first WC KO win |
+| 2 | Brazil v Japan | **2–1** | Martinelli 90+5' winner |
+| 3 | Germany v Paraguay | **1–1 · PAR 4–3 pens** | UPSET — Enciso; GK Gill shootout hero |
+| 4 | Netherlands v Morocco | **1–1 · MAR 3–2 pens** | UPSET — Diop 90+'; Bounou decisive save |
+| 5 | Ivory Coast v Norway | **1–2** | Haaland 86' winner |
+| 6 | France v Sweden | **3–0** | Mbappé brace |
+| 7 | Mexico v Ecuador | **2–0** | Quiñones, R. Jiménez; storm delay ~1h |
+| 8 | England v DR Congo | **2–1** | Kane ×2 in final 15', from behind |
+| 9 | Belgium v Senegal | **3–2 aet** | From 0–2 down at 86'; Tielemans pen 124' |
+| 10 | USA v Bosnia | **2–0** | Balogun (sent off 64' — banned for R16), Tillman |
+| 11 | Spain v Austria | **3–0** | Oyarzabal ×2, Porro |
+| 12 | Portugal v Croatia | **2–1** | Ronaldo pen, Ramos 90+4' |
+| 13 | Switzerland v Algeria | **2–0** | Embolo, Ndoye |
+| 14 | Australia v Egypt | **1–1 · EGY 4–2 pens** | Ashour 13'; Egypt's first KO win |
+| 15 | Argentina v Cape Verde | **3–2 aet** | Messi 29'; twice pegged back; OG 111' |
+| 16 | Colombia v Ghana | **1–0** | Arias 14' |
+
+## Round of 16 (4–7 Jul)
 
 | # | Tie | Date | Venue |
 |---|-----|------|-------|
-| 1 | South Africa (A2) v Canada (B2) | 28 Jun | Inglewood (SoFi) |
-| 2 | Brazil (C1) v Japan (F2) | 29 Jun | Houston (NRG) |
-| 3 | Germany (E1) v Paraguay (3D) | 29 Jun | Foxborough (Gillette) |
-| 4 | Netherlands (F1) v Morocco (C2) | 29 Jun | Monterrey |
-| 5 | Ivory Coast (E2) v Norway (I2) | 30 Jun | Arlington (AT&T) |
-| 6 | France (I1) v Sweden (3F) | 30 Jun | East Rutherford (MetLife) |
-| 7 | Mexico (A1) v Ecuador (3E) | 30 Jun | Mexico City (Azteca) |
-| 8 | England (L1) v DR Congo (3K) | 1 Jul | Atlanta |
-| 9 | Belgium (G1) v Senegal (3I) | 1 Jul | Seattle (Lumen) |
-| 10 | USA (D1) v Bosnia (3B) | 1 Jul | Santa Clara (Levi's) |
-| 11 | Spain (H1) v Austria (J2) | 2 Jul | Inglewood (SoFi) |
-| 12 | Portugal (K2) v Croatia (L2) | 2 Jul | Toronto (BMO) |
-| 13 | Switzerland (B1) v Algeria (3J) | 2 Jul | Vancouver (BC Place) |
-| 14 | Australia (D2) v Egypt (G2) | 3 Jul | Arlington (AT&T) |
-| 15 | Argentina (J1) v Cape Verde (H2) | 3 Jul | Miami (Hard Rock) |
-| 16 | Colombia (K1) v Ghana (3L) | 3 Jul | Kansas City (Arrowhead) |
+| 1 | Canada v Morocco — **0–3 FT** | Sat 4 Jul, 12:00 CT | Houston (NRG, roof) |
+| 2 | Paraguay v France — **0–1 FT** (Mbappé pen) | Sat 4 Jul, 17:00 ET | Philadelphia (extreme heat warning) |
+| 3 | Brazil v Norway | Sun 5 Jul, 16:00 ET | East Rutherford (MetLife) |
+| 4 | Mexico v England | Sun 5 Jul, 18:00 local | Mexico City (Azteca ⛰) |
+| 5 | Portugal v Spain | Mon 6 Jul, 14:00 CT | Arlington (AT&T, roof) |
+| 6 | USA v Belgium | Mon 6 Jul, 17:00 PT | Seattle (Lumen) |
+| 7 | Argentina v Egypt | Tue 7 Jul, 12:00 ET | Atlanta (roof) |
+| 8 | Switzerland v Colombia | Tue 7 Jul, 13:00 PT | Vancouver (BC Place) |
 
-## Round of 16 pairings (winners meet)
-- W1 (RSA/CAN) v W4 (NED/MAR)
-- W2 (BRA/JPN) v W5 (CIV/NOR)
-- W3 (GER/PAR) v W6 (FRA/SWE)
-- W7 (MEX/ECU) v W8 (ENG/COD)
-- W9 (BEL/SEN) v W10 (USA/BIH)
-- W11 (ESP/AUT) v W12 (POR/CRO)
-- W13 (SUI/ALG) v W16 (COL/GHA)
-- W14 (AUS/EGY) v W15 (ARG/CPV)
+QF pairings follow bracket flow: W1vW2, W3vW4, W5vW6, W7vW8 (9–11 Jul).
+Semis: QF1w v QF2w · QF3w v QF4w (verified vs Wikipedia bracket 4 Jul).
+**QF1 confirmed: France v Morocco** (winners of ties 1 & 2).
 
-Predictions for all 16 R32 ties: see `predictions/2026-r32-knockouts.html`.
+Predictions: R32 → `predictions/2026-06-29-r32-dossier.html`; R16 →
+`predictions/2026-07-04-r16-dossier.html`.
 
 ---
 

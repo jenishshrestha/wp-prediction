@@ -1,0 +1,560 @@
+<title>World Cup 2026 — Round of 16 Predictions</title>
+<meta name="description" content="Exact-scoreline predictions for all 8 FIFA World Cup 2026 Round-of-16 ties, built from tournament form, SoFIFA ratings and live team news.">
+<style>
+  :root{
+    --bg:#0E1311; --surface:#161D1A; --surface-2:#1C2522; --line:#2A332F;
+    --ink:#EAF0EC; --muted:#93A29B; --muted-2:#6E7C76;
+    --gold:#E9B84A; --home:#46C07C; --away:#5BA8E6; --draw:#CC9450; --miss:#E0685A;
+    --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","Menlo","Cascadia Code",Consolas,monospace;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    line-height:1.55;-webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(1200px 500px at 80% -10%,rgba(70,192,124,.07),transparent 60%);}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:clamp(20px,4vw,52px) clamp(16px,4vw,40px) 80px;}
+  a{color:var(--gold);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* ---- header ---- */
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--gold);margin:0 0 14px}
+  h1{font-size:clamp(32px,6vw,60px);line-height:.98;margin:0;font-weight:800;
+    letter-spacing:-.02em;text-wrap:balance;}
+  h1 .sub{display:block;color:var(--muted);font-weight:600;font-size:clamp(15px,2.4vw,22px);
+    letter-spacing:0;margin-top:14px;max-width:62ch}
+  .meta-row{display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:22px}
+  .pill{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--muted);
+    background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:5px 11px;}
+  .pill b{color:var(--ink);font-weight:600}
+
+  .method{margin-top:26px;border-left:3px solid var(--gold);background:var(--surface);
+    padding:14px 18px;border-radius:0 8px 8px 0;color:var(--muted);font-size:13.5px;max-width:78ch}
+  .method b{color:var(--ink)}
+
+  /* ---- section heads ---- */
+  h2{font-size:clamp(20px,3vw,27px);margin:56px 0 4px;font-weight:800;letter-spacing:-.01em}
+  .lede{color:var(--muted);margin:0 0 22px;font-size:14px;max-width:74ch}
+
+  /* ---- summary tables ---- */
+  .daygroup{margin-top:30px}
+  .dayhdr{display:flex;align-items:baseline;gap:12px;margin:0 0 10px}
+  .dayhdr .d{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--gold)}
+  .dayhdr .n{font-size:12px;color:var(--muted-2)}
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+  table{border-collapse:collapse;width:100%;min-width:640px;font-size:13.5px}
+  thead th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted-2);font-weight:600;padding:11px 14px;
+    border-bottom:1px solid var(--line);white-space:nowrap}
+  tbody td{padding:11px 14px;border-bottom:1px solid rgba(42,51,47,.6);vertical-align:middle}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:var(--surface-2)}
+  .match-cell{font-weight:600;white-space:nowrap}
+  .grp{font-family:var(--mono);font-size:11px;color:var(--muted);background:var(--surface-2);
+    border:1px solid var(--line);border-radius:5px;padding:1px 6px;margin-left:2px}
+  .call{font-family:var(--mono);font-weight:700;color:var(--ink);white-space:nowrap}
+  .call .sc{color:var(--gold)}
+  .pen{font-family:var(--mono);font-size:11px;color:var(--draw);white-space:nowrap}
+  .result{font-family:var(--mono);font-size:10px;letter-spacing:.1em;background:var(--home);
+    color:#0E1311;border-radius:4px;padding:1px 6px;font-weight:700;margin-right:5px;vertical-align:middle}
+  .hit{color:var(--home);font-weight:700}
+  .result.r-miss{background:var(--miss)}
+  .result.r-near{background:var(--draw)}
+  .result.r-live{background:var(--gold)}
+  .resultstrip.s-live{border-left-color:var(--gold)}
+  .miss{color:var(--miss);font-weight:700}
+  .near{color:var(--draw);font-weight:700}
+  .callstack{display:flex;flex-direction:column;gap:3px;line-height:1.35}
+  .callstack .res-line{font-size:11px;color:var(--muted)}
+  .resultstrip{display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-family:var(--mono);
+    font-size:12px;border-left:3px solid var(--muted);background:var(--surface-2);
+    border-radius:0 8px 8px 0;padding:8px 12px;color:var(--ink);font-variant-numeric:tabular-nums}
+  .resultstrip.s-hit{border-left-color:var(--home)}
+  .resultstrip.s-miss{border-left-color:var(--miss)}
+  .resultstrip.s-near{border-left-color:var(--draw)}
+  .resultstrip .rl{font-size:10px;letter-spacing:.1em;color:var(--muted-2);text-transform:uppercase}
+  .resultstrip .rscore{font-weight:700}
+  .wdw-mini{font-family:var(--mono);font-size:11.5px;color:var(--muted);white-space:nowrap;
+    font-variant-numeric:tabular-nums}
+  .venue-cell{color:var(--muted);font-size:12.5px;white-space:nowrap}
+
+  /* confidence dots */
+  .dots{display:inline-flex;gap:3px;vertical-align:middle}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--line)}
+  .dot.on{background:var(--gold)}
+
+  /* ---- card grid ---- */
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:26px}
+  @media(max-width:840px){.cards{grid-template-columns:1fr}}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;
+    display:flex;flex-direction:column;gap:14px}
+  .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+  .tieno{font-family:var(--mono);font-size:11px;color:var(--muted-2);letter-spacing:.1em}
+  .when{font-family:var(--mono);font-size:11px;color:var(--muted);text-align:right;line-height:1.4}
+  .teams{font-size:19px;font-weight:800;letter-spacing:-.01em;line-height:1.15}
+  .teams .v{color:var(--muted-2);font-weight:600;font-size:14px;margin:0 6px}
+  .flag{font-size:18px}
+
+  /* strength bar */
+  .bar-label{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;
+    letter-spacing:.06em;text-transform:uppercase;color:var(--muted-2);margin-bottom:5px}
+  .sbar{display:flex;height:9px;border-radius:5px;overflow:hidden;background:var(--surface-2)}
+  .sbar .h{background:var(--home)}
+  .sbar .a{background:var(--away)}
+  .ovr-row{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;
+    color:var(--muted);margin-top:5px;font-variant-numeric:tabular-nums}
+  .ovr-row .hn{color:var(--home)} .ovr-row .an{color:var(--away)}
+
+  .statline{font-family:var(--mono);font-size:11.5px;color:var(--muted);
+    font-variant-numeric:tabular-nums;border-top:1px solid var(--line);padding-top:11px}
+  .statline .k{color:var(--muted-2)}
+  .statline .row{display:flex;justify-content:space-between;gap:10px;padding:1.5px 0}
+
+  .scenario{font-size:13px;color:#CBD5CF;margin:0}
+  .scenario b{color:var(--ink)}
+
+  /* expert call block */
+  .callbox{display:flex;align-items:center;justify-content:space-between;gap:12px;
+    background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+  .callbox .lab{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--muted-2);margin-bottom:3px}
+  .callbox .score{font-family:var(--mono);font-size:23px;font-weight:800;color:var(--gold);
+    letter-spacing:.02em;line-height:1}
+  .callbox .note{font-family:var(--mono);font-size:10.5px;color:var(--draw);margin-top:4px}
+  .conf{text-align:right}
+  .conf .lab{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--muted-2);margin-bottom:5px}
+  .conf .lvl{font-size:11.5px;color:var(--muted);margin-top:4px;font-family:var(--mono)}
+
+  /* wdw bar */
+  .wdw{margin-top:2px}
+  .wdw .hdr{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--muted-2);margin-bottom:5px}
+  .wdw .bars{display:flex;height:22px;border-radius:6px;overflow:hidden;font-family:var(--mono);
+    font-size:11px;font-weight:700;font-variant-numeric:tabular-nums}
+  .wdw .bars span{display:flex;align-items:center;justify-content:center;color:#0E1311;min-width:0}
+  .wdw .w{background:var(--home)} .wdw .d{background:var(--draw)} .wdw .l{background:var(--away)}
+  .wdw .bars span.thin{font-size:0}
+
+  /* 3 most likely strip */
+  .ml{display:flex;flex-direction:column;gap:6px}
+  .ml .lab{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-2)}
+  .ml .chips{display:flex;gap:7px;flex-wrap:wrap}
+  .chip{font-family:var(--mono);font-size:12px;background:var(--surface-2);border:1px solid var(--line);
+    border-radius:7px;padding:5px 9px;color:var(--ink);font-variant-numeric:tabular-nums}
+  .chip b{color:var(--gold);font-weight:700}
+  .chip .p{color:var(--muted)}
+
+  .path{font-family:var(--mono);font-size:11px;color:var(--muted-2);border-top:1px solid var(--line);
+    padding-top:10px}
+  .path b{color:var(--muted)}
+  .uncert{font-size:12px;color:var(--muted)}
+  .uncert b{color:var(--draw);font-weight:600}
+
+  /* legend */
+  .legend{display:flex;flex-wrap:wrap;gap:14px;font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:14px}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .sw{width:11px;height:11px;border-radius:3px;display:inline-block}
+
+  /* notes sections */
+  .notes{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}
+  @media(max-width:840px){.notes{grid-template-columns:1fr}}
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 22px}
+  .panel h3{margin:0 0 12px;font-size:15px;font-weight:800}
+  .panel ul{margin:0;padding-left:18px;color:#C4CFC9;font-size:13px}
+  .panel li{margin-bottom:9px}
+  .panel li b{color:var(--ink)}
+  .panel.warn{border-color:rgba(204,148,80,.4)}
+  .panel.warn h3{color:var(--draw)}
+
+  footer{margin-top:48px;border-top:1px solid var(--line);padding-top:18px;color:var(--muted-2);
+    font-size:12px;font-family:var(--mono);line-height:1.7}
+</style>
+
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow">FIFA World Cup 2026 · Knockout Dossier</p>
+    <h1>Round of 16 — Exact-Scoreline Predictions
+      <span class="sub">All 8 ties, called fresh from four rounds of tournament form, SoFIFA squad strength and live team news. 4 – 7 July.</span>
+    </h1>
+    <div class="meta-row">
+      <span class="pill">Snapshot <b>4 Jul 2026</b></span>
+      <span class="pill">SoFIFA FC26 <b>24 Jun</b></span>
+      <span class="pill">FIFA ranking <b>11 Jun</b></span>
+      <span class="pill">Odds <b>2–4 Jul open/mid lines</b></span>
+      <span class="pill">Method <b>judgment, not formula</b></span>
+    </div>
+    <p class="method"><b>How these are made.</b> Ratings + actual tournament goals-for/against (four games each, minnow routs discounted) + live news → expected goals by feel → scoreline. The <b>expert call</b> is the single most representative result; the <b>"3 most likely"</b> and <b>W/D/W</b> are calibrated estimates, not computed model output. Level ties carry the extra-time/penalties branch in the headline. R32 lessons applied: vs a genuine low block, headline the mode not the margin; once the market breaks a 50/50, follow the lean; confirmed-lineup news moves the mode, speculative reads only nudge it.</p>
+  </header>
+
+  <!-- ===================== SUMMARY ===================== -->
+  <h2>The slate at a glance</h2>
+  <p class="lede">Eight ties across four days. Headline = the 90-minute call; level ties flagged for extra time / penalties.</p>
+
+  <div class="daygroup">
+    <div class="dayhdr"><span class="d">Sat 4 Jul</span><span class="n">2 ties</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Match</th><th>Venue</th><th>Expert call</th><th>W / D / W</th><th>Conf.</th></tr></thead>
+      <tbody>
+        <tr><td class="match-cell">🇨🇦 Canada <span class="grp">B2</span> v 🇲🇦 Morocco <span class="grp">C2</span></td><td class="venue-cell">Houston · NRG (roof)</td><td class="call"><div class="callstack"><span><span class="sc">0–1</span> Morocco</span><span class="res-line"><span class="result r-near">FINAL</span><span class="sc">0–3</span> <span class="near">≈</span></span></div></td><td class="wdw-mini">24 / 28 / 48</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span></td></tr>
+        <tr><td class="match-cell">🇵🇾 Paraguay <span class="grp">3D</span> v 🇫🇷 France <span class="grp">I1</span></td><td class="venue-cell">Philadelphia · Lincoln 🔥</td><td class="call"><div class="callstack"><span><span class="sc">0–2</span> France</span><span class="res-line"><span class="result r-near">FINAL</span><span class="sc">0–1</span> <span class="near">≈</span></span></div></td><td class="wdw-mini">8 / 14 / 78</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="daygroup">
+    <div class="dayhdr"><span class="d">Sun 5 Jul</span><span class="n">2 ties</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Match</th><th>Venue</th><th>Expert call</th><th>W / D / W</th><th>Conf.</th></tr></thead>
+      <tbody>
+        <tr><td class="match-cell">🇧🇷 Brazil <span class="grp">C1</span> v 🇳🇴 Norway <span class="grp">I2</span></td><td class="venue-cell">E. Rutherford · MetLife 🔥</td><td class="call"><span class="sc">2–1</span> Brazil</td><td class="wdw-mini">54 / 25 / 21</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span></td></tr>
+        <tr><td class="match-cell">🇲🇽 Mexico <span class="grp">A1</span> v 🏴 England <span class="grp">L1</span></td><td class="venue-cell">Mexico City · Azteca ⛰</td><td class="call"><span class="sc">1–1</span> <span class="pen">→ ENG pens</span></td><td class="wdw-mini">33 / 31 / 36</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="daygroup">
+    <div class="dayhdr"><span class="d">Mon 6 Jul</span><span class="n">2 ties</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Match</th><th>Venue</th><th>Expert call</th><th>W / D / W</th><th>Conf.</th></tr></thead>
+      <tbody>
+        <tr><td class="match-cell">🇵🇹 Portugal <span class="grp">K2</span> v 🇪🇸 Spain <span class="grp">H1</span></td><td class="venue-cell">Arlington · AT&amp;T (roof)</td><td class="call"><span class="sc">1–2</span> Spain</td><td class="wdw-mini">25 / 26 / 49</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span></td></tr>
+        <tr><td class="match-cell">🇺🇸 USA <span class="grp">D1</span> v 🇧🇪 Belgium <span class="grp">G1</span></td><td class="venue-cell">Seattle · Lumen</td><td class="call"><span class="sc">1–1</span> <span class="pen">→ USA pens</span></td><td class="wdw-mini">35 / 29 / 36</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="daygroup">
+    <div class="dayhdr"><span class="d">Tue 7 Jul</span><span class="n">2 ties</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Match</th><th>Venue</th><th>Expert call</th><th>W / D / W</th><th>Conf.</th></tr></thead>
+      <tbody>
+        <tr><td class="match-cell">🇦🇷 Argentina <span class="grp">J1</span> v 🇪🇬 Egypt <span class="grp">G2</span></td><td class="venue-cell">Atlanta (roof)</td><td class="call"><span class="sc">2–1</span> Argentina</td><td class="wdw-mini">72 / 18 / 10</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></td></tr>
+        <tr><td class="match-cell">🇨🇭 Switzerland <span class="grp">B1</span> v 🇨🇴 Colombia <span class="grp">K1</span></td><td class="venue-cell">Vancouver · BC Place</td><td class="call"><span class="sc">0–1</span> Colombia</td><td class="wdw-mini">28 / 31 / 41</td><td><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="legend">
+    <span><i class="sw" style="background:var(--home)"></i> first-named win</span>
+    <span><i class="sw" style="background:var(--draw)"></i> draw (90 min)</span>
+    <span><i class="sw" style="background:var(--away)"></i> second-named win</span>
+    <span><i class="dot on" style="position:relative;top:1px"></i> = confidence (1–5)</span>
+    <span style="color:var(--draw)">→ ET / pens = level tie</span>
+    <span>🔥 = extreme-heat venue &nbsp; ⛰ = altitude</span>
+  </div>
+
+  <!-- ===================== CARDS ===================== -->
+  <h2>The 8 ties in full</h2>
+  <p class="lede">Squad-strength bar is SoFIFA-weighted share; W/D/W and the score chips are judgment estimates. Form line = full-tournament goals for–against (4 games). Bracket path shows the quarter-final prize.</p>
+
+  <div class="cards">
+
+    <!-- 1 -->
+    <div class="card">
+      <div class="card-top">
+        <span class="tieno"><span class="result r-near">FINAL</span>TIE 01 · NRG, Houston (roof)</span>
+        <span class="when">Sat 4 Jul · 12:00 CT<br>QF: v PAR/FRA winner</span>
+      </div>
+      <div class="teams"><span class="flag">🇨🇦</span> Canada <span class="v">v</span> <span class="flag">🇲🇦</span> Morocco</div>
+      <div>
+        <div class="bar-label"><span>Canada</span><span>Morocco</span></div>
+        <div class="sbar"><span class="h" style="width:44%"></span><span class="a" style="width:56%"></span></div>
+        <div class="ovr-row"><span class="hn">OVR 75</span><span>squad strength</span><span class="an">OVR 79</span></div>
+      </div>
+      <div class="statline">
+        <div class="row"><span class="k">Tournament</span><span>CAN 9–3 (6–0 QAT inflates) | MAR 7–4, unbeaten</span></div>
+        <div class="row"><span class="k">Key men</span><span>J. David (3g), Eustáquio · Saibari (3g), Hakimi</span></div>
+      </div>
+      <p class="scenario">Morocco are the better, deeper side and unbeaten all tournament — but they went <b>120 minutes in Monterrey heat</b> five days ago while Canada played a controlled 90 and have six days' rest. Marsch is openly planning to run them; <b>Davies is a game-time call</b> (bench likely). Canada's 9 goals lean on a 6–0 over Qatar; against Bounou behind a settled block, chances will be scarce. Morocco's control (Hakimi–Díaz right side, Saibari arriving late) should tell in a low-event game under the closed roof.</p>
+      <div class="callbox">
+        <div><div class="lab">Expert call</div><div class="score">0–1 MAR</div></div>
+        <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span><div class="lvl">Medium</div></div>
+      </div>
+      <div class="resultstrip s-near"><span class="rl">Final</span><span class="rscore">Morocco 3–0</span><span class="near">≈ outcome hit, margin missed</span></div>
+      <div class="wdw">
+        <div class="hdr"><span>CAN win</span><span>draw</span><span>MAR win</span></div>
+        <div class="bars"><span class="w" style="width:24%">24</span><span class="d" style="width:28%">28</span><span class="l" style="width:48%">48</span></div>
+      </div>
+      <div class="ml"><span class="lab">3 most likely</span><div class="chips">
+        <span class="chip"><b>0–1</b> MAR <span class="p">14%</span></span>
+        <span class="chip"><b>1–1</b> <span class="p">12%</span></span>
+        <span class="chip"><b>1–2</b> MAR <span class="p">11%</span></span>
+      </div></div>
+      <p class="uncert"><b>Watch:</b> Canada's freshness edge after 70' — if it's level late, the ET legs are all theirs.</p>
+    </div>
+
+    <!-- 2 -->
+    <div class="card">
+      <div class="card-top">
+        <span class="tieno"><span class="result r-near">FINAL</span>TIE 02 · Lincoln Financial, Philadelphia</span>
+        <span class="when">Sat 4 Jul · 17:00 ET<br>QF: v CAN/MAR winner</span>
+      </div>
+      <div class="teams"><span class="flag">🇵🇾</span> Paraguay <span class="v">v</span> <span class="flag">🇫🇷</span> France</div>
+      <div>
+        <div class="bar-label"><span>Paraguay</span><span>France</span></div>
+        <div class="sbar"><span class="h" style="width:31%"></span><span class="a" style="width:69%"></span></div>
+        <div class="ovr-row"><span class="hn">OVR 75</span><span>squad strength</span><span class="an">OVR 86</span></div>
+      </div>
+      <div class="statline">
+        <div class="row"><span class="k">Tournament</span><span>PAR 3–5, 120' vs GER | FRA 13–2, all wins</span></div>
+        <div class="row"><span class="k">Key men</span><span>Enciso (doubt), Gill (GK) · Mbappé (4g), Dembélé</span></div>
+      </div>
+      <p class="scenario">The deepest block left in the field against the deepest attack in the world — in a <b>100°F+ heat-index furnace</b> (open-air, Extreme Heat Warning). Paraguay have 3 goals in 4 games, lose CB <b>Alderete</b>, and Enciso is hobbled after their 120-minute Germany epic. France are near full strength, already won 3–0 at this stadium, and <b>Mbappé is 18-in-18</b> at World Cups. The heat and the bunker cap the scoreline — the Germany trap (they needed pens) says respect the grind — but France's bench (Doué/Barcola/Coman tier) breaks sieges Germany couldn't.</p>
+      <div class="callbox">
+        <div><div class="lab">Expert call</div><div class="score">0–2 FRA</div></div>
+        <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span><div class="lvl">High</div></div>
+      </div>
+      <div class="resultstrip s-near"><span class="rl">Final</span><span class="rscore">France 1–0</span><span class="near">≈ outcome hit</span><span>0–0 HT · Doué (sub) won the pen, Mbappé converted — the "bench breaks the siege" script, but the block never opened for a second</span></div>
+      <div class="wdw">
+        <div class="hdr"><span>PAR win</span><span>draw</span><span>FRA win</span></div>
+        <div class="bars"><span class="w thin" style="width:8%">8</span><span class="d thin" style="width:14%">14</span><span class="l" style="width:78%">78</span></div>
+      </div>
+      <div class="ml"><span class="lab">3 most likely</span><div class="chips">
+        <span class="chip"><b>0–2</b> FRA <span class="p">17%</span></span>
+        <span class="chip"><b>0–1</b> FRA <span class="p">14%</span></span>
+        <span class="chip"><b>0–3</b> FRA <span class="p">11%</span></span>
+      </div></div>
+      <p class="uncert"><b>Watch:</b> a heat-slowed 0–0 at 70' with Gill inspired — Paraguay have already dragged one giant to pens.</p>
+    </div>
+
+    <!-- 3 -->
+    <div class="card">
+      <div class="card-top">
+        <span class="tieno">TIE 03 · MetLife, E. Rutherford</span>
+        <span class="when">Sun 5 Jul · 16:00 ET<br>QF: v MEX/ENG winner</span>
+      </div>
+      <div class="teams"><span class="flag">🇧🇷</span> Brazil <span class="v">v</span> <span class="flag">🇳🇴</span> Norway</div>
+      <div>
+        <div class="bar-label"><span>Brazil</span><span>Norway</span></div>
+        <div class="sbar"><span class="h" style="width:59%"></span><span class="a" style="width:41%"></span></div>
+        <div class="ovr-row"><span class="hn">OVR 84</span><span>squad strength</span><span class="an">OVR 79</span></div>
+      </div>
+      <div class="statline">
+        <div class="row"><span class="k">Tournament</span><span>BRA 9–2 | NOR 10–8 (8 conceded in 4)</span></div>
+        <div class="row"><span class="k">Key men</span><span>Vinícius (4g), Cunha (3g) · Haaland (5g), Ødegaard</span></div>
+      </div>
+      <p class="scenario"><b>Haaland has half of Norway's goals</b> and arrives fresh (rested v France by design), but Norway have conceded in every match — 8 in 4, the leakiest defence left. Brazil lose Paquetá and possibly Raphinha (game-time), yet Vinícius–Cunha–Rayan against Ajer/Heggem is still a mismatch, and Casemiro screens the Haaland channel. 97°F and a real thunderstorm risk at open-air MetLife adds chaos. Brazil have <b>never beaten Norway</b> (4 games) — a quirk, not a signal. Both score; Brazil's extra class decides it.</p>
+      <div class="callbox">
+        <div><div class="lab">Expert call</div><div class="score">2–1 BRA</div></div>
+        <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span><div class="lvl">Medium</div></div>
+      </div>
+      <div class="wdw">
+        <div class="hdr"><span>BRA win</span><span>draw</span><span>NOR win</span></div>
+        <div class="bars"><span class="w" style="width:54%">54</span><span class="d" style="width:25%">25</span><span class="l" style="width:21%">21</span></div>
+      </div>
+      <div class="ml"><span class="lab">3 most likely</span><div class="chips">
+        <span class="chip"><b>2–1</b> BRA <span class="p">14%</span></span>
+        <span class="chip"><b>2–0</b> BRA <span class="p">12%</span></span>
+        <span class="chip"><b>1–1</b> <span class="p">12%</span></span>
+      </div></div>
+      <p class="uncert"><b>Watch:</b> one Haaland half-chance is a goal — if Norway lead first, Brazil must chase in the heat.</p>
+    </div>
+
+    <!-- 4 -->
+    <div class="card">
+      <div class="card-top">
+        <span class="tieno">TIE 04 · Azteca, Mexico City ⛰</span>
+        <span class="when">Sun 5 Jul · 18:00 local<br>QF: v BRA/NOR winner</span>
+      </div>
+      <div class="teams"><span class="flag">🇲🇽</span> Mexico <span class="v">v</span> <span class="flag">🏴</span> England</div>
+      <div>
+        <div class="bar-label"><span>Mexico</span><span>England</span></div>
+        <div class="sbar"><span class="h" style="width:38%"></span><span class="a" style="width:62%"></span></div>
+        <div class="ovr-row"><span class="hn">OVR 76</span><span>squad strength</span><span class="an">OVR 84</span></div>
+      </div>
+      <div class="statline">
+        <div class="row"><span class="k">Tournament</span><span>MEX 8–0 (four clean sheets) | ENG 8–3</span></div>
+        <div class="row"><span class="k">Key men</span><span>Quiñones (3g), R. Jiménez · Kane (5g), Bellingham</span></div>
+      </div>
+      <p class="scenario">The tie of the round. Mexico haven't conceded all tournament, have <b>never lost a World Cup match at the Azteca</b> (10 games), and stay at 2,240 m where they live. England flew in <b>two days before kickoff</b> — Tuchel himself: "we cannot physically adapt… that is just a huge advantage for Mexico." England's group was laboured (0–0 Ghana, late escape v DR Congo) but Kane has 5 and their spine is simply better. Evening thunderstorms threaten a delay (the Ecuador tie here was halted an hour). Ratings say England; everything environmental says Mexico. That is a coin-flip with a knife-edge market — the draw is the honest headline.</p>
+      <div class="callbox">
+        <div><div class="lab">Expert call</div><div class="score">1–1</div><div class="note">→ England on pens</div></div>
+        <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span><div class="lvl">Low</div></div>
+      </div>
+      <div class="wdw">
+        <div class="hdr"><span>MEX win</span><span>draw</span><span>ENG win</span></div>
+        <div class="bars"><span class="w" style="width:33%">33</span><span class="d" style="width:31%">31</span><span class="l" style="width:36%">36</span></div>
+      </div>
+      <div class="ml"><span class="lab">3 most likely</span><div class="chips">
+        <span class="chip"><b>1–1</b> <span class="p">13%</span></span>
+        <span class="chip"><b>1–0</b> MEX <span class="p">11%</span></span>
+        <span class="chip"><b>1–2</b> ENG <span class="p">10%</span></span>
+      </div></div>
+      <p class="uncert"><b>Watch:</b> England's press after 60' at altitude — if their legs go, Mexico's 1–0 becomes the live branch. Bellingham is one booking from missing a QF.</p>
+    </div>
+
+    <!-- 5 -->
+    <div class="card">
+      <div class="card-top">
+        <span class="tieno">TIE 05 · AT&amp;T, Arlington (roof)</span>
+        <span class="when">Mon 6 Jul · 14:00 CT<br>QF: v USA/BEL winner</span>
+      </div>
+      <div class="teams"><span class="flag">🇵🇹</span> Portugal <span class="v">v</span> <span class="flag">🇪🇸</span> Spain</div>
+      <div>
+        <div class="bar-label"><span>Portugal</span><span>Spain</span></div>
+        <div class="sbar"><span class="h" style="width:48%"></span><span class="a" style="width:52%"></span></div>
+        <div class="ovr-row"><span class="hn">OVR 84</span><span>squad strength</span><span class="an">OVR 85</span></div>
+      </div>
+      <div class="statline">
+        <div class="row"><span class="k">Tournament</span><span>POR 8–2 | ESP 8–0 (five clean sheets)</span></div>
+        <div class="row"><span class="k">Key men</span><span>Ronaldo (3g), Bruno · Oyarzabal (4g), Yamal, Pedri</span></div>
+      </div>
+      <p class="scenario">The Iberian derby, one round early. Spain <b>haven't conceded a goal at this World Cup</b> and their midfield (Rodri–Pedri–Olmo) will hold the ball for an hour; Oyarzabal is the tournament's quiet star (4). But Portugal are the one opponent who keep dragging Spain level — <b>2–2 (pens win) in the 2025 Nations League final</b>, 3–3 in 2018 — with Ronaldo's set-piece/penalty gravity and a genuine counter through Neto/Leão. Nico Williams is 50/50 for Spain; identical four-day turnarounds, roof closed, no leveller. Spain's control edges a game with goals in it.</p>
+      <div class="callbox">
+        <div><div class="lab">Expert call</div><div class="score">1–2 ESP</div></div>
+        <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span><div class="lvl">Medium</div></div>
+      </div>
+      <div class="wdw">
+        <div class="hdr"><span>POR win</span><span>draw</span><span>ESP win</span></div>
+        <div class="bars"><span class="w" style="width:25%">25</span><span class="d" style="width:26%">26</span><span class="l" style="width:49%">49</span></div>
+      </div>
+      <div class="ml"><span class="lab">3 most likely</span><div class="chips">
+        <span class="chip"><b>0–1</b> ESP <span class="p">12%</span></span>
+        <span class="chip"><b>1–2</b> ESP <span class="p">11%</span></span>
+        <span class="chip"><b>1–1</b> <span class="p">11%</span></span>
+      </div></div>
+      <p class="uncert"><b>Watch:</b> level at 85' and it's Diogo Costa territory — Portugal have won this exact shootout before.</p>
+    </div>
+
+    <!-- 6 -->
+    <div class="card">
+      <div class="card-top">
+        <span class="tieno">TIE 06 · Lumen Field, Seattle</span>
+        <span class="when">Mon 6 Jul · 17:00 PT<br>QF: v POR/ESP winner</span>
+      </div>
+      <div class="teams"><span class="flag">🇺🇸</span> USA <span class="v">v</span> <span class="flag">🇧🇪</span> Belgium</div>
+      <div>
+        <div class="bar-label"><span>USA</span><span>Belgium</span></div>
+        <div class="sbar"><span class="h" style="width:44%"></span><span class="a" style="width:56%"></span></div>
+        <div class="ovr-row"><span class="hn">OVR 77</span><span>squad strength</span><span class="an">OVR 81</span></div>
+      </div>
+      <div class="statline">
+        <div class="row"><span class="k">Tournament</span><span>USA 10–4 | BEL 9–4, 125' vs SEN</span></div>
+        <div class="row"><span class="k">Key men</span><span>Pulisic, Tillman, Pepi (in for Balogun) · De Bruyne, Trossard (2g)</span></div>
+      </div>
+      <p class="scenario">2014 revisited, and a true pick 'em. The USA lose <b>Balogun (suspended, straight red)</b> — their only in-form 9 — with Pepi's runs a different, not lesser, threat. Belgium needed a 124th-minute penalty to escape Senegal after trailing 2–0: <b>125 emotional minutes</b>, but zero travel — Seattle is literally their base camp and this is their third match at Lumen. Both defences are soft (Belgium's improvised back line; USA's late collapse v Türkiye). Fresh USA legs and a home crowd against De Bruyne's last-dance craft. Nothing separates them — the books agree to the percentage point.</p>
+      <div class="callbox">
+        <div><div class="lab">Expert call</div><div class="score">1–1</div><div class="note">→ USA on pens</div></div>
+        <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span><div class="lvl">Low</div></div>
+      </div>
+      <div class="wdw">
+        <div class="hdr"><span>USA win</span><span>draw</span><span>BEL win</span></div>
+        <div class="bars"><span class="w" style="width:35%">35</span><span class="d" style="width:29%">29</span><span class="l" style="width:36%">36</span></div>
+      </div>
+      <div class="ml"><span class="lab">3 most likely</span><div class="chips">
+        <span class="chip"><b>1–1</b> <span class="p">13%</span></span>
+        <span class="chip"><b>2–1</b> USA <span class="p">10%</span></span>
+        <span class="chip"><b>1–2</b> BEL <span class="p">10%</span></span>
+      </div></div>
+      <p class="uncert"><b>Watch:</b> Belgium's 125-minute legs after 70' — if it opens up late, the USA's freshness (and Lukaku's cameo) pull in opposite directions.</p>
+    </div>
+
+    <!-- 7 -->
+    <div class="card">
+      <div class="card-top">
+        <span class="tieno">TIE 07 · Mercedes-Benz, Atlanta (roof)</span>
+        <span class="when">Tue 7 Jul · 12:00 ET<br>QF: v SUI/COL winner</span>
+      </div>
+      <div class="teams"><span class="flag">🇦🇷</span> Argentina <span class="v">v</span> <span class="flag">🇪🇬</span> Egypt</div>
+      <div>
+        <div class="bar-label"><span>Argentina</span><span>Egypt</span></div>
+        <div class="sbar"><span class="h" style="width:64%"></span><span class="a" style="width:36%"></span></div>
+        <div class="ovr-row"><span class="hn">OVR 83</span><span>squad strength</span><span class="an">OVR 74</span></div>
+      </div>
+      <div class="statline">
+        <div class="row"><span class="k">Tournament</span><span>ARG 11–3, 120' vs CPV | EGY 6–4, 120' vs AUS</span></div>
+        <div class="row"><span class="k">Key men</span><span>Messi (7g, 8 straight WC games), Lautaro · Ashour (2g), Salah (hamstring)</span></div>
+      </div>
+      <p class="scenario"><b>Messi has 7 goals and has scored in 8 straight World Cup matches</b>; Argentina have won 10 straight WC games. But the Cape Verde scare (twice pegged back, 120 minutes, 3½ days ago) showed the champions leak — and Egypt score exactly one goal in every match, with an unbroken run of also conceding one. Their two first-choice defenders (Abdelmonem, Fatouh) are out and <b>Salah is running on a strained hamstring after his own 120</b>. Fatigue cancels; depth doesn't — Scaloni rotates in Álvarez/Lo Celso, Hossam Hassan has no equivalents. Argentina control it; Egypt's one-goal metronome keeps ticking.</p>
+      <div class="callbox">
+        <div><div class="lab">Expert call</div><div class="score">2–1 ARG</div></div>
+        <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span><div class="lvl">Med-High</div></div>
+      </div>
+      <div class="wdw">
+        <div class="hdr"><span>ARG win</span><span>draw</span><span>EGY win</span></div>
+        <div class="bars"><span class="w" style="width:72%">72</span><span class="d thin" style="width:18%">18</span><span class="l thin" style="width:10%">10</span></div>
+      </div>
+      <div class="ml"><span class="lab">3 most likely</span><div class="chips">
+        <span class="chip"><b>2–0</b> ARG <span class="p">14%</span></span>
+        <span class="chip"><b>2–1</b> ARG <span class="p">13%</span></span>
+        <span class="chip"><b>1–0</b> ARG <span class="p">12%</span></span>
+      </div></div>
+      <p class="uncert"><b>Watch:</b> 39-year-old Messi at noon on 3½ days' rest after 120 minutes — if he's managed, Argentina's xG drops a notch.</p>
+    </div>
+
+    <!-- 8 -->
+    <div class="card">
+      <div class="card-top">
+        <span class="tieno">TIE 08 · BC Place, Vancouver</span>
+        <span class="when">Tue 7 Jul · 13:00 PT<br>QF: v ARG/EGY winner</span>
+      </div>
+      <div class="teams"><span class="flag">🇨🇭</span> Switzerland <span class="v">v</span> <span class="flag">🇨🇴</span> Colombia</div>
+      <div>
+        <div class="bar-label"><span>Switzerland</span><span>Colombia</span></div>
+        <div class="sbar"><span class="h" style="width:50%"></span><span class="a" style="width:50%"></span></div>
+        <div class="ovr-row"><span class="hn">OVR 78</span><span>squad strength</span><span class="an">OVR 78</span></div>
+      </div>
+      <div class="statline">
+        <div class="row"><span class="k">Tournament</span><span>SUI 9–3, unbeaten | COL 5–1 (1 conceded in 4)</span></div>
+        <div class="row"><span class="k">Key men</span><span>Manzambi (3g), Embolo, Xhaka · L. Díaz, Muñoz (2g), James</span></div>
+      </div>
+      <p class="scenario">Identical SoFIFA ratings, opposite profiles. Switzerland score in every game (spread across Manzambi/Embolo/Vargas) and get a <b>third straight match at BC Place</b> with five days' rest and zero travel. Colombia have conceded <b>once in four games</b>, ground out 1–0, 0–0, 1–0 wins, and out-created Portugal — but fly KC→Vancouver on a day less rest. <b>Luis Díaz has had three goals disallowed</b>; that luck regresses. Colombia's back line is the best unit on the pitch and the prediction markets lean their way — a narrow, late Colombia win over penalties-adjacent tension.</p>
+      <div class="callbox">
+        <div><div class="lab">Expert call</div><div class="score">0–1 COL</div></div>
+        <div class="conf"><div class="lab">Confidence</div><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span><div class="lvl">Low-Med</div></div>
+      </div>
+      <div class="wdw">
+        <div class="hdr"><span>SUI win</span><span>draw</span><span>COL win</span></div>
+        <div class="bars"><span class="w" style="width:28%">28</span><span class="d" style="width:31%">31</span><span class="l" style="width:41%">41</span></div>
+      </div>
+      <div class="ml"><span class="lab">3 most likely</span><div class="chips">
+        <span class="chip"><b>0–1</b> COL <span class="p">13%</span></span>
+        <span class="chip"><b>1–1</b> <span class="p">12%</span></span>
+        <span class="chip"><b>0–0</b> <span class="p">10%</span></span>
+      </div></div>
+      <p class="uncert"><b>Watch:</b> the only tie with no bookmaker three-way posted yet (Kalshi to-advance: COL ~58%). If the Swiss crowd-and-rest edge shows early, this flips to their 1–0.</p>
+    </div>
+
+  </div>
+
+  <!-- ===================== NOTES ===================== -->
+  <h2>Reading the round</h2>
+  <div class="notes">
+    <div class="panel">
+      <h3>Where the edges are</h3>
+      <ul>
+        <li><b>Fatigue asymmetries are the round's alpha.</b> Five of 16 teams played 120+ minutes in the R32 (MAR, PAR, BEL, ARG, EGY). Canada v Morocco and USA v Belgium are the ties where fresh legs face heavy ones.</li>
+        <li><b>Balogun's red</b> is the only suspension that changes a first XI — the USA lose their 3-goal striker for a coin-flip tie.</li>
+        <li><b>Environment picks sides:</b> Philadelphia's extreme heat helps Paraguay's block (slower siege); the Azteca's 2,240 m is Mexico's 12th man; roofs neutralise Houston, Arlington and Atlanta.</li>
+        <li><b>Defence-first survivors:</b> Mexico (0 conceded), Spain (0), Colombia (1) — three of the four best defensive records meet high-rated attacks this round. Respect their modes: 1–0s and 1–1s, not routs.</li>
+      </ul>
+    </div>
+    <div class="panel warn">
+      <h3>Biggest uncertainties</h3>
+      <ul>
+        <li><b>Weather delays:</b> MetLife (Sun) and the Azteca (Sun) both carry live thunderstorm risk; the Mexico–Ecuador tie was already halted an hour.</li>
+        <li><b>Late fitness calls:</b> Davies (CAN, start/bench), Raphinha (BRA, game-time), Enciso (PAR), Nico Williams (ESP, 50/50), Salah's hamstring load (EGY).</li>
+        <li><b>Thin market:</b> Switzerland–Colombia had no bookmaker three-way line at snapshot time — that W/D/W is the least anchored of the eight.</li>
+        <li><b>Pens branches:</b> two headline draws (MEX–ENG, USA–BEL) are near-coin-flips on the shootout itself; treat the qualifier as ~55/45, not a conviction.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===================== BRACKET ===================== -->
+  <h2>Predicted quarter-finals</h2>
+  <p class="lede">If the eight calls above land: France v Morocco, Brazil v England, Spain v USA, Argentina v Colombia (9–11 July). QF pairings follow the official bracket flow (winners of ties 1&amp;2, 3&amp;4, 5&amp;6, 7&amp;8).</p>
+
+  <footer>
+    Snapshot 4 Jul 2026, ~09:00 ET — before the day's team sheets. Sources: SoFIFA FC26 (24 Jun scrape) · FIFA ranking 11 Jun ·
+    odds from ESPN Bet/DraftKings/FanDuel/bet365/OddsShark &amp; Kalshi (2–4 Jul, opening/mid lines) · team news from ESPN, Sports Mole, Rotowire,
+    Sky Sports, FIFA.com, US Soccer, beIN, Al Jazeera, NWS/Environment Canada forecasts · results cross-checked vs Wikipedia knockout-stage page.
+    Data corrections applied: England–DR Congo was 2–1 (not 3–1 as first reported); Swiss No.1 is Kobel (not Sommer); USA–Belgium kicks off 17:00 PT (not 14:00).
+    Yellow-card amnesty: singles wiped after groups and after QFs — R32+R16 bookings pair into QF bans (Bellingham, Casemiro, Danilo, Nusa, Diop at risk).
+    Judgment estimates throughout — not computed model output.
+  </footer>
+
+</div>
