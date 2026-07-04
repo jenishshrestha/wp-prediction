@@ -49,7 +49,10 @@ Tracking my pool entries vs. actual results.
 | 1 Jul | USA–Bosnia | 2–0 | 2–0 | **25** |
 | 2 Jul | Spain–Austria | 2–0 | 3–0 | **7** |
 | 2 Jul | Portugal–Croatia | 2–1 | 2–1 | **25** |
-| 2 Jul | Switzerland–Algeria | 2–1 | — | — |
+| 2 Jul | Switzerland–Algeria | 2–1 | 2–0 | **7** |
+| 3 Jul | Australia–Egypt | 0–1 | 1–1 (ET) | **3** |
+| 3 Jul | Argentina–Cape Verde | 2–0 | — | — |
+| 3 Jul | Colombia–Ghana | 2–0 | 1–0 | **7** |
 
 - **USA 2–0 (exact, +25):** the live pre-match update (confirmed full-strength USA XI + Bosnia's back five + BTTS-No lean) moved the call from the dossier's 2–1 to 2–0 — the dossier pick would have scored only **7** (outcome +4, USA's 2 goals +3). Lesson banked: **confirmed-lineup intel an hour out is worth the top-up** — it changed the mode, not just the probabilities (contrast the Colombia–Portugal note above, where a *speculative* lineup read nearly cost points; the difference is confirmed vs guessed).
 - Balogun 45' (set piece), Tillman 82' (deflected free kick). Bosnia's set-piece threat never cashed; USA face Belgium in Seattle, 6 Jul.
@@ -57,7 +60,12 @@ Tracking my pool entries vs. actual results.
 
 - **Portugal 2–1 (exact, +25):** the market-lean rule paid — the dossier's 1–1 was abandoned once the books broke the 50/50 (POR ~55%), and the "late Portugal goal via the bench" scenario was literally the winner (Ramos 90+4', off a Leão cross, both subs). Perišić 53', Ronaldo pen 68'; Croatia's stoppage-time leveller was disallowed by VAR. Portugal meet Spain in the R16 (6 Jul).
 
-**R32 running total: 57 points / 3 games (avg 19.0) — two exacts.**
+- **Switzerland 2–1 vs 2–0 → +7:** outcome (+4) + Switzerland's 2 (+3). Right winner and right Swiss output (Embolo + the promoted Ndoye); the Mahrez consolation never came once Algeria went strikerless — the confirmed-lineup update (ALG xG 1.0 → 0.9, "shutout scripts rise") pointed at 2–0 but the mode wasn't moved. Their first WC knockout win in 88 years.
+- **Australia–Egypt 0–1 vs 1–1 → +3:** Egypt's one goal matched, nothing else. Right script (Ashour 13' off a Salah set-piece routine), wrong survivorship — the named branch-breaker (Souttar/set-piece siege vs Egypt's patched back line) equalized. The dossier's own pre-Salah-news call *was* "1–1 → Egypt on pens" — and that's precisely how it ended: **1–1 AET, Egypt win the shootout 4–2** and face the ARG/CPV winner. The lineup-news branch override turned a would-be near-perfect call into +3. Lessons: (1) against a bunker, the favourite's "+1 goal" is the fragile half of the call, not the underdog's zero; (2) a pre-committed conditional ("X if Salah starts") is still just a nudge — it shouldn't overturn a mode built on both teams' structural profile, which the Colombia–Portugal rule already said.
+
+- **Colombia 2–0 vs 1–0 → +7:** outcome (+4) + Ghana's zero (+3); the second goal never came, so the goal-diff bonus (+6) was lost. The analysis itself listed **1–0 as the single most likely score (~16%)** but headlined 2–0 on the "clear favourite earns the margin" rule — against a low block that held England 0–0, the sharper frame was again **"win to nil"** with the extra goal as the fragile half (same shape as Spain–Austria and Australia–Egypt). A 1–0 headline would have scored **+25**. Lesson reinforced: **vs a bunker, headline the mode (1–0), not the margin** — the two-goal call needs the chasing-team script to actually materialize.
+
+**R32 running total: 74 points / 6 games (avg 12.3) — two exacts.**
 
 ## Points breakdown of the odd ones
 - **Germany 3–0 vs 7–1 → +4:** outcome only. Blowouts pay little unless you nail the inflated exact.
