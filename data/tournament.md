@@ -138,7 +138,7 @@ _Verified 2026-07-04 vs Wikipedia knockout-stage page + press reports._
 |---|-----|------|-------|
 | 1 | Canada v Morocco — **0–3 FT** | Sat 4 Jul, 12:00 CT | Houston (NRG, roof) |
 | 2 | Paraguay v France — **0–1 FT** (Mbappé pen) | Sat 4 Jul, 17:00 ET | Philadelphia (extreme heat warning) |
-| 3 | Brazil v Norway | Sun 5 Jul, 16:00 ET | East Rutherford (MetLife) |
+| 3 | Brazil v Norway — **1–2 FT** (Haaland ×2; Norway's first-ever QF) | Sun 5 Jul, 16:00 ET | East Rutherford (MetLife) |
 | 4 | Mexico v England | Sun 5 Jul, 18:00 local | Mexico City (Azteca ⛰) |
 | 5 | Portugal v Spain | Mon 6 Jul, 14:00 CT | Arlington (AT&T, roof) |
 | 6 | USA v Belgium | Mon 6 Jul, 17:00 PT | Seattle (Lumen) |

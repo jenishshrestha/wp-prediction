@@ -72,7 +72,7 @@ Tracking my pool entries vs. actual results.
 |------|-------|---------|--------|-------:|
 | 4 Jul | Canada–Morocco | 0–1 | 0–3 | **7** |
 | 4 Jul | Paraguay–France | 0–2 | 0–1 | **7** |
-| 5 Jul | Brazil–Norway | 2–1 | — | — |
+| 5 Jul | Brazil–Norway | 2–1 | 1–2 | **3** |
 | 5 Jul | Mexico–England | 1–1 (ENG pens) | — | — |
 | 6 Jul | Portugal–Spain | 1–2 | — | — |
 | 6 Jul | USA–Belgium | 1–1 (USA pens) | — | — |
