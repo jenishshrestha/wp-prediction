@@ -73,11 +73,18 @@ Tracking my pool entries vs. actual results.
 | 4 Jul | Canada–Morocco | 0–1 | 0–3 | **7** |
 | 4 Jul | Paraguay–France | 0–2 | 0–1 | **7** |
 | 5 Jul | Brazil–Norway | 2–1 | 1–2 | **3** |
-| 5 Jul | Mexico–England | 1–1 (ENG pens) | — | — |
-| 6 Jul | Portugal–Spain | 1–2 | — | — |
+| 5 Jul | Mexico–England | 1–0 ⚡ | 2–3 | **0** |
+| 6 Jul | Portugal–Spain | 1–2 | 0–1 | **10** |
 | 6 Jul | USA–Belgium | 1–1 (USA pens) | — | — |
 | 7 Jul | Argentina–Egypt | 2–1 | — | — |
 | 7 Jul | Switzerland–Colombia | 0–1 | — | — |
+
+**R16 running: 27 points / 5 games.**
+
+- **Portugal–Spain 1–2 vs 0–1 → +10:** outcome (+4) + goal diff (+6). Spain won it at 90+1' (Merino) after Diogo Costa kept it level all night — the win-to-nil frame was again the sharper exact (0–1 was flagged as the top single score, ~13%, after the released XIs showed Leão/Ramos benched). Simón's clean-sheet run extends to 5-in-5 vs the first elite attack he'd faced; the streak held where Mexico's didn't. A 1–1 leverage dart was considered and (this time) correctly abandoned — the draw died in stoppage time.
+
+- **⚡ Mexico–England: entered 1–0 as a deliberate leverage override** of the dossier's 1–1 (ENG pens) call — every AI model and most of the pool converged on 1–1 (zero-gain for a chaser), and confirmed lineups made 1–0 MEX co-modal (~13%). Result **2–3 → 0, but the leverage logic held**: the 1–1 consensus also scored 0 (nothing matches a 2–3), so the dart cost nothing relative to the field.
+- The real miss was structural and shared: **both the call and the dart priced a low-event game, and it produced five goals** (Bellingham ×2 by 39', Quiñones FK, Kane pen, Jiménez pen; Quansah straight red — banned for the QF). Altitude never decided anything; class did, inside 45 minutes. Lesson banked: **a defensive streak is only as strong as the attacks it was earned against** — Mexico's four clean sheets came vs Group A + Ecuador, the same artifact as Canada's Qatar-inflated goals; and vs an elite front line, "environment beats class" also requires the underdog to *create*, which Mexico managed only from set pieces.
 
 ## Points breakdown of the odd ones
 - **Germany 3–0 vs 7–1 → +4:** outcome only. Blowouts pay little unless you nail the inflated exact.

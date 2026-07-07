@@ -124,7 +124,7 @@ _Verified 2026-07-04 vs Wikipedia knockout-stage page + press reports._
 | 7 | Mexico v Ecuador | **2–0** | Quiñones, R. Jiménez; storm delay ~1h |
 | 8 | England v DR Congo | **2–1** | Kane ×2 in final 15', from behind |
 | 9 | Belgium v Senegal | **3–2 aet** | From 0–2 down at 86'; Tielemans pen 124' |
-| 10 | USA v Bosnia | **2–0** | Balogun (sent off 64' — banned for R16), Tillman |
+| 10 | USA v Bosnia | **2–0** | Balogun (sent off 64'; R16 ban overturned by FIFA 5 Jul after White House appeal to Infantino — Belgium's protest ruled inadmissible), Tillman |
 | 11 | Spain v Austria | **3–0** | Oyarzabal ×2, Porro |
 | 12 | Portugal v Croatia | **2–1** | Ronaldo pen, Ramos 90+4' |
 | 13 | Switzerland v Algeria | **2–0** | Embolo, Ndoye |
@@ -139,9 +139,9 @@ _Verified 2026-07-04 vs Wikipedia knockout-stage page + press reports._
 | 1 | Canada v Morocco — **0–3 FT** | Sat 4 Jul, 12:00 CT | Houston (NRG, roof) |
 | 2 | Paraguay v France — **0–1 FT** (Mbappé pen) | Sat 4 Jul, 17:00 ET | Philadelphia (extreme heat warning) |
 | 3 | Brazil v Norway — **1–2 FT** (Haaland ×2; Norway's first-ever QF) | Sun 5 Jul, 16:00 ET | East Rutherford (MetLife) |
-| 4 | Mexico v England | Sun 5 Jul, 18:00 local | Mexico City (Azteca ⛰) |
-| 5 | Portugal v Spain | Mon 6 Jul, 14:00 CT | Arlington (AT&T, roof) |
-| 6 | USA v Belgium | Mon 6 Jul, 17:00 PT | Seattle (Lumen) |
+| 4 | Mexico v England — **2–3 FT** (Bellingham ×2, Kane pen; Quansah red — banned for QF) | Sun 5 Jul, 18:00 local | Mexico City (Azteca ⛰) |
+| 5 | Portugal v Spain — **0–1 FT** (Merino 90+1'; Spain 9–0 across 5) | Mon 6 Jul, 14:00 CT | Arlington (AT&T, roof) |
+| 6 | USA v Belgium — **1–4 FT** (De Ketelaere ×2 by 33'; Tillman 31'; Freese error outside his box gifted the third; Belgium meet Spain in QF) | Mon 6 Jul, 17:00 PT | Seattle (Lumen) |
 | 7 | Argentina v Egypt | Tue 7 Jul, 12:00 ET | Atlanta (roof) |
 | 8 | Switzerland v Colombia | Tue 7 Jul, 13:00 PT | Vancouver (BC Place) |
 
